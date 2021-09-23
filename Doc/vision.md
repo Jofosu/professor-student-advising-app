@@ -22,6 +22,10 @@ Class tracking
 
 Schedule Making
 
+Managing Advisees
+
+Manage Offered Classes
+
 ###Stakeholder Goals
 Advisees- make a class schedule, add classes taken, check progress towards major
 
