@@ -1,11 +1,11 @@
-#Entering Courses and Major Requirements
-Scope: Advising app
+##Use Case Name: Entering Courses and Major Requirements
+####Scope: Advising app
 
-Level: User Goal
+####Level: User Goal
 
-Primary Actor: Department Head
+####Primary Actor: Department Head
 
-Stakeholder/Interests:
+###Stakeholder/Interests:
 
 Department Head- wants to quickly/easily populate courses and requirements
 
@@ -13,15 +13,15 @@ Advisor- Wants all requirements/classes listed out advisee
 
 Advisee- Wants all requirements/classes listed out advisee
 
-Precondition: department head is logged in
+####Precondition: department head is logged in
 
-Postcondition: list of courses is updated 
+####Postcondition: list of courses is updated 
 
 major requirements are updated
 
 prints list to confirm
 
-Main Success:
+###Main Success:
 1. Advisor opens class schedule editor
 2. Inputs a new class
 3. Selects if tis a major requirement
