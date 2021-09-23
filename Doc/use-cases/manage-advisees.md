@@ -21,8 +21,9 @@ Changes to student information is stored
 
 ####Main success Scenario:
 1. Adviser logs in
-2. Adviser selects desires advisee profile
-3. Adviser edits current information
+2. System displays a list of advisees 
+3. Adviser selects desires advisee profile
+4. Adviser edits current information
 
 ####Extensions
 2a. Information is invalid
