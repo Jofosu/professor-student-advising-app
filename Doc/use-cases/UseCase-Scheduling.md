@@ -53,7 +53,7 @@ Precondition:
 
     They can manually remove items from the progress checklist
 
-###Special requirements: 
+###Special requirements:
 Must use Vassar’s class codes for classes
 
 Use international display for text and units
