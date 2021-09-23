@@ -9,6 +9,7 @@ Primary Actor : Advisor
 
 Stakeholders and Interest:
 – Advisor: Wants easily visible accurate data displaying all students’ completed courses, planned courses, and the remainder of courses needed for completion of major. Data should also include grades,total units taken and time courses are taken.
+
 –Student: Wants updated data of courses already taken, courses needed for completion of major.
 
 Pre-conditions:
@@ -28,18 +29,26 @@ Main success scenario:
 
 Extensions:
 1) Invalid Credential:
+
    -System signals error and rejects entry.
+
    -System reconstructs from prior state.
 2) No list of students generated or missing advisee on list generated:
+
    -System detects communication failure with REGISTRAR.
+
    -System reconstructs from prior state.
-4) System fails to recognize or add courses:
+3) System fails to recognize or add courses:
+
    -System signals error and suggests advisor adds course.
 
 Special requirements:
+
 -Internationalization of displayed text
+
 -Courses shown are under the vassar curriculum or approved by advisor
 
 Technology and data variations :
+
 -Credentials entered by keyboard.
 
