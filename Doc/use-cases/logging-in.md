@@ -1,26 +1,28 @@
-Logging in
+##Logging in
 
-Scope:
+####Scope:
 
-Level: subfunction
+####Level: subfunction
 
-Primary actor: User (adviser, advisee, dept chair)
+####Primary actor: User (adviser, advisee, dept chair)
 
-Stakeholders and interests:
+####Stakeholders and interests:
 
-User: able to acces**s information
+####User: able to access information
 
-Preconditions:
+####Preconditions:
 
 
-Postconditions:
+####Postconditions:
 User is correctly identified and taken to home screen
 
 Main success Scenario:
+
 User identifies self
+
 System authenticates identity
 
-Extensions
+####Extensions
 
 2a. Invalid information
 
