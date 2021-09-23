@@ -1,5 +1,5 @@
 # Academic Advisor
-##Use Case Name: Scheduling classes
+##Use Case Name: Schedule classes
 
 ####Scope: Academic Advising
 

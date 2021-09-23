@@ -1,4 +1,4 @@
-##Use Case Name: Entering Courses and Major Requirements
+##Use Case Name: Enter Courses and Major Requirements
 ####Scope: Advising app
 
 ####Level: User Goal
