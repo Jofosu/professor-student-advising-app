@@ -44,8 +44,6 @@ Extensions:
 
 Special requirements:
 
--Internationalization of displayed text
-
 -Courses shown are under the vassar curriculum or approved by advisor
 
 Technology and data variations :
