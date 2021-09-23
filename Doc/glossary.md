@@ -24,7 +24,8 @@ The equivalent of a minor; a certification in a specific concentration.
 Student also needs an adviser from the chosen field of study when 
 declaring a correlate.
 
-Unit- One course usually correlates to one unit, but can be more or less.
+Unit- One course usually correlates to one unit, but can be more or less. Format is a 2 digit number ranging from 0.0 to 2.
+
 
 Overload- Taking more than 4.5 units in a given semester
 
