@@ -12,7 +12,7 @@ Correlate
 
 Major- A series of courses that a student must complete for their Vassar degree. This differs by major.
 
-Unit- One course usually correlates to one unit, but can be more or less
+Unit- One course usually correlates to one unit, but can be more or less. Format is a 2 digit number ranging from 0.0 to 2.
 
 Overload- Taking more than 4.5 units
 
