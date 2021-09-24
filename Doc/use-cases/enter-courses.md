@@ -1,9 +1,12 @@
 ##Use Case Name: Enter Courses 
-####Scope: Advising app
+####Scope: 
+Advising app
 
-####Level: User Goal
+####Level: 
+User Goal
 
-####Primary Actor: Department Head
+####Primary Actor: 
+Department Head
 
 ###Stakeholder/Interests:
 
@@ -13,9 +16,11 @@ Advisor- Wants all requirements/classes listed out advisee
 
 Advisee- Wants all requirements/classes listed out advisee
 
-####Precondition: department head is logged in/authenticated
+####Precondition: 
+department head is logged in/authenticated
 
-####Postcondition: list of courses is updated
+####Postcondition: 
+list of courses is updated
 
 course catalogue is updated
 

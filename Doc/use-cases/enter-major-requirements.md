@@ -1,4 +1,4 @@
-##Use Case Name: Major Requirements
+##Use Case Name: Enter Major Requirements
 ####Scope: Advising app
 
 ####Level: User Goal
@@ -13,10 +13,12 @@ Advisor- Wants all requirements/classes listed out advisee
 
 Advisee- Wants all requirements/classes listed out advisee
 
-####Precondition: department head is logged in
+####Precondition: 
+department head is logged in/authenitcated
 
-####Postcondition: list of courses is updated 
+classes are already in the system
 
+####Postcondition:
 major requirements are updated
 
 prints list to confirm
