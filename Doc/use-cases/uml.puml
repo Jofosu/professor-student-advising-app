@@ -1,7 +1,5 @@
 @startuml
-actor "Adivsee" as Adivsee
-actor "Adviser" as Adviser
-actor "Department Chair" as departmentChair
+
 
 package "AcademicAdivsor"{
   (See requirement checklist) as (check-major-requirments)
@@ -14,9 +12,9 @@ package "AcademicAdivsor"{
 Advisee --> (check-major-requirments)
 Adivser --> (check-major-requirments)
 departmentChair --> (check-major-requirments)
+departmentChair --> (enter-major-requirement)
 Advisee --> (enter-courses)
 Adivser --> (enter-courses)
-departmentChair --> (enter-major-reuirement)
 Advisee --> (scheduling)
 Adivser --> (scheduling)
 Adivser --> (manage-advisees)
