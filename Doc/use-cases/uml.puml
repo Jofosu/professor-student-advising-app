@@ -1,5 +1,23 @@
 @startuml
-(usecase1)
+actor "Adivsee" as Adivsee
+actor "Adviser" as Adviser
+actor "Department Chair" as departmentChair
 
+package "AcademicAdivsor"{
+  usecase "See requirement checklist" as check-major-requirments
+  usecase "Enter Courses" as enter-courses
+  usecase "Manage Advisees" as manage-advisees
+  usecase "Manage Schedule" as scheduling
+  usecase "Enter Major Requirement" as enter-major-requirement
+}
 
-@enduml
+Advisee --> See requirement checklist
+Adivser --> See requirement checklist
+Department Chair --> See requirement checklist
+Advisee --> Enter Courses
+Adivser --> Enter Courses
+Department Chair --> Enter Major Requirement
+Advisee --> Manage Schedule
+Adivser --> Manage Schedule
+Adivser --> Manage Adivsees
+@enduml ```
