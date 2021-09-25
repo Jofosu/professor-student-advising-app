@@ -26,7 +26,7 @@ User is correctly identified and taken to home screen
 
 2a. Invalid information 
 
-    User is prompted to try again
+    Error message displayed and user is prompted to try again
 
 2b. Unable to connect to server
 

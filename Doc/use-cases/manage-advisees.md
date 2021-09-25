@@ -15,10 +15,12 @@ Advisee: to quickly and easily receive feedback from major adviser without havin
 
 ####Preconditions:
 Adviser is registered in system
+
 Adviser is logged in
 
 ####Postconditions:
 Changes to student information is stored
+
 Prints list of all advisees
 
 ####Main success Scenario:
@@ -26,9 +28,16 @@ Prints list of all advisees
 1. System prints a list of advisees 
 2. Adviser selects desired advisee profile
 3. Adviser edits current information
+4. New or changed information stored in the system
+5. Reprints list of advisees (updated)
 
 
 ####Extensions
+
+1a. System can't print list
+    
+    Error message appears signaling problem with the server
+
 2a. Advisee is not part of current list 
 
     Adviser has option to add advisee
@@ -41,6 +50,7 @@ Prints list of all advisees
 3a. Piece of information is invalid 
 
     Prompted to double check all required fields
+
 
 
 
