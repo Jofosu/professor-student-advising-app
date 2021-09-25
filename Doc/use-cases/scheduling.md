@@ -1,5 +1,5 @@
 # Academic Advisor
-##Use Case Name: Scheduling classes
+##Use Case Name: Schedule classes
 
 ####Scope: Academic Advising
 
@@ -19,6 +19,8 @@ Precondition:
 
 -Classes are entered into the Academic advising app
 
+-Major requirements are already entered
+
 ###Postcondition:
 
 -Classes are saved onto a timeslot
@@ -30,22 +32,20 @@ Precondition:
 ###Main Success Scenario:
 -Student has identified a required course that is offered and wants to enter it into Academic Advising
 
--Student logs in with credentials (log-in is described in another use-case)
-
--Student goes to a blank schedule and enters their identified class
+-Student goes to a blank schedule and enters their identified class and semester they want to take it in
 
 -Their class gets added onto the schedule and removed from their checklist and into a “progress/done” list
 
--Student logs off
+-Student keeps adding classes until major requirements are filled
 
 ###Extensions:
 4a. Their course is not offered this semester
 
-    The system either tells them when it’s offered or just say it’s not offered or they can override it
+    The system either tells them when it’s offered or just say it’s not offered
 
 4b. They do not have the prerequisites for their course
 
-    The system tells them the necessary prerequisites or they can override the system
+    The system tells them the necessary prerequisites or special permission option
 
 4c. They do not enter a valid course
 
@@ -55,9 +55,5 @@ Precondition:
 
 ###Special requirements:
 Must use Vassar’s class codes for classes
-
-Use international display for text and units
-
-Palatino font
 
 #####Technology: Should be able to run on an android device

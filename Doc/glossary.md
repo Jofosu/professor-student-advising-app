@@ -8,7 +8,7 @@ all graduation requirements in a timely manner. Aliases: user
 
 ##Advisee: 
 A college student that a professor is supervising as they work
-toward earning a degree. Aliases: user
+toward earning a degree. Aliases: user, student
 
 ##Department Chair: 
 The head of a department of study at a college. Aliases: user

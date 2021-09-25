@@ -1,4 +1,4 @@
-##Use Case Name: Entering Courses and Major Requirements
+##Use Case Name: Enter Major Requirements
 ####Scope: Advising app
 
 ####Level: User Goal
@@ -7,26 +7,27 @@
 
 ###Stakeholder/Interests:
 
-Department Head- wants to quickly/easily populate courses and requirements
+Department Head- wants to quickly/easily populate major requirements
 
 Advisor- Wants all requirements/classes listed out advisee
 
 Advisee- Wants all requirements/classes listed out advisee
 
-####Precondition: department head is logged in
+####Precondition: 
+department head is logged in/authenitcated
 
-####Postcondition: list of courses is updated 
+classes are already in the system
 
+####Postcondition:
 major requirements are updated
 
 prints list to confirm
 
 ###Main Success:
 1. Advisor opens class schedule editor
-2. Inputs a new class
-3. Selects if tis a major requirement
-4. Selects if it has prerequisites
-5. Repeat 2-4 until done
+2. Inputs concrete major requirement classes
+3. Inputs less concrete classes like intensives
+5. Repeat 2-3 until done
 6. System prints out class lists
 
 

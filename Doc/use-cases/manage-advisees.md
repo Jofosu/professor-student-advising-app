@@ -1,6 +1,6 @@
 ##Manage Advisees
 
-####Scope:
+####Scope: Academic Advising
 
 ####Level: User goal
 
@@ -8,7 +8,7 @@
 
 ####Stakeholders and interests:
 
-Adviser: to keep up to date list of all advisees
+Adviser: to keep an up-to-date list of all advisees and their information
 
 Advisee: to quickly and easily receive feedback from major adviser without having to re-provide information
 
@@ -22,18 +22,25 @@ Changes to student information is stored
 Prints list of all advisees
 
 ####Main success Scenario:
-1. System prints list of current advisees
+
+1. System prints a list of advisees 
 2. Adviser selects desired advisee profile
 3. Adviser edits current information
 
+
 ####Extensions
-3a. Advisee is not part of current list
-1. Adviser adds advisee
+2a. Advisee is not part of current list 
 
-4a. Information is invalid
+    Adviser has option to add advisee
 
-Prompted to double check all required fields
+2b. Adviser wants to remove advisee from the list
+
+    Adviser had option to archive or delete a student then selects desired
+    profile from the printed list
+
+3a. Piece of information is invalid 
+
+    Prompted to double check all required fields
 
 
 
-Special requirements (supplementary specifications)
