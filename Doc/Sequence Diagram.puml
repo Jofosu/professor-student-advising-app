@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+hide footbox
+actor Adviser as Adviser
+participant AdviserObj as AdviserObj
+participant courseCatalog as courseCatalog
+
+Adviser -> AdviserObj: add advisee
+Adviser -> AdviserObj: add courses
+AdviserObj-> Adviser: select courses (return course object)
+AdviserObj-> Adviser: get advisee info
+AdviserObj -> Advisee **: add advisee(name, ID, class year)
+AdviserObj-> Advisee: add course (couse object))
+AdviserObj-> courseCatalog: get list of courses
+
+
+@enduml

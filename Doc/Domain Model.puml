@@ -28,4 +28,5 @@ unit
  Advisee "1" - "*" Course : \tTakes\t\t
  Advisee "1" -- "3" Major : \tDeclares\t\t
  Major "1" - "*" Course : \tContains\t\t
+
 @enduml
