@@ -1,0 +1,31 @@
+ @startuml
+ ' classes
+ hide circle
+ hide empty methods
+ class Adviser{
+name
+ }
+ class Advisee{
+ name
+classYear
+id
+ }
+
+ class Course{
+number
+time
+dept
+name
+unit
+  }
+
+  class Major {
+  name
+  }
+
+ ' associations
+ Adviser "1" - "*" Advisee : \tManages\t\t
+ Advisee "1" - "*" Course : \tTakes\t\t
+ Advisee "1" - "3" Major : \tDeclares\t\t
+ Major "1" - "*" Course : \tContains\t\t
+@enduml
