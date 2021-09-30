@@ -1,6 +1,5 @@
 @startuml
 
-
 package "AcademicAdivsor"{
   (See requirement checklist) as (check-major-requirments)
   (Enter Courses) as (enter-courses)
