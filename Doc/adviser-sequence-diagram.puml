@@ -3,7 +3,9 @@
 hide footbox
 actor Adviser as Adviser
 participant AdviserObj as AdviserObj
+participant Advisee as Advisee
 participant courseCatalog as courseCatalog
+
 
 Adviser -> AdviserObj: add advisee
 Adviser -> AdviserObj: add courses
