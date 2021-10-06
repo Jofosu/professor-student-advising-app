@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class courseCatalogue{
+--
++makeCourse()
++addCourse()
+}
+
+class courseObj{
+String: id "CS203"
+String:time
+}
+
+class adviserObj{
+}
+
+class adviseeList{
+--
++addAdvisees()
++addCourses()
+}
+
+class adviseeObj{
+String:name
+int: 999
+int: class year
+}
+
+courseCatalogue *- courseObj
+adviserObj *- " advisee list {ordered list}" adviseeList: \t \t\t  \t \t
+adviseeList *- adviseeObj
+
+@enduml
