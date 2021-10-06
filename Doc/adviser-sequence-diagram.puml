@@ -8,9 +8,10 @@ participant courseCatalog as courseCatalog
 
 
 Adviser -> AdviserObj: add advisee
+AdviserObj-> Adviser: get advisee info
 Adviser -> AdviserObj: add courses
 AdviserObj-> Adviser: select courses (return course object)
-AdviserObj-> Adviser: get advisee info
+
 AdviserObj -> Advisee **: add advisee(name, ID, class year)
 AdviserObj-> Advisee: add course (couse object))
 AdviserObj-> courseCatalog: get list of courses
