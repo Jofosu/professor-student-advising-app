@@ -14,11 +14,11 @@ Advisor- Wants all requirements/classes listed out advisee
 Advisee- Wants all requirements/classes listed out advisee
 
 ####Precondition: 
-department head is logged in/authenitcated
+department head is logged in/authenticated
 
 classes are already in the system
 
-####Postcondition:
+####Postconditiogn:
 major requirements are updated
 
 prints list to confirm
