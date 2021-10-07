@@ -1,19 +1,23 @@
 import java.util.HashMap;
 
+import java.util.Set;
 public class CourseController {
     HashMap<String,Course> courseCatalogue = new HashMap<>();
 
-    public void addCourse(String id, String time){
+    public boolean addCourse(String id, String time){
         Course course = new Course(id,time);
         courseCatalogue.put(id,course);
+
+        return courseCatalogue.containsKey(id);
     }
 
-    public void removeCourse(String id){
-        courseCatalogue.remove(id);
+    public boolean removeCourse(String id){
+       courseCatalogue.remove(id);
+       return !courseCatalogue.containsKey(id);
     }
 
-    public void printCourseList(){
-
+    public Set<String> CourseList(){
+        return courseCatalogue.keySet();
     }
 
 
