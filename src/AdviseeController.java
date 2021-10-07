@@ -1,12 +1,22 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AdviseeController {
 
-    ArrayList<Advisee> advisees = new ArrayList<>();
+    HashMap<String, Advisee> advisees = new HashMap<>(); //create collection of advisees
 
-    public void addAdvisee(String name, int id, int classYear){
+    public boolean addAdvisee(String name, String id, int classYear){
         Advisee advisee = new Advisee(name, id, classYear);
-        advisees.add(advisee);
+        advisees.put(name, advisee);
+        return advisees.containsKey(name);
     }
+
+    public boolean deleteAdvisee(String name){
+        if (!advisees.containsKey(name))
+            return false;                        //check if advisee is on list
+        advisees.remove(name);
+        return !(advisees.containsKey(name));    //return true if remove was successful
+    }
+
+
 
 }
