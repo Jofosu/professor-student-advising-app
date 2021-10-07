@@ -9,6 +9,4 @@ public class AdviseeController {
         advisees.add(advisee);
     }
 
-    public void editAdvisee(){}
-
 }
