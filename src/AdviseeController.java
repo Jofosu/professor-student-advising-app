@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Set;
 
 public class AdviseeController {
 
@@ -12,9 +13,13 @@ public class AdviseeController {
 
     public boolean deleteAdvisee(String name){
         if (!advisees.containsKey(name))
-            return false;                        //check if advisee is on list
+            return false;                        //check if advisee is on list if not, return false
         advisees.remove(name);
         return !(advisees.containsKey(name));    //return true if remove was successful
+    }
+
+    public Set<String> returnAdviseeList(){
+        return advisees.keySet();
     }
 
 
