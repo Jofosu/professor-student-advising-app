@@ -5,7 +5,7 @@ public class AdviseeController {
 
     HashMap<String, Advisee> advisees = new HashMap<>(); //create collection of advisees
 
-    public boolean addAdvisee(String name, String id, int classYear){
+    public boolean addAdvisee(String name, int id, int classYear){
         Advisee advisee = new Advisee(name, id, classYear);
         advisees.put(name, advisee);
         return advisees.containsKey(name);
