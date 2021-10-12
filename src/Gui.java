@@ -71,7 +71,9 @@ public class Gui {
                     firstName = advisorInput.next();
                     System.out.println("Please enter student's last name");
                     studentName = firstName + " " + advisorInput.next();
-                    advisor.deleteAdvisee(studentName);
+                    if(advisor.deleteAdvisee(studentName))
+                        System.out.println(studentName + " has been removed.");
+                    else System.out.println(studentName+ " could not be removed");
                     break;
 
                 case (4):
