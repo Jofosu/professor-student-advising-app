@@ -6,32 +6,35 @@ public class Gui {
         System.out.println("Hello Advisor, what will you like to do today ?");
         AdviseeController advisor = new AdviseeController();
         Scanner advisorInput = new Scanner(System.in);
+        int work = 0;
+        while (work != 4) {
+            do {
+                System.out.println("Choose a number from the following: \n " +
+                        "1. Add new advisee \n " +
+                        "2. Print advisee list \n " +
+                        "3. Remove advisee \n " +
+                        "4. Quit \n");
+                do {
+                    try {
+                        String s = advisorInput.nextLine();
+                        work = Integer.parseInt(s);
+                        break;
+                    } catch (Exception e) {
+                    }
+                } while (true);
+            } while (work > 4);
+            int studentId;
+            int studentClassYear;
+            String studentName;
+            String firstName;
+            switch (work) {
+                case 1:
 
-        int work;
-        do {
-            do{
-            System.out.println("Choose a number from the following: \n " +
-                    "1. Add new advisee \n " +
-                    "2. Print advisee list \n");
-            try {
-                String s = advisorInput.nextLine();
-                work = Integer.parseInt(s);
-                break;
-            } catch (Exception e) {
-            }
-            }while(true);
-        }while(work > 2);
-
-        int studentId;
-        int studentClassYear;
-        String studentName;
-        String firstName;
-        switch(work){
-            case 1: System.out.println("Please enter student's first name");
+                    System.out.println("Please enter student's first name");
                     firstName = advisorInput.next();
                     System.out.println("Please enter student's last name");
                     studentName = firstName + " " + advisorInput.next();
-                    do{
+                    do {
                         do {
                             try {
                                 System.out.println("Please enter student's 9 digit id");
@@ -40,30 +43,41 @@ public class Gui {
                                 break;
                             } catch (Exception e) {
                             }
-                        }while(true);
-                    }while(String.valueOf(studentId).length() !=9);
+                        } while (true);
+                    } while (String.valueOf(studentId).length() != 9);
 
-                do{
                     do {
-                        try {
-                            System.out.println("Please enter student's class year in the pattern 20XX");
-                            String s = advisorInput.next();
-                            studentClassYear = Integer.parseInt(s);
-                            break;
-                        } catch (Exception e) {
-                        }
-                    }while(true);
-                    }while(String.valueOf(studentClassYear).length() !=4);
+                        do {
+                            try {
+                                System.out.println("Please enter student's class year in the pattern 20XX");
+                                String s = advisorInput.next();
+                                studentClassYear = Integer.parseInt(s);
+                                break;
+                            } catch (Exception e) {
+                            }
+                        } while (true);
+                    } while (String.valueOf(studentClassYear).length() != 4);
 
-                    if(advisor.addAdvisee(studentName,studentId,studentClassYear))
-                        System.out.println(studentName +" has been added to your advisee list");
+                    if (advisor.addAdvisee(studentName, studentId, studentClassYear))
+                        System.out.println(studentName + " has been added to your advisee list");
                     else System.out.println("Incorrect input");
                     break;
+                case (2):
+                    System.out.println(advisor.returnAdviseeList());
+                    break;
 
-        case(2):
+                case (3):
+                    System.out.println("Please enter student's first name");
+                    firstName = advisorInput.next();
+                    System.out.println("Please enter student's last name");
+                    studentName = firstName + " " + advisorInput.next();
+                    advisor.deleteAdvisee(studentName);
+                    break;
 
+                case (4):
+                    break;
+            }
         }
-
-
     }
 }
+
