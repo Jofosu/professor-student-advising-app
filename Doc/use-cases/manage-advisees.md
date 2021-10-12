@@ -27,9 +27,11 @@ Prints list of all advisees
 
 1. System prints a list of advisees 
 2. Adviser selects desired advisee profile
-3. Adviser edits current information
-4. New or changed information stored in the system
-5. Reprints list of advisees (updated)
+3. System prints current student data including name, student ID, class year, and courses
+taken and enrolled in
+4. Adviser edits current information
+5. New or changed information stored in the system
+6. Reprints list of advisees (updated)
 
 
 ####Extensions
@@ -47,7 +49,7 @@ Prints list of all advisees
     Adviser had option to archive or delete a student then selects desired
     profile from the printed list
 
-3a. Piece of information is invalid 
+4a. Piece of information is invalid 
 
     Prompted to double check all required fields
 

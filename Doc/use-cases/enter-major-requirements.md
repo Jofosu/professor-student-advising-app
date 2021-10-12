@@ -18,16 +18,20 @@ department head is logged in/authenticated
 
 classes are already in the system
 
-####Postconditiogn:
+####Postcondition:
 major requirements are updated
 
 prints list to confirm
 
 ###Main Success:
 1. Advisor opens class schedule editor
-2. Inputs concrete major requirement classes
-3. Inputs less concrete classes like intensives
-5. Repeat 2-3 until done
-6. System prints out class lists
+2. Inputs a concrete major requirement class (specified course number)
+3. Repeat 2 until done
+4. Inputs a requirement that could be fulfilled by one of a set of courses
+5. Inputs one of the classes a student may choose to take to fulfill
+a more general requirement
+6. Repeat 5 until done
+7. Repeat 4 and 5 until done
+8. System prints out list of courses
 
 

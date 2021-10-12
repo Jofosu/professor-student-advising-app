@@ -9,6 +9,8 @@ Check Major Requirements
 
 Logging in
 
+View major/correlate schedule
+
 Warnings for classes not being offered in a semester
 
 Warning for not being on track for graduation
