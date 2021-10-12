@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Gui {
@@ -20,8 +21,16 @@ public class Gui {
                     System.out.println("Please enter student's last name");
                     studentName = firstName + " " + advisorInput.next();
                     do{
-                        System.out.println("Please enter student's 9 digit id");
-                        studentId = advisorInput.nextInt();
+                        do {
+                            try {
+                                System.out.println("Please enter student's 9 digit id");
+                                String s = advisorInput.next();
+                                studentId = Integer.parseInt(s);
+                                break;
+                            } catch (Exception e) {
+                                System.out.println("It has to be 9 numbers, not any letters");
+                            }
+                        }while(true);
                     }while(String.valueOf(studentId).length() !=9);
                     System.out.println("Please enter student's class year");
                     studentClassYear = advisorInput.nextInt();
