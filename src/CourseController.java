@@ -16,7 +16,7 @@ public class CourseController {
        return !courseCatalogue.containsKey(id);
     }
 
-    public Set<String> CourseList(){
+    public Set<String> returnCourseList(){
         return courseCatalogue.keySet();
     }
 
