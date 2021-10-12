@@ -13,11 +13,12 @@ public class Gui {
         int studentId;
         int studentClassYear;
         String studentName;
-
+        String firstName;
         switch(work){
-
-            case 1: System.out.println("Please enter student's full name");
-                    studentName = advisorInput.next();
+            case 1: System.out.println("Please enter student's first name");
+                    firstName = advisorInput.next();
+                    System.out.println("Please enter student's last name");
+                    studentName = firstName + " " + advisorInput.next();
                     do{
                         System.out.println("Please enter student's 9 digit id");
                         studentId = advisorInput.nextInt();
