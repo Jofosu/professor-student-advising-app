@@ -32,8 +32,20 @@ public class Gui {
                             }
                         }while(true);
                     }while(String.valueOf(studentId).length() !=9);
-                    System.out.println("Please enter student's class year");
-                    studentClassYear = advisorInput.nextInt();
+
+                do{
+                    do {
+                        try {
+                            System.out.println("Please enter student's class year in the pattern 20XX");
+                            String s = advisorInput.next();
+                            studentClassYear = Integer.parseInt(s);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("It has to be 4 numbers, not any letters");
+                        }
+                    }while(true);
+                    }while(String.valueOf(studentClassYear).length() !=4);
+
                     if(advisor.addAdvisee(studentName,studentId,studentClassYear))
                         System.out.println(studentName +" has been added to your advisee list");
                     else System.out.println("Incorrect input");
