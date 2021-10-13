@@ -11,11 +11,10 @@ public class Gui {
         } while (!selector.equals("advisor") & !selector.equals("head"));
 
         switch (selector) {
-            case ("head"):
+            case ("head") -> {
                 Scanner headInput = new Scanner(System.in);
                 System.out.println("Hello Department Head, what will you like to do today ?");
                 CourseController courseCatalogue = new CourseController();
-
                 int counter = 0;
                 while (counter != 4) {
                     do {
@@ -67,12 +66,11 @@ public class Gui {
                             break;
                     }
                 }
-                break;
-            case ("advisor"):
+            }
+            case ("advisor") -> {
                 Scanner advisorInput = new Scanner(System.in);
                 System.out.println("Hello Advisor, what will you like to do today ?");
                 AdviseeController advisor = new AdviseeController();
-
                 int work = 0;
                 while (work != 4) {
                     do {
@@ -92,6 +90,7 @@ public class Gui {
                             }
                         } while (true);
                     } while (work > 4);
+
                     int studentId;
                     int studentClassYear;
                     String studentName;
@@ -104,33 +103,31 @@ public class Gui {
                             System.out.println("Please enter student's last name");
                             studentName = firstName + " " + advisorInput.next();
                             do {
-                                do {
-                                    try {
-                                        System.out.println("Please enter student's 9 digit id");
-                                        String s = advisorInput.next();
-                                        studentId = Integer.parseInt(s);
-                                        break;
-                                    } catch (Exception ignored) {
-                                    }
-                                } while (true);
-                            } while (String.valueOf(studentId).length() != 9);
+                                try {
+                                    System.out.println("Please enter student's 9 digit id");
+                                    String s = advisorInput.next();
+                                    studentId = Integer.parseInt(s);
+                                    break;
+                                } catch (Exception ignored) {
+                                }
+                            } while (true);
 
                             do {
-                                do {
-                                    try {
-                                        System.out.println("Please enter student's class year in the pattern 20XX");
-                                        String s = advisorInput.next();
-                                        studentClassYear = Integer.parseInt(s);
-                                        break;
-                                    } catch (Exception ignored) {
-                                    }
-                                } while (true);
-                            } while (String.valueOf(studentClassYear).length() != 4);
+                                try {
+                                    System.out.println("Please enter student's class year in the pattern 20XX");
+                                    String s = advisorInput.next();
+                                    studentClassYear = Integer.parseInt(s);
+                                    break;
+                                } catch (Exception ignored) {
+                                }
+                            } while (true);
+
 
                             if (advisor.addAdvisee(studentName, studentId, studentClassYear))
                                 System.out.println(studentName + " has been added to your advisee list");
                             else System.out.println("Incorrect input");
                             break;
+
                         case (2):
                             System.out.println(advisor.returnAdviseeList());
                             break;
@@ -150,6 +147,7 @@ public class Gui {
                             break;
                     }
                 }
+            }
         }
     }
 }
