@@ -33,3 +33,5 @@ AdviserObj *- " advisee list {ordered list}" AdviseeList: \t \t\t  \t \t
 AdviseeList *- AdviseeObj
 
 @enduml
+
+case 1: new

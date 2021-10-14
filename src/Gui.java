@@ -6,14 +6,14 @@ public class Gui {
         String selector;
         Scanner neutralInput = new Scanner(System.in);
         do {
-            System.out.println("Hello, are you an advisor or head?");
+            System.out.println("Hello, are you an advisor or department chair?");
             selector = neutralInput.next();
         } while (!selector.equals("advisor") & !selector.equals("head"));
 
         switch (selector) {
             case ("head") -> {
                 Scanner headInput = new Scanner(System.in);
-                System.out.println("Hello Department Head, what will you like to do today ?");
+                System.out.println("Hello department chair, what will you like to do today ?");
                 CourseController courseCatalogue = new CourseController();
                 int counter = 0;
                 while (counter != 4) {

@@ -1,3 +1,6 @@
+/**
+ * Contains a constructor with the adviseeattributes name, Vassar "999 ID", and graduating class year
+ */
 public class Advisee {
     String name;
     int id;
