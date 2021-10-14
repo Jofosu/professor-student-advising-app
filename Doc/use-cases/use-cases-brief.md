@@ -12,6 +12,7 @@ Logging in
     User identifies self and system authenticates user
 
 View major/correlate schedule (?? what did rui mean by this in the feedback?)
+I think this is what we have, but we just called it schedule planning/ scheduling...
 
 Warnings for classes not being offered in a semester
 
