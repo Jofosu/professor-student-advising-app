@@ -13,7 +13,7 @@ public class Gui {
         while (counter != 4) {
             do {
                 System.out.println("""
-                                Choose a number from the following:\n
+                                Choose a number from the following:\s
                                  1. Add new course\s
                                  2. Print course list\s
                                  3. Remove course\s
@@ -152,36 +152,36 @@ public class Gui {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
         String selector;
         Scanner userInput = new Scanner(System.in);
+        int selectedUser = 0;
+        System.out.println("Welcome");
         do {
-            System.out.println("Hello, are you an advisor or department chair?");
+            try {
 
-            selector = userInput.next();
-        } while (!selector.equals("advisor") & !selector.equals("head"));
+                System.out.println("Please select one of the options below:");
+                System.out.println("""
+                                 1. Department Chair\s
+                                 2. Advisor\s""");
 
-        switch (selector) {
-            case ("head") -> {
-                chairOption();
+                String selectedUserOption = userInput.nextLine();
+                selectedUser = Integer.parseInt(selectedUserOption);
+
+            } catch (Exception ignored) {
+
             }
 
-            case ("advisor") -> {
-                advisorOption();
-            }
+        } while (selectedUser > 3 || selectedUser < 1);
+
+        switch (selectedUser) {
+            case 1 ->
+                    // User is a department chair
+                    chairOption();
+            case 2 ->
+                    // User is an advisor
+                    advisorOption();
+            case 3 -> System.exit(0);
         }
     }
 }
