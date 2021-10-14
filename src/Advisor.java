@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -7,8 +8,7 @@ import java.util.Set;
  */
 public class Advisor {
 
-    HashMap<String, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
-
+    HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
     /**
      * adds an advisee to the Hashmap collection of advisees
      *
@@ -21,8 +21,8 @@ public class Advisor {
     public boolean addAdvisee(String name, int id, int classYear) {
         if (String.valueOf(id).length() == 9 & String.valueOf(classYear).length() == 4) {
             Advisee advisee = new Advisee(name, id, classYear);
-            advisees.put(name, advisee);
-            return advisees.containsKey(name);
+            advisees.put(id, advisee);
+            return advisees.containsKey(id);
         } else {
             return false;
         }
@@ -30,20 +30,25 @@ public class Advisor {
 
     /**
      * Remove an advisee from the list of advisees
-     * @param name
+     * @param id
      * @return true if advisee was successfully removed, false if the advisee's name was not in the collection
      */
-    public boolean deleteAdvisee(String name) {
-        if (!advisees.containsKey(name))
+    public boolean deleteAdvisee(String id) {
+        if (!advisees.containsKey(id))
             return false;
-        advisees.remove(name);
-        return !(advisees.containsKey(name));
+        advisees.remove(id);
+        return !(advisees.containsKey(id));
     }
 
     /**
      * @return the list/collection of adivsees
      */
-    public Set<String> returnAdviseeList() {return advisees.keySet();
+    public Set<String> returnAdviseeList() {
+        Set<String> names = new HashSet<>();
+        for(Advisee advisee : advisees.values()){
+            names.add(advisee.name + "-" + advisee.id);
+        }
+        return names;
     }
 
 }
