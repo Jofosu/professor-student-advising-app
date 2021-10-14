@@ -3,34 +3,33 @@ skinparam classAttributeIconSize 0
 
 class CourseCatalogue{
 --
-+makeCourse()
 +addCourse()
-+listCourse()
++removeCourse()
++returnCourseList()
 }
 
-class CourseObj{
+class Course{
 String: id "CS203"
 String:time
 }
 
-class AdviserObj{
-}
-
-class AdviseeList{
+class Advisor{
 --
-+addAdvisees()
-+addCourses()
++addAdvisee()
++deleteAdivsee()
++returnAdviseeList()
 }
 
-class AdviseeObj{
+class Advisee{
 String:name
-int: 999
-int: class year
+int: id
+int: classYear
 }
 
-CourseCatalogue *- CourseObj
-AdviserObj *- " advisee list {ordered list}" AdviseeList: \t \t\t  \t \t
-AdviseeList *- AdviseeObj
+CourseCatalogue *- Course
+Advisor *- Advisee
+Controller *- CourseCatalogue
+Controller *- Advisor
 
 @enduml
 
