@@ -5,7 +5,7 @@ import java.util.Set;
  *  Contains a Hashmap list of advisees belonging to an adviser. There is a method to add an advisee to the list,
  *  a method to remove an advisee, and a method to return a list of advisees
  */
-public class AdviseeController {
+public class Advisor {
 
     HashMap<String, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
 

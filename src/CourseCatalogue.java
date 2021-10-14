@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  *
  */
-public class CourseController {
+public class CourseCatalogue {
     HashMap<String, Course> courseCatalogue = new HashMap<>();
 
     public boolean addCourse(String id, String time) {

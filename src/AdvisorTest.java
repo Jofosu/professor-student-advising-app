@@ -1,18 +1,18 @@
-import java.util.HashMap;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AdviseeControllerTest {
+class AdvisorTest {
 
-    AdviseeController ac;
-    AdviseeController aa;
+    Advisor ac;
+    Advisor aa;
 
-    AdviseeControllerTest() {
-        this.ac = new AdviseeController();
-        this.aa = new AdviseeController();
+    AdvisorTest() {
+        this.ac = new Advisor();
+        this.aa = new Advisor();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void addAdvisee() {
         ac.addAdvisee("junjie", 999516821, 2020);
         ac.addAdvisee("jun", 999516820, 2021);
