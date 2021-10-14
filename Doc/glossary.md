@@ -11,7 +11,7 @@ A college student that a professor is supervising as they work
 toward earning a degree.
 
 ##Department Chair: 
-The head of a department of study at a college.
+The head of a department of study at a college. aliases: department head, chair
 
 ##User:
 Anyone who might use the application ie adviser, advisee, or department
@@ -36,6 +36,9 @@ Taking more than 4.5 units in a given semester
 
 ##Course code: 
 A code consisting of 4 letters followed by 5 numbers that specifies the department, course, and section of a course.
+
+##Course Catalog:
+A collection of all courses offered
 
 ##Registration/Pre-registration: 
 To officially or unofficially request a class, respectively

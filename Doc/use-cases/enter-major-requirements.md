@@ -24,7 +24,7 @@ major requirements are updated
 prints list to confirm
 
 ###Main Success:
-1. Advisor opens class schedule editor
+1. Advisor opens course catalog editor
 2. Inputs a concrete major requirement class (specified course number)
 3. Repeat 2 until done
 4. Inputs a requirement that could be fulfilled by one of a set of courses

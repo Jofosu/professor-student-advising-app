@@ -30,24 +30,26 @@ Precondition:
 -Advisor is also able to see changes in the student’s schedule
 
 ###Main Success Scenario:
--Student has identified a required course that is offered and wants to enter it into Academic Advising
+1. Student opens major/ correlate schedule planner
 
--Student goes to a blank schedule and enters their identified class and semester they want to take it in
+2. System prints list of major/correlate requirements for student's declared major/correlate
 
--Their class gets added onto the schedule and removed from their checklist and into a “progress/done” list
+3. Student goes to a blank schedule and enters the course ID of a desired class and the semester they wish to take it in
 
--Student keeps adding classes until major requirements are filled
+4. The class gets added onto the schedule and removed from their checklist and into a “progress/done” list
+
+5. Repeat steps 2-4 until all requirements are accounted for
 
 ###Extensions:
-4a. Their course is not offered this semester
+2a. Their course is not offered this semester
 
     The system either tells them when it’s offered or just say it’s not offered
 
-4b. They do not have the prerequisites for their course
+2b. They do not have the prerequisites for their course
 
     The system tells them the necessary prerequisites or special permission option
 
-4c. They do not enter a valid course
+2c. They do not enter a valid course
 
     The system asks the user if this is actually a valid course, and they can manually add it if it is.
 
