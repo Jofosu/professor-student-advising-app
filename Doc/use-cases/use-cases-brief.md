@@ -9,8 +9,6 @@ Plan Major Schedule
 
 enter prerequisites
 
-Check Major Requirements (haha what is this?)
-
 Logging in
 
 Warnings for classes not being offered in a semester (this is part of Plan Major Schedule)
@@ -40,3 +38,5 @@ Gpa trends
 View Major Schedule Plan 
 
 Ability for advisors to write comments
+
+Check Student Progress
