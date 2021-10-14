@@ -9,12 +9,12 @@
 
 Department Chair- Update the course catalog to accurately reflect the prerequisites for each course int eh department
 
-####Precondition:
+####Preconditions:
 department chair is logged in/authenticated
 
 Department courses have already been added to the course catalog
 
-####Postcondition:
+####Post Conditions:
 major requirements are updated
 
 prints list to confirm
