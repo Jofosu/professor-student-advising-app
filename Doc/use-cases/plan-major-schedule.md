@@ -38,7 +38,7 @@ Precondition:
 
 4. The class gets added onto the schedule and removed from their checklist and into a “progress/done” list
 
-5. Student keeps adding classes until major requirements are filled
+5. Repeat steps 2-4 until all requirements are accounted for
 
 ###Extensions:
 2a. Their course is not offered this semester
