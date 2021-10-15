@@ -10,6 +10,7 @@ import java.util.Set;
 public class Advisor {
 
     HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
+
     /**
      * adds an advisee to the Hashmap collection of advisees
      *
@@ -42,7 +43,7 @@ public class Advisor {
     }
 
     /**
-     * @return the list/collection of adivsees
+     * @return the list/collection of advisees
      */
     public Set<String> returnAdviseeList() {
         Set<String> names = new HashSet<>();
@@ -51,5 +52,4 @@ public class Advisor {
         }
         return names;
     }
-
 }

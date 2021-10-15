@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -7,13 +8,17 @@ public class Advisee {
     String name;
     int id;
     int classYear;
-    List classesTaken;
+    List classesTaken = new LinkedList();
 
     Advisee(String name, int id, int classYear, List classesTaken){
         this.name = name;
         this.id = id;
         this.classYear = classYear;
         this.classesTaken = classesTaken;
+    }
+
+    public boolean addClass(Course c){
+        return classesTaken.add(c);
     }
 
 }
