@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class Controller {
@@ -7,15 +6,11 @@ public class Controller {
     Advisor advisor = new Advisor();
     
     public boolean addCourse(String id, String time) {
-        if(courseCatalogue.addCourse(id, time))
-            return true;
-        return false;
+        return courseCatalogue.addCourse(id, time);
     }
 
     public boolean removeCourse(String id) {
-        if(courseCatalogue.removeCourse(id))
-            return true;
-        return false;
+        return courseCatalogue.removeCourse(id);
     }
 
     public Set<String> returnCourseList() {
@@ -23,15 +18,11 @@ public class Controller {
     }
 
     public boolean addAdvisee(String name, int id, int classYear, List classesTaken) {
-        if (advisor.addAdvisee(name, id, classYear,classesTaken))
-            return true;
-        return false;
+        return advisor.addAdvisee(name, id, classYear, classesTaken);
     }
 
     public boolean deleteAdvisee(int id) {
-        if (advisor.deleteAdvisee(id))
-            return true;
-        return false;
+        return advisor.deleteAdvisee(id);
     }
 
     public Set<String> returnAdviseeList() {return advisor.returnAdviseeList();
