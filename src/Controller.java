@@ -27,8 +27,8 @@ public class Controller {
         return false;
     }
 
-    public boolean deleteAdvisee(String name) {
-        if (advisor.deleteAdvisee(name))
+    public boolean deleteAdvisee(int id) {
+        if (advisor.deleteAdvisee(id))
             return true;
         return false;
     }

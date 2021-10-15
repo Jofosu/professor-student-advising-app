@@ -33,7 +33,7 @@ public class Advisor {
      * @param id
      * @return true if advisee was successfully removed, false if the advisee's name was not in the collection
      */
-    public boolean deleteAdvisee(String id) {
+    public boolean deleteAdvisee(int id) {
         if (!advisees.containsKey(id))
             return false;
         advisees.remove(id);

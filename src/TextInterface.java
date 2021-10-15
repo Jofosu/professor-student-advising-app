@@ -130,13 +130,11 @@ public class TextInterface {
                 }
                 case (2) -> System.out.println(controller.returnAdviseeList());
                 case (3) -> {
-                    System.out.println("Please enter student's first name");
-                    firstName = advisorInput.next();
-                    System.out.println("Please enter student's last name");
-                    studentName = firstName + " " + advisorInput.next();
-                    if (controller.deleteAdvisee(studentName))
-                        System.out.println(studentName + " has been removed.");
-                    else System.out.println(studentName + " could not be removed");
+                    System.out.println("Please enter student's 999");
+                    studentId = advisorInput.nextInt();
+                    if (controller.deleteAdvisee(studentId))
+                        System.out.println("Student has been removed.");
+                    else System.out.println("Student could not be removed");
                 }
                 case (4) -> main(null);
             }
@@ -175,6 +173,7 @@ public class TextInterface {
     }
 
     public static void main(String[] args) {
+        System.out.println("Welcome");
         // user selects one of the options presented on the main menu
         int userMainMenuOption = mainMenu();
 
