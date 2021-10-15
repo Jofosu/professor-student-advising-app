@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,8 +22,8 @@ public class Controller {
        return courseCatalogue.returnCourseList();
     }
 
-    public boolean addAdvisee(String name, int id, int classYear) {
-        if (advisor.addAdvisee(name, id, classYear))
+    public boolean addAdvisee(String name, int id, int classYear, List classesTaken) {
+        if (advisor.addAdvisee(name, id, classYear,classesTaken))
             return true;
         return false;
     }

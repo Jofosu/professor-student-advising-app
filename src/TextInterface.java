@@ -124,7 +124,7 @@ public class TextInterface {
                         } catch (Exception ignored) {
                         }
                     } while (true);
-                    if (controller.addAdvisee(studentName, studentId, studentClassYear))
+                    if (controller.addAdvisee(studentName, studentId, studentClassYear, null))
                         System.out.println(studentName + " has been added to your advisee list");
                     else System.out.println("Incorrect input");
                 }

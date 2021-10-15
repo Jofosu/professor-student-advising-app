@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,9 +19,9 @@ public class Advisor {
      * @return true if an advisee was successfully added to the list,
      * false if the ID was not 9-digit or class year was not 4-digit. This is to avoid some typos.
      */
-    public boolean addAdvisee(String name, int id, int classYear) {
+    public boolean addAdvisee(String name, int id, int classYear, List classesTaken) {
         if (String.valueOf(id).length() == 9 & String.valueOf(classYear).length() == 4) {
-            Advisee advisee = new Advisee(name, id, classYear);
+            Advisee advisee = new Advisee(name, id, classYear, classesTaken);
             advisees.put(id, advisee);
             return advisees.containsKey(id);
         } else {
