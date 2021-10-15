@@ -1,20 +1,20 @@
 #Glossary
 
 
-##Adviser: 
+##Advisor: 
 A professor chosen from the department of a college
 student's major that provides guidance for the student in completing
 all graduation requirements in a timely manner. 
 
 ##Advisee: 
 A college student that a professor is supervising as they work
-toward earning a degree.
+toward earning a degree. alias: student
 
 ##Department Chair: 
 The head of a department of study at a college. aliases: department head, chair
 
 ##User:
-Anyone who might use the application ie adviser, advisee, or department
+Anyone who might use the application ie advisor, advisee, or department
 chair.
 
 ##Major: 
@@ -25,7 +25,7 @@ declaring a major.
 
 ##Correlate: 
 The equivalent of a minor; a certification in a specific concentration. 
-Student also needs an adviser from the chosen field of study when 
+Student also needs an advisor from the chosen field of study when 
 declaring a correlate.
 
 ##Unit: 
