@@ -8,7 +8,8 @@
 #####Primary Actor: Student
 
 ###Stakeholders and Interest:
-Student: Wants an intuitive way to enter classes and change classes since they will be new to the system. They want to be able to identify scheduling conflicts and schedule classes so that they can finish their major.
+Student: Wants an intuitive way to enter classes and change classes since they will be new to the system.
+They want to be able to identify scheduling conflicts and schedule classes so that they can finish their major.
 
 Advisor: Wants to ensure students are finishing their classes on time
 
@@ -54,6 +55,10 @@ Precondition:
     The system asks the user if this is actually a valid course, and they can manually add it if it is.
 
     They can manually remove items from the progress checklist
+
+5a. Assigns more than three required courses for one semester
+
+    A warning is issued stating that they should review their choices
 
 ###Special requirements:
 Must use Vassar’s class codes for classes

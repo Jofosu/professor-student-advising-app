@@ -29,13 +29,15 @@ Student also needs an advisor from the chosen field of study when
 declaring a correlate.
 
 ##Unit: 
-One course usually correlates to one unit, but can be more or less. Format is a 2-digit number ranging from 0.0 to 2.
+One course usually correlates to one unit, but can be more or less. 
+Format is a 2-digit number ranging from 0.0 to 2.
 
 ##Overload: 
 Taking more than 4.5 units in a given semester
 
 ##Course code: 
-A code consisting of 4 letters followed by 5 numbers that specifies the department, course, and section of a course.
+A code consisting of 4 letters followed by 5 numbers that specifies 
+the department, course, and section of a course. alias: course id
 
 ##Course Catalog:
 A collection of all courses offered

@@ -12,9 +12,9 @@ Department Head
 
 Department Head- wants to quickly/easily populate courses
 
-Advisor- Wants all requirements/classes listed out advisee
+Advisor- Wants all requirements/classes listed out 
 
-Advisee- Wants all requirements/classes listed out advisee
+Advisee- Wants all requirements/classes listed out
 
 ####Precondition: 
 department head is logged in/authenticated
@@ -30,6 +30,5 @@ prints list to confirm
 1. Advisor opens class schedule editor
 2. Inputs a new class including information about course ID, semester
 offered (fall or spring)
-3. Selects if it has prerequisites
-4. Repeat 2-3 until done
-5. System prints out class lists
+3. Repeat 2 until done
+4. System prints out class lists
