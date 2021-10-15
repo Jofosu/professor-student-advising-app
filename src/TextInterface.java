@@ -4,16 +4,15 @@ import java.util.regex.Pattern;
 
 public class TextInterface {
 
-
     /**
      *
      * Gives the user access to the privileges oa a department chair
      *
      */
     public static void chairUser(){
+        Controller controller = new Controller();
         Scanner chairInput = new Scanner(System.in);
         System.out.println("Hello department chair, what will you like to do today ?");
-        CourseCatalogue courseCatalogue = new CourseCatalogue();
         int counter = 0;
         while (counter != 4) {
             do {
@@ -48,40 +47,35 @@ public class TextInterface {
                         }
                     while(!coursePrefixOrder.matcher(courseID).find());
 
-
-                    Pattern timeOrder = Pattern.compile("^[0-9]+$");
-                    boolean onlyNum;
                     do{
-                        System.out.println("Please enter the time this course takes place in the pattern HH:MM");
+                        System.out.println("Please enter when this class takes place: either Spring, Fall, or Both");
                             time = chairInput.next();
+                    }while(!time.equals("Fall") && !time.equals("Spring") && !time.equals("Both"));
 
-                      onlyNum = timeOrder.matcher(time).find();
-                    }while( onlyNum && time.length() != 4);
-
-                    if (courseCatalogue.addCourse(courseID, time))
+                    if (controller.addCourse(courseID, time))
                         System.out.println(courseID + " has been added to your course catalogue");
                     else System.out.println("Course already exists");
                 }
                 // The list of available courses in the course catalogue
-                case (2) -> System.out.println(courseCatalogue.returnCourseList());
+                case (2) -> System.out.println(controller.returnCourseList());
                 // Removing a course from the course catalogue
                 case (3) -> {
                     System.out.println("Please enter course's id");
                     courseID = chairInput.next();
-                    if (courseCatalogue.removeCourse(courseID))
+                    if (controller.removeCourse(courseID))
                         System.out.println(courseID + " has been removed.");
                     else System.out.println(courseID + " does not exist in the course catalogue");
                 }
                 // returning to the main menu
-                case (4) -> mainMenu();
+                case (4) -> main(null);
             }
         }
     }
 
     public static void advisorUser(){
+        Controller controller = new Controller();
         Scanner advisorInput = new Scanner(System.in);
         System.out.println("Hello Advisor, what will you like to do today ?");
-        Advisor advisor = new Advisor();
         int work = 0;
         while (work != 4) {
             do {
@@ -130,21 +124,21 @@ public class TextInterface {
                         } catch (Exception ignored) {
                         }
                     } while (true);
-                    if (advisor.addAdvisee(studentName, studentId, studentClassYear))
+                    if (controller.addAdvisee(studentName, studentId, studentClassYear))
                         System.out.println(studentName + " has been added to your advisee list");
                     else System.out.println("Incorrect input");
                 }
-                case (2) -> System.out.println(advisor.returnAdviseeList());
+                case (2) -> System.out.println(controller.returnAdviseeList());
                 case (3) -> {
                     System.out.println("Please enter student's first name");
                     firstName = advisorInput.next();
                     System.out.println("Please enter student's last name");
                     studentName = firstName + " " + advisorInput.next();
-                    if (advisor.deleteAdvisee(studentName))
+                    if (controller.deleteAdvisee(studentName))
                         System.out.println(studentName + " has been removed.");
                     else System.out.println(studentName + " could not be removed");
                 }
-                case (4) -> mainMenu();
+                case (4) -> main(null);
             }
         }
 
@@ -181,7 +175,6 @@ public class TextInterface {
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcome");
         // user selects one of the options presented on the main menu
         int userMainMenuOption = mainMenu();
 
