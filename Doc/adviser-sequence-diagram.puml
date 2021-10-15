@@ -1,20 +1,20 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 hide footbox
-actor Adviser as Adviser
-participant AdviserObj as AdviserObj
+actor AdvisorPerson as AdvisorPerson
+participant Controller as Controller
+participant Advisor as Advisor
 participant Advisee as Advisee
-participant courseCatalog as courseCatalog
 
-
-Adviser -> AdviserObj: add advisee
-AdviserObj-> Adviser: get advisee info
-Adviser -> AdviserObj: add courses
-AdviserObj-> Adviser: select courses (return course object)
-
-AdviserObj -> Advisee **: add advisee(name, ID, class year)
-AdviserObj-> Advisee: add course (couse object))
-AdviserObj-> courseCatalog: get list of courses
+AdvisorPerson -> Controller: add advisee
+AdvisorPerson -> Controller: remove advisee
+AdvisorPerson -> Controller: return advisee list
+Controller -> Advisor **: create()
+Controller -> AdvisorPerson: get advisee info
+Controller -> Advisor: add advisee
+Controller -> Advisor: remove advisee
+Controller -> Advisor: return advisee list
+Advisor -> Advisee **: create (name, id, year)
 
 
 @enduml
