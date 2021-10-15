@@ -1,11 +1,16 @@
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
-public class Gui {
+public class TextInterface {
 
 
-
-    public static void chairOption(){
+    /**
+     *
+     * Gives the user access to the privileges oa a department chair
+     *
+     */
+    public static void chairUser(){
         Scanner chairInput = new Scanner(System.in);
         System.out.println("Hello department chair, what will you like to do today ?");
         CourseCatalogue courseCatalogue = new CourseCatalogue();
@@ -15,9 +20,9 @@ public class Gui {
                 System.out.println("""
                                 Choose a number from the following:\s
                                  1. Add new course\s
-                                 2. Print course list\s
+                                 2. Print list of available courses\s
                                  3. Remove course\s
-                                 4. Quit\s
+                                 4. Main Menu\s
                                 """);
                 do {
                     try {
@@ -32,40 +37,48 @@ public class Gui {
             String time;
             String courseID;
             switch (counter) {
-                case 1:
-                    //TODO make it so that you can't enter in a course id wrong
-                    System.out.println("Please enter course prefix in the pattern of CMPU103");
-                    courseID = chairInput.next().toUpperCase(Locale.ROOT);
+                // Adding a new course
+                case 1 -> {
 
-                    System.out.println("Please enter the time this course takes place");
-                    time = chairInput.next();
+                        Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]+[0-9]+$");
+
+                        do{
+                            System.out.println("Please enter course prefix in the pattern of CMPU103");
+                            courseID = chairInput.next().toUpperCase(Locale.ROOT);
+                        }
+                    while(!coursePrefixOrder.matcher(courseID).find());
+
+
+                    Pattern timeOrder = Pattern.compile("^[0-9]+$");
+                    boolean onlyNum;
+                    do{
+                        System.out.println("Please enter the time this course takes place in the pattern HH:MM");
+                            time = chairInput.next();
+
+                      onlyNum = timeOrder.matcher(time).find();
+                    }while( onlyNum && time.length() != 4);
 
                     if (courseCatalogue.addCourse(courseID, time))
                         System.out.println(courseID + " has been added to your course catalogue");
-                    else System.out.println("Incorrect input");
-                    break;
-                case (2):
-                    System.out.println(courseCatalogue.returnCourseList());
-                    break;
-
-                case (3):
+                    else System.out.println("Course already exists");
+                }
+                // The list of available courses in the course catalogue
+                case (2) -> System.out.println(courseCatalogue.returnCourseList());
+                // Removing a course from the course catalogue
+                case (3) -> {
                     System.out.println("Please enter course's id");
                     courseID = chairInput.next();
                     if (courseCatalogue.removeCourse(courseID))
                         System.out.println(courseID + " has been removed.");
-                    else System.out.println(courseID + " could not be removed");
-                    break;
-
-                case (4):
-                    break;
+                    else System.out.println(courseID + " does not exist in the course catalogue");
+                }
+                // returning to the main menu
+                case (4) -> mainMenu();
             }
         }
     }
 
-
-
-
-    public static void advisorOption(){
+    public static void advisorUser(){
         Scanner advisorInput = new Scanner(System.in);
         System.out.println("Hello Advisor, what will you like to do today ?");
         Advisor advisor = new Advisor();
@@ -77,7 +90,7 @@ public class Gui {
                                  1. Add new advisee\s
                                  2. Print advisee list\s
                                  3. Remove advisee\s
-                                 4. Quit\s
+                                 4. Main menu\s
                                 """);
                 do {
                     try {
@@ -89,17 +102,12 @@ public class Gui {
                 } while (true);
             } while (work > 4);
 
-
-
-
-
             int studentId;
             int studentClassYear;
             String studentName;
             String firstName;
             switch (work) {
-                case 1:
-
+                case 1 -> {
                     System.out.println("Please enter student's first name");
                     firstName = advisorInput.next();
                     System.out.println("Please enter student's last name");
@@ -113,7 +121,6 @@ public class Gui {
                         } catch (Exception ignored) {
                         }
                     } while (true);
-
                     do {
                         try {
                             System.out.println("Please enter student's class year in the pattern 20XX");
@@ -123,18 +130,12 @@ public class Gui {
                         } catch (Exception ignored) {
                         }
                     } while (true);
-
-
                     if (advisor.addAdvisee(studentName, studentId, studentClassYear))
                         System.out.println(studentName + " has been added to your advisee list");
                     else System.out.println("Incorrect input");
-                    break;
-
-                case (2):
-                    System.out.println(advisor.returnAdviseeList());
-                    break;
-
-                case (3):
+                }
+                case (2) -> System.out.println(advisor.returnAdviseeList());
+                case (3) -> {
                     System.out.println("Please enter student's first name");
                     firstName = advisorInput.next();
                     System.out.println("Please enter student's last name");
@@ -142,28 +143,30 @@ public class Gui {
                     if (advisor.deleteAdvisee(studentName))
                         System.out.println(studentName + " has been removed.");
                     else System.out.println(studentName + " could not be removed");
-                    break;
-
-                case (4):
-
-                    break;
+                }
+                case (4) -> mainMenu();
             }
         }
 
     }
+    /**
+     * Asks a user for a number that corresponds to one of the 3 options presented on the main menu
+     * 
+     * @return integer: Either 1 for a department chair user or 2 for an advisor user or 3 to terminate the program
+     */
 
-    public static void main(String[] args) {
-        String selector;
+    public static int mainMenu(){
         Scanner userInput = new Scanner(System.in);
         int selectedUser = 0;
-        System.out.println("Welcome");
+
         do {
             try {
 
                 System.out.println("Please select one of the options below:");
                 System.out.println("""
                                  1. Department Chair\s
-                                 2. Advisor\s""");
+                                 2. Advisor\s
+                                 3. Quit\s""");
 
                 String selectedUserOption = userInput.nextLine();
                 selectedUser = Integer.parseInt(selectedUserOption);
@@ -174,14 +177,24 @@ public class Gui {
 
         } while (selectedUser > 3 || selectedUser < 1);
 
-        switch (selectedUser) {
+        return selectedUser;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome");
+        // user selects one of the options presented on the main menu
+        int userMainMenuOption = mainMenu();
+
+        switch (userMainMenuOption) {
+            // User is a department chair
             case 1 ->
-                    // User is a department chair
-                    chairOption();
+                    chairUser();
+            // User is an advisor
             case 2 ->
-                    // User is an advisor
-                    advisorOption();
-            case 3 -> System.exit(0);
+                    advisorUser();
+            // User decides to terminate the program
+            case 3 ->{  System.out.println("Have a great day");
+                        System.exit(0);}
         }
     }
 }
