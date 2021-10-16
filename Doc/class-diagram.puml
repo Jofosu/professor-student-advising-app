@@ -24,6 +24,7 @@ class Advisee{
 String:name
 int: id
 int: classYear
+List: courses
 }
 
 CourseCatalogue *- Course
