@@ -10,4 +10,7 @@ Also tested that incorrectly formatted id and classYear for advisees return an e
 Tested that incorrect input makes the program repeat the prompt.
 Tested that the program allows you to go back to main menus and quit.
 
-Screenshots are uploaded into my moodle response if you'd like to view. I could not understand how to upload screenshots.
+Screenshots are linked below if you'd like to view. I could not understand how to upload screenshots.
+
+https://drive.google.com/file/d/1PptJColWgXpjWE9vzWhcryi3Amw6TwWd/view?usp=sharing
+https://drive.google.com/file/d/1ZIKofxPvOX7A0Z2fsGXijaGxL8G00iud/view?usp=sharing
