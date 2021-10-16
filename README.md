@@ -14,7 +14,7 @@ course code (id) and the time of the class. Other information such as
 prerequisites and whether it fulfills a major requirement will be added
 in a later iteration. 
 
-The GUI class contains the main() method. By selecting that you are a 
+The TextInterface class contains the main() method. By selecting that you are a 
 department chair, you will be able to edit the course catalog until you 
 select quit, which will then terminate the program. By selecting that 
 you are an advisor, you will be able to edit your list of advisees until 
