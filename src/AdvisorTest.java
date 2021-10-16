@@ -5,11 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class AdvisorTest {
 
     Advisor ac;
-    Advisor aa;
-
     AdvisorTest() {
         this.ac = new Advisor();
-        this.aa = new Advisor();
     }
 
     @Test
@@ -35,16 +32,10 @@ class AdvisorTest {
 
     @org.junit.jupiter.api.Test
     void returnAdviseeList() {
-        aa.addAdvisee("junjie", 999516821, 2020, null);
         ac.addAdvisee("junjie", 999516821, 2020, null);
         ac.addAdvisee("jun", 999516820, 2021, null);
-        assertNotEquals(ac.returnAdviseeList(),aa.returnAdviseeList()); //aa set is missing jun
-        aa.addAdvisee("jun", 999516820, 2021, null);
-        assertEquals(ac.returnAdviseeList(),aa.returnAdviseeList()); //aa set should now have jun and junjie like ac
-        aa.deleteAdvisee(999516821);
-        aa.addAdvisee("junjie", 999516823, 2020, null);
-        assertNotEquals(ac.returnAdviseeList(),aa.returnAdviseeList()); //They have the same names, but are different people
-
+        String[] expected = new String[]{"jun-999516820", "junjie-999516821"};
+        assertArrayEquals(ac.returnAdviseeList().toArray(), expected);
 
     }
 }
