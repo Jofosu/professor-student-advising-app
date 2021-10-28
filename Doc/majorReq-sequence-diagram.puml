@@ -1,0 +1,31 @@
+@startuml
+hide footbox
+actor deptChair as deptChair
+participant view as view
+participant Controller as Controller
+participant Major as Major
+participant Pool as Pool
+participant courseCatalog as courseCatalog
+
+deptChair-> view: click add major
+view-> Controller: add major
+Controller-->Major**: create() major obj
+loop until exit
+deptChair-> view : press make pool
+view-> Major: make list (pool name)
+Major-> Pool**: create()
+view-> courseCatalog: get Course list
+view-> deptChair: display list
+loop until back to pool button
+deptChair-> view: select course
+view-> Controller: add course (courseID, pool name)
+Controller-> Major: add core req(courseID, pool name)
+end
+deptChair->view: select #
+view->Pool: set number(#)
+Controller->Pool: set number(#)
+end
+
+
+
+@enduml

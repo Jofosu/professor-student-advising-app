@@ -1,0 +1,22 @@
+@startuml
+hide footbox
+actor deptChair as deptChair
+participant view as view
+participant Controller as Controller
+participant courseCatalogue as courseCatalogue
+participant Course as Course
+
+deptChair->view: click add pre-req
+view -> Controller: add Prerequisite
+Controller-> courseCatalogue: get Course list
+courseCatalogue -> view: list of dept. courses
+view-> deptChair: display list
+deptChair-> view: select course
+view-> Controller: ask to get course
+Controller -> courseCatalogue: get course
+courseCatalogue -> view: list of dept. courses
+view-> deptChair: display list
+deptChair -> view: select pre-requisite
+view -> Controller: add to selection
+Controller-> Course: add pre-req(course obj)
+@enduml
