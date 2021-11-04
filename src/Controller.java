@@ -8,7 +8,9 @@ import java.util.Set;
 public class Controller {
     CourseCatalogue courseCatalogue = new CourseCatalogue();
     Advisor advisor = new Advisor();
+    Prerequisite prerequisite = new Prerequisite();
     List classesTaken = new LinkedList();
+
 
     /**
      * Adds courses to the course catalogue for use elsewhere in the system
@@ -77,5 +79,12 @@ public class Controller {
         return false;
     }
 
+    //todo depending on how we implement the gui, this accepting a linked list may need to change
+    public void addPrerequisites (String id, LinkedList prequisites){
+        prerequisite.addPrerequisites(courseCatalogue.getCourse(id), prequisites);
+    }
+    public LinkedList returnPrequisites(String id) {
+        return prerequisite.returnPrequisites(courseCatalogue.getCourse(id));
+    }
 
 }

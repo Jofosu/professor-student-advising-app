@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class TextInterface {
-
     /**
      *
      * Gives the user access to the privileges oa a department chair
