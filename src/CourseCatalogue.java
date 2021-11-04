@@ -41,7 +41,12 @@ public class CourseCatalogue {
         courseCatalogue.remove(id);
         return !(courseCatalogue.containsKey(id));
     }
-
+    public Course getCourse(String id){
+        if (!courseCatalogue.containsKey(id))
+            return null;
+        courseCatalogue.remove(id);
+        return courseCatalogue.get(id);
+    }
     /**
      * @return The collection of courses in the courseCatalogue
      */
