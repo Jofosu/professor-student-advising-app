@@ -1,5 +1,6 @@
 import java.util.HashMap;
 
+import java.util.LinkedList;
 import java.util.Set;
 
 /**
@@ -17,7 +18,11 @@ public class CourseCatalogue {
      * @return boolean: true if the course was successfully put into the courseCatalogue
      */
     public boolean addCourse(String id, String time) {
-        Course course = new Course(id, time);
+
+        //todo we should probably make it so that as you add classes you can add prerequisites which would change the
+        //todo addCourse above.
+        LinkedList prequisites = new LinkedList();
+        Course course = new Course(id, time, prequisites);
         courseCatalogue.put(id, course);
 
         return courseCatalogue.containsKey(id);
