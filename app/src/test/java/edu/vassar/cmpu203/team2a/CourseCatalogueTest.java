@@ -1,8 +1,8 @@
 package edu.vassar.cmpu203.team2a;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 class CourseControllerTest {
     CourseCatalogue cc;
