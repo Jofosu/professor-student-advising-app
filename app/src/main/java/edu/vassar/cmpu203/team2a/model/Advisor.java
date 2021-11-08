@@ -1,9 +1,11 @@
-package edu.vassar.cmpu203.team2a;
+package edu.vassar.cmpu203.team2a.model;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import edu.vassar.cmpu203.team2a.model.Advisee;
 
 /**
  *  Contains a Hashmap list of advisees belonging to an adviser. There is a method to add an advisee to the list,
@@ -54,4 +56,13 @@ public class Advisor {
         }
         return names;
     }
+
+    /**
+     * @return the number of advisees for a given advisor
+     */
+    public int size(){
+        return advisees.size();
+    }
+
+
 }

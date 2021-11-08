@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import edu.vassar.cmpu203.team2a.model.Advisor;
+
 class AdvisorTest {
 
     Advisor ac;
@@ -15,11 +17,11 @@ class AdvisorTest {
     void addAdvisee() {
         ac.addAdvisee("junjie", 999516821, 2020,null);
         ac.addAdvisee("jun", 999516820, 2021,null);
-        assertEquals(ac.advisees.size(), 2);
+        assertEquals(ac.size(), 2);
         ac.addAdvisee("xyz", 99516820, 2021,null);
-        assertEquals(ac.advisees.size(), 2); //Should not add an unusual ID
+        assertEquals(ac.size(), 2); //Should not add an unusual ID
         ac.addAdvisee("xyz", 999516820, 20201, null);
-        assertEquals(ac.advisees.size(), 2); //Should not add an unusual year
+        assertEquals(ac.size(), 2); //Should not add an unusual year
     }
 
     @org.junit.jupiter.api.Test
@@ -27,9 +29,9 @@ class AdvisorTest {
         ac.addAdvisee("junjie", 999516821, 2020,null);
         ac.addAdvisee("jun", 999516820, 2021,null);
         ac.deleteAdvisee(999526411); //jie is not in the list
-        assertEquals(ac.advisees.size(),2); // nothing is supposed to be deleted
+        assertEquals(ac.size(),2); // nothing is supposed to be deleted
         ac.deleteAdvisee(999516820);
-        assertEquals(ac.advisees.size(), 1); // deletion worked
+        assertEquals(ac.size(), 1); // deletion worked
     }
 
     @org.junit.jupiter.api.Test

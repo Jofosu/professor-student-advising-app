@@ -1,9 +1,11 @@
-package edu.vassar.cmpu203.team2a;
+package edu.vassar.cmpu203.team2a.model;
 
 import java.util.HashMap;
 
 import java.util.LinkedList;
 import java.util.Set;
+
+import edu.vassar.cmpu203.team2a.model.Course;
 
 /**
  * Contains a HashMap collection of courses named courseCatalog, with the methods to add, remove Courses.
@@ -56,6 +58,11 @@ public class CourseCatalogue {
         return courseCatalogue.keySet();
     }
 
-
+    /**
+     * @return number of items in course catalogue
+     */
+    public int size(){
+        return courseCatalogue.size();
+    }
 }
 
