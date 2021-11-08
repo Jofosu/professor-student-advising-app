@@ -1,6 +1,8 @@
-package edu.vassar.cmpu203.team2a;
+package edu.vassar.cmpu203.team2a.model;
 
 import java.util.LinkedList;
+
+import edu.vassar.cmpu203.team2a.model.Course;
 
 public class Prerequisite {
 

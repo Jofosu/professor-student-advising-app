@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import edu.vassar.cmpu203.team2a.model.Advisor;
+import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
+import edu.vassar.cmpu203.team2a.model.Prerequisite;
+
 /**
  * Controller class, every input runs through here
  */
@@ -76,16 +80,16 @@ public class Controller {
      * @return true/false on if it worked
      */
     public boolean addClass(String classToAdd) {
-        if (courseCatalogue.courseCatalogue.containsKey(classToAdd))
-            return classesTaken.add(courseCatalogue.courseCatalogue.get(classToAdd));
+        if (courseCatalogue.inCatalogue(classToAdd))
+            return classesTaken.add(courseCatalogue.get(classToAdd));
         return false;
     }
 
     //todo depending on how we implement the gui, this accepting a linked list may need to change
-    public void addPrerequisites (String id, LinkedList prequisites){
-        prerequisite.addPrerequisites(courseCatalogue.getCourse(id), prequisites);
+    public void addPrerequisites (String id, LinkedList prerequisites){
+        prerequisite.addPrerequisites(courseCatalogue.getCourse(id), prerequisites);
     }
-    public LinkedList returnPrequisites(String id) {
+    public LinkedList returnPrerequisites(String id) {
         return prerequisite.returnPrequisites(courseCatalogue.getCourse(id));
     }
 

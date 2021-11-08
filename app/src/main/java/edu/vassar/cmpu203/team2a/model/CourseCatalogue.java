@@ -64,5 +64,20 @@ public class CourseCatalogue {
     public int size(){
         return courseCatalogue.size();
     }
+
+    /**
+     * check if a course is in the course catalogue
+     */
+    public boolean inCatalogue(String courseID){
+        return courseCatalogue.containsKey(courseID);
+    }
+
+    /**
+     * return a course object from the catalogue using the courseID
+     */
+    public Course get(String courseID){
+        return courseCatalogue.get(courseID);
+    }
+
 }
 
