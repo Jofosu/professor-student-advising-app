@@ -97,12 +97,20 @@ public class Controller {
 
     /**
      * Adds courses to a Pool in a Major
-     * @param courseToAdd A course
-     * @param pool Fall/ Spring/ or both offering
-     * @return true/false if the class worked
+     * @param courseToAdd A course that is added to a pool in a major
+     * @param pool A list of courses that are either optional or required for a major
+     * @return true/false if the the course was added to an existing pool
      */
     public boolean addCourse(Course courseToAdd, String pool) {
         return major.addCourse(courseToAdd, pool);
+    }
+    /**
+     * Creates a Pool in a Major
+     * @param poolName A course that is added to a pool in a major
+     * @return true/false if the the Pool was added to a Major
+     */
+    public boolean createPool(String poolName) {
+        return major.createPool(poolName);
     }
 
 }
