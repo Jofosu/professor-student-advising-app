@@ -4,12 +4,26 @@ import java.util.LinkedList;
 
 import edu.vassar.cmpu203.team2a.model.Course;
 
+/**
+ * Handles Prerequisites
+ */
 public class Prerequisite {
 
-    public void addPrerequisites (Course course, LinkedList prequisites){
-        course.prequisites = prequisites;
+    /**
+     * Adds prerequisites to courses
+     * @param course course that the prerequisites are added to
+     * @param course2 course prerequisites
+     */
+    public void addPrerequisites (Course course, Course course2){
+        course.prequisites.add(course2);
 }
-    public LinkedList returnPrequisites(Course course){
+
+    /**
+     * Returns the list of prerequisites
+     * @param course course that we are checking prerequisites for
+     * @return list of prerequisites
+     */
+    public LinkedList returnPrerequisites(Course course){
         return course.prequisites;
     }
 }

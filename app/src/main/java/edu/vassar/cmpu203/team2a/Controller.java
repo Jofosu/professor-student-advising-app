@@ -87,12 +87,22 @@ public class Controller {
         return false;
     }
 
-    //todo depending on how we implement the gui, this accepting a linked list may need to change
-    public void addPrerequisites (String id, LinkedList prerequisites){
-        prerequisite.addPrerequisites(courseCatalogue.getCourse(id), prerequisites);
+    /**
+     * Adds prerequisites to a prerequisite list that all courses have
+     * @param id course that is getting a prerequisite added to it
+     * @param id2 course that is a prerequisite of it
+     */
+    public void addPrerequisites (String id, String id2){
+        prerequisite.addPrerequisites(courseCatalogue.getCourse(id), courseCatalogue.getCourse(id2));
     }
+
+    /**
+     * Returns all prerequisites that a course has
+     * @param id course that is being checked
+     * @return list of courses of prerequisites
+     */
     public LinkedList returnPrerequisites(String id) {
-        return prerequisite.returnPrequisites(courseCatalogue.getCourse(id));
+        return prerequisite.returnPrerequisites(courseCatalogue.getCourse(id));
     }
 
     /**
