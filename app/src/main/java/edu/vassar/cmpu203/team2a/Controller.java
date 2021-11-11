@@ -145,4 +145,14 @@ public class Controller {
       return major.removeCourse(courseToRemove, poolName);
     }
 
+    /**
+     * Adds a taken class to a student's list
+     * @param studentID students 999
+     * @param courseID course id like cs203
+     * @return boolean if it added or not
+     */
+    public boolean addTakenClasses(int studentID, String courseID){
+        return advisor.addClassTaken(advisor.getAdvisee(studentID), courseCatalogue.getCourse(courseID));
+    }
+
 }
