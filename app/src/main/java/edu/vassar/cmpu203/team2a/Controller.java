@@ -123,4 +123,26 @@ public class Controller {
         return major.createPool(poolName);
     }
 
+
+    /**
+     * Set the number of required courses of a Pool in a Major
+     *
+     * @param numOfRequiredCourses course that is added to a pool in a major
+     * @param poolName             The name of a pool in a major
+     */
+    public void setRequiredPoolCourses(int numOfRequiredCourses, String poolName) {
+        major.setRequiredPoolCourses(numOfRequiredCourses, poolName);
+    }
+
+
+    /**
+     * Remove a course in a Pool in a Major
+     * @param courseToRemove A course that is suppose to be removed from a pool in a major
+     * @param poolName The name of a pool in a major
+     * @return true/false if the the course was removed from a existing pool
+     */
+    public boolean removeCourse(Course courseToRemove, String poolName){
+      return major.removeCourse(courseToRemove, poolName);
+    }
+
 }
