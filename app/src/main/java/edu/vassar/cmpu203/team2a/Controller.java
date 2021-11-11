@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Set;
 
 import edu.vassar.cmpu203.team2a.model.Advisor;
+import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
+import edu.vassar.cmpu203.team2a.model.Major;
 import edu.vassar.cmpu203.team2a.model.Prerequisite;
 
 /**
@@ -16,7 +18,7 @@ public class Controller {
     Advisor advisor = new Advisor();
     Prerequisite prerequisite = new Prerequisite();
     List classesTaken = new LinkedList();
-
+    Major major = new Major();
 
     /**
      * Adds courses to the course catalogue for use elsewhere in the system
@@ -91,6 +93,16 @@ public class Controller {
     }
     public LinkedList returnPrerequisites(String id) {
         return prerequisite.returnPrequisites(courseCatalogue.getCourse(id));
+    }
+
+    /**
+     * Adds courses to a Pool in a Major
+     * @param courseToAdd A course
+     * @param pool Fall/ Spring/ or both offering
+     * @return true/false if the class worked
+     */
+    public boolean addCourse(Course courseToAdd, String pool) {
+        return major.addCourse(courseToAdd, pool);
     }
 
 }

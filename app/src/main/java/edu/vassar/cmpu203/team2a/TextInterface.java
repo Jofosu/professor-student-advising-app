@@ -17,13 +17,12 @@ public class TextInterface {
         int counter = 0;
         while (counter != 4) {
             do {
-                System.out.println("""
-                                Choose a number from the following:\s
-                                 1. Add new course\s
-                                 2. Print list of available courses\s
-                                 3. Remove course\s
-                                 4. Main Menu\s
-                                """);
+                System.out.println(
+                                "Choose a number from the following:\n" +
+                                 "1. Add new course\n" +
+                                "2. Print list of available courses\n"+
+                                 "3. Remove course\n"+
+                                 "4. Main Menu");
                 do {
                     try {
                         String s = chairInput.nextLine();
@@ -38,7 +37,7 @@ public class TextInterface {
             String courseID;
             switch (counter) {
                 // Adding a new course
-                case 1 -> {
+                case 1: {
 
                         Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]+[0-9]+$");
 
@@ -56,19 +55,20 @@ public class TextInterface {
                     if (controller.addCourse(courseID, time))
                         System.out.println(courseID + " has been added to your course catalogue");
                     else System.out.println("Course already exists");
+                    break;
                 }
                 // The list of available courses in the course catalogue
-                case (2) -> System.out.println(controller.returnCourseList());
+                case 2 : System.out.println(controller.returnCourseList());break;
                 // Removing a course from the course catalogue
-                case (3) -> {
+                case 3: {
                     System.out.println("Please enter course's id");
                     courseID = chairInput.next();
                     if (controller.removeCourse(courseID))
                         System.out.println(courseID + " has been removed.");
-                    else System.out.println(courseID + " does not exist in the course catalogue");
+                    else System.out.println(courseID + " does not exist in the course catalogue");break;
                 }
                 // returning to the main menu
-                case (4) -> main(null);
+                case 4: main(null);
             }
         }
     }
@@ -80,13 +80,11 @@ public class TextInterface {
         int work = 0;
         while (work != 4) {
             do {
-                System.out.println("""
-                                Choose a number from the following:\s
-                                 1. Add new advisee\s
-                                 2. Print advisee list\s
-                                 3. Remove advisee\s
-                                 4. Main menu\s
-                                """);
+                System.out.println(" Choose a number from the following:\n"+
+                                 "1. Add new advisee\n"+
+                                 "2. Print advisee list\n"+
+                                 "3. Remove advisee\n"+
+                                 "4. Main menu");
                 do {
                     try {
                         String s = advisorInput.nextLine();
@@ -102,7 +100,7 @@ public class TextInterface {
             String studentName;
             String firstName;
             switch (work) {
-                case 1 -> {
+                case 1 : {
                     System.out.println("Please enter student's first name");
                     firstName = advisorInput.next();
                     System.out.println("Please enter student's last name");
@@ -127,17 +125,17 @@ public class TextInterface {
                     } while (true);
                     if (controller.addAdvisee(studentName, studentId, studentClassYear, null))
                         System.out.println(studentName + " has been added to your advisee list");
-                    else System.out.println("Incorrect input");
+                    else System.out.println("Incorrect input");break;
                 }
-                case (2) -> System.out.println(controller.returnAdviseeList());
-                case (3) -> {
+                case 2: System.out.println(controller.returnAdviseeList());break;
+                case 3:{
                     System.out.println("Please enter student's 999");
                     studentId = advisorInput.nextInt();
                     if (controller.deleteAdvisee(studentId))
                         System.out.println("Student has been removed.");
-                    else System.out.println("Student could not be removed");
+                    else System.out.println("Student could not be removed");break;
                 }
-                case (4) -> main(null);
+                case 4: main(null);
             }
         }
 
@@ -156,10 +154,10 @@ public class TextInterface {
             try {
 
                 System.out.println("Please select one of the options below:");
-                System.out.println("""
-                                 1. Department Chair\s
-                                 2. Advisor\s
-                                 3. Quit\s""");
+                System.out.println(
+                                 "1. Department Chair\n"+
+                                 "2. Advisor\n"+
+                                 "3. Quit");
 
                 String selectedUserOption = userInput.nextLine();
                 selectedUser = Integer.parseInt(selectedUserOption);
@@ -180,13 +178,13 @@ public class TextInterface {
 
         switch (userMainMenuOption) {
             // User is a department chair
-            case 1 ->
-                    chairUser();
+            case 1:
+                    chairUser();break;
             // User is an advisor
-            case 2 ->
-                    advisorUser();
+            case 2:
+                    advisorUser();break;
             // User decides to terminate the program
-            case 3 ->{  System.out.println("Have a great day");
+            case 3 :{  System.out.println("Have a great day");
                         System.exit(0);}
         }
     }
