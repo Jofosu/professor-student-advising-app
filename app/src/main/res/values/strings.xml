@@ -2,4 +2,7 @@
     <string name="app_name">team-2a</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_course_label">Edit Department Course</string>
+    <string name="edit_major_req">Edit Major Requirements</string>
+    <string name="manage_advisees">Manage Advisees</string>
 </resources>
