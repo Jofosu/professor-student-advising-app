@@ -64,5 +64,22 @@ public class Advisor {
         return advisees.size();
     }
 
+    /**
+     * Easy way of getting an advisee object
+     * @param id 999 number
+     * @return advisee object
+     */
+    public Advisee getAdvisee(int id){
+        return advisees.get(id);
+    }
 
+    /**
+     * Adds a class taken to an advisee
+     * @param advisee advisee object
+     * @param c course object
+     * @return boolean if it added or not
+     */
+    public boolean addClassTaken(Advisee advisee, Course c){
+        return advisee.classesTaken.add(c);
+    }
 }
