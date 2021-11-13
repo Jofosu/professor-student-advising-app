@@ -23,10 +23,10 @@ public class ControllerActivity extends AppCompatActivity implements IOptionsMen
         this.mainView = new MainView(this);
 
         this.setContentView(this.mainView.getRootView());
-        this.mainView.displayFragment(new OptionsMenu(this));
+       //  this.mainView.displayFragment(new OptionsMenu(this));
     }
      //this method generates a different screen on a button push
-     //public void onManageAdvisees(){this.mainView.displayFragment(<fragmentConstructor>)}
+     //public void onManageAdvisees(){this.mainView.displayFragment(<ManageAdviseesMenuFragment()>)}
 
 
 
