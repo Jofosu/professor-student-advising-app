@@ -10,17 +10,13 @@ public class Advisee {
     String name;
     int id;
     int classYear;
-    List classesTaken = new LinkedList();
+    List classesTaken;
 
     Advisee(String name, int id, int classYear, List classesTaken){
         this.name = name;
         this.id = id;
         this.classYear = classYear;
         this.classesTaken = classesTaken;
-    }
-
-    public boolean addClass(Course c){
-        return classesTaken.add(c);
     }
 
 }

@@ -107,12 +107,52 @@ public class Controller {
 
     /**
      * Adds courses to a Pool in a Major
-     * @param courseToAdd A course
-     * @param pool Fall/ Spring/ or both offering
-     * @return true/false if the class worked
+     * @param courseToAdd A course that is added to a pool in a major
+     * @param pool A list of courses that are either optional or required for a major
+     * @return true/false if the the course was added to an existing pool
      */
     public boolean addCourse(Course courseToAdd, String pool) {
         return major.addCourse(courseToAdd, pool);
+    }
+    /**
+     * Creates a Pool in a Major
+     * @param poolName A course that is added to a pool in a major
+     * @return true/false if the the Pool was added to a Major
+     */
+    public boolean createPool(String poolName) {
+        return major.createPool(poolName);
+    }
+
+
+    /**
+     * Set the number of required courses of a Pool in a Major
+     *
+     * @param numOfRequiredCourses course that is added to a pool in a major
+     * @param poolName             The name of a pool in a major
+     */
+    public void setRequiredPoolCourses(int numOfRequiredCourses, String poolName) {
+        major.setRequiredPoolCourses(numOfRequiredCourses, poolName);
+    }
+
+
+    /**
+     * Remove a course in a Pool in a Major
+     * @param courseToRemove A course that is suppose to be removed from a pool in a major
+     * @param poolName The name of a pool in a major
+     * @return true/false if the the course was removed from a existing pool
+     */
+    public boolean removeCourse(Course courseToRemove, String poolName){
+      return major.removeCourse(courseToRemove, poolName);
+    }
+
+    /**
+     * Adds a taken class to a student's list
+     * @param studentID students 999
+     * @param courseID course id like cs203
+     * @return boolean if it added or not
+     */
+    public boolean addTakenClasses(int studentID, String courseID){
+        return advisor.addClassTaken(advisor.getAdvisee(studentID), courseCatalogue.getCourse(courseID));
     }
 
 }

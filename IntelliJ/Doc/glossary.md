@@ -45,3 +45,7 @@ A collection of all courses offered
 ##Registration/Pre-registration: 
 To officially or unofficially request a class, respectively
 
+##Pool:
+A list of courses that fall within a category of a Major as defined by the department chair.
+The courses in the pool are either optional or required for a major
+Example Elective, intensives etc
