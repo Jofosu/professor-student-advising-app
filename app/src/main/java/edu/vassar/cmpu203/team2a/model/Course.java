@@ -9,12 +9,12 @@ import java.util.LinkedList;
 public class Course {
     String id;
     String time;
-    LinkedList prequisites;
+    LinkedList prerequisites;
 
 
-    Course(String id, String time, LinkedList prequisites){
+    Course(String id, String time, LinkedList prerequisites){
         this.id = id;
         this.time = time;
-        this.prequisites = prequisites;
+        this.prerequisites = prerequisites;
     }
 }
