@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/fragment_manage_courses_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_add_advisee.xml" value="0.11195542046605876" />
+        <entry key="app/src/main/res/layout/fragment_delete_advisee.xml" value="0.11195542046605876" />
+        <entry key="app/src/main/res/layout/fragment_manage_advisees_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_options_menu.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/main_view.xml" value="0.12047101449275362" />
       </map>
     </option>
   </component>

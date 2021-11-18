@@ -6,26 +6,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
+import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
+import edu.vassar.cmpu203.team2a.view.IManageAdvisee;
 
 
-public class AddAdvisee extends Fragment implements IManageAdvisee {
+public class DeleteAdvisee extends Fragment implements IManageAdvisee {
 
-    FragmentAddAdviseeBinding binding;
-    Listener listener;
+    FragmentDeleteAdviseeBinding binding;
+    IManageAdvisee.Listener listener;
 
-    public AddAdvisee(Listener listener){
+    public DeleteAdvisee(IManageAdvisee.Listener listener){
         this.listener = listener;
     }
 
     public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.binding = FragmentAddAdviseeBinding.inflate(inflater);
+        this.binding = FragmentDeleteAdviseeBinding.inflate(inflater);
         return this.binding.getRoot();
     }
 
@@ -33,7 +33,7 @@ public class AddAdvisee extends Fragment implements IManageAdvisee {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-        this.binding.addButton.setOnClickListener((clickedView) -> {
+        this.binding.deleteButton.setOnClickListener((clickedView) -> {
             Editable nameEditable = binding.nameEditText.getText();
             String name = nameEditable.toString();
 
@@ -45,13 +45,8 @@ public class AddAdvisee extends Fragment implements IManageAdvisee {
             String idString = idEditable.toString();
             int id = Integer.parseInt(idString);
 
-            this.listener.addAdvisee(name, id, classYear);
+            this.listener.deleteAdvisee(name, id, classYear);
         });
 
 
-    }
-/**
- * TODO how to turn editable into String/ int
- */
-
-}
+}}
