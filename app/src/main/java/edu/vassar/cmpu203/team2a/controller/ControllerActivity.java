@@ -26,12 +26,13 @@ public class ControllerActivity extends AppCompatActivity implements IOptionsMen
         this.setContentView(this.mainView.getRootView());
        //  this.mainView.displayFragment(new OptionsMenu(this));
     }
+
     //TODO switch functionality from Controller class to ControllerActivity class
     /**
      *
      //IOptionsMenu implementation
      @Override
-     public void onAddCourse(){
+     public void onManageCourses(){
         this.mainView.displayFragment();
      }
      @Override
