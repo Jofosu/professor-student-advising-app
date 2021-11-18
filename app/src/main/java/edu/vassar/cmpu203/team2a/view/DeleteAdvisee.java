@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
-import edu.vassar.cmpu203.team2a.view.IManageAdvisee;
+
 
 
 public class DeleteAdvisee extends Fragment implements IManageAdvisee {

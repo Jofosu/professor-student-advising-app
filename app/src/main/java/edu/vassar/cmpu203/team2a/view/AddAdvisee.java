@@ -50,8 +50,4 @@ public class AddAdvisee extends Fragment implements IManageAdvisee {
 
 
     }
-/**
- * TODO how to turn editable into String/ int
- */
-
 }
