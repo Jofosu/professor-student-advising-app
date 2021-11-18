@@ -5,25 +5,15 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/createPoolButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Pool"
-        tools:layout_editor_absoluteX="-7dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <Button
         android:id="@+id/addCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Course" />
 
     <Button
-        android:id="@+id/editPool"
+        android:id="@+id/removeCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Pool"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="88dp" />
+        android:text="Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,30 +8,30 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import edu.vassar.cmpu203.team2a.databinding.FragmentManageCoursesMenuBinding;
+import edu.vassar.cmpu203.team2a.databinding.FragmentManageCatalogueMenuBinding;
 
-public class ManageCoursesMenu extends Fragment implements IManageCoursesMenu {
-    FragmentManageCoursesMenuBinding binding;
-    IManageCoursesMenu.Listener listener;
+public class ManageCatalogueMenu extends Fragment implements IManageCatalogueMenu {
+    FragmentManageCatalogueMenuBinding binding;
+    IManageCatalogueMenu.Listener listener;
 
-    public ManageCoursesMenu(Listener listener) {
+    public ManageCatalogueMenu(Listener listener) {
         this.listener = listener;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.binding = FragmentManageCoursesMenuBinding.inflate(inflater);
+        this.binding = FragmentManageCatalogueMenuBinding.inflate(inflater);
         return this.binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        this.binding.createPoolButton.setOnClickListener((clickedView) -> {
-            listener.onCreatePool();
+        this.binding.addCourse.setOnClickListener((clickedView) -> {
+            listener.onAddCourse();
         });
 
-        this.binding.editPool.setOnClickListener((clickedView) -> {
-            listener.onEditPool();
+        this.binding.removeCourse.setOnClickListener((clickedView) -> {
+            listener.onRemoveCourse();
         });
 
     }
