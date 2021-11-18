@@ -8,9 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
 
- */
 public class AddAdvisee extends Fragment implements IManageAdvisee {
 
     //implemented from IManageAdvisee
@@ -18,6 +16,14 @@ public class AddAdvisee extends Fragment implements IManageAdvisee {
     void updateAdvisee(){
 
     }
-
+/**
+ * TODO implement add advisee buttons in interface and updateAdvisee method
+ * need to get these attributes from the interface–> save these to pass to the
+ * controller
+ *         this.name = name;
+ *         this.id = id;
+ *         this.classYear = classYear;
+ *         this.classesTaken = classesTaken;
+ */
 
 }
