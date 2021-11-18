@@ -13,38 +13,64 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/manageCoursesButton"
+            android:id="@+id/manageAdvisees"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/add_course_label"
+            android:layout_marginBottom="77dp"
+            android:text="@string/manage_advisees"
+            android:textColor="#03A9F4"
+            android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/EditMajorRequirements"
+            app:layout_constraintTop_toBottomOf="@+id/EditMajorRequirements" />
+
+        <Button
+            android:id="@+id/manageCoursesButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="33dp"
+            android:text="@string/add_course_label"
+            android:textColor="#03A9F4"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/EditMajorRequirements"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.228" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
             android:id="@+id/EditMajorRequirements"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/edit_major_req"
+            android:textColor="#03A9F4"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/manageAdvisees"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manageCoursesButton" />
 
-        <Button
-            android:id="@+id/manageAdvisees"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/manage_advisees"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="41dp"
+            android:text="Department Chair Menu"
+            android:textAlignment="center"
+            android:textColor="#673AB7"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/manageCoursesButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditMajorRequirements" />
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
