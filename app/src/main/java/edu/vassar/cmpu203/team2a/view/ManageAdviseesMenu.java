@@ -40,7 +40,7 @@ public class ManageAdviseesMenu extends Fragment implements IManageAdviseesMenu 
        /** this.binding.editAdviseeButton.setOnClickListener((clickedView) -> {
             listener.onEditAdvisee();
         });
-        are we doing this? can we implement this?
+        back end side of this does not yet exist
         */
     }
 

@@ -2,28 +2,52 @@ package edu.vassar.cmpu203.team2a.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
+
 
 public class AddAdvisee extends Fragment implements IManageAdvisee {
 
+    FragmentAddAdviseeBinding binding;
+    Listener listener;
+
+    public AddAdvisee(Listener listener){
+        this.listener = listener;
+    }
+
+    public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        this.binding = FragmentAddAdviseeBinding.inflate(inflater);
+        return this.binding.getRoot();
+    }
+
     //implemented from IManageAdvisee
     @Override
-    void updateAdvisee(){
+    public void onViewCreated(View view, Bundle savedInstanceState){
+
+        this.binding.addButton.setOnClickListener((clickedView) -> {
+            Editable nameEditable = binding.nameEditText.getText();
+            String name = nameEditable.toString();
+
+            Editable classYear = binding.classYearEditText.getText();
+
+            Editable id = binding.idEditText.getText();
+
+            this.listener.addAdvisee(String name, int id, int classYear);
+        });
+
 
     }
 /**
- * TODO implement add advisee buttons in interface and updateAdvisee method
- * need to get these attributes from the interface–> save these to pass to the
- * controller
- *         this.name = name;
- *         this.id = id;
- *         this.classYear = classYear;
- *         this.classesTaken = classesTaken;
+ * TODO how to turn editable into String/ int
  */
 
 }
