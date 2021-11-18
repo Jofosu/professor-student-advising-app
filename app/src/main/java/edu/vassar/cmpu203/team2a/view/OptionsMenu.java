@@ -35,8 +35,8 @@ public class OptionsMenu extends Fragment implements IOptionsMenu {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        this.binding.addCourseButton.setOnClickListener((clickedView) -> {
-            listener.onAddCourse();
+        this.binding.manageCoursesButton.setOnClickListener((clickedView) -> {
+            listener.onManageCourses();
         });
 
         this.binding.EditMajorRequirements.setOnClickListener((clickedView) ->{
