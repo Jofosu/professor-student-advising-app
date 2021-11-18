@@ -1,9 +1,7 @@
 package edu.vassar.cmpu203.team2a.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class Major {
 
