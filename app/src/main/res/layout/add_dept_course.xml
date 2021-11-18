@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,121 +12,166 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="405dp"
-            android:layout_height="113dp"
+            android:layout_width="403dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="118dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="92dp"
             android:layout_weight="1"
-            android:fontFamily="serif"
+            android:fontFamily="sans-serif"
             android:rotationX="0"
-            android:text="Please Enter Course Information"
+            android:text="Enter Course Information"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#3F51B5"
-            android:textSize="34sp"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="137dp" />
-
-        <EditText
-            android:id="@+id/editTextTime"
-            android:layout_width="104dp"
-            android:layout_height="45dp"
-            android:ems="10"
-            android:fontFamily="serif"
-            android:inputType="time"
-            android:textSize="16sp"
+            android:textSize="48sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="76dp"
-            tools:layout_editor_absoluteY="392dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editTextTextPersonName4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="217dp"
+            android:layout_height="0dp"
             android:ems="10"
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="eg. MW"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="112dp"
-            tools:layout_editor_absoluteY="471dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.443"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="42dp"
             android:fontFamily="serif"
             android:text="Days "
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="259dp"
-            tools:layout_editor_absoluteY="505dp" />
+            app:layout_constraintBottom_toTopOf="@+id/button6"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="21dp"
             android:fontFamily="serif"
             android:text="Start Time"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="76dp"
-            tools:layout_editor_absoluteY="436dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
+            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
-            android:layout_width="259dp"
-            android:layout_height="49dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="13dp"
             android:ems="10"
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="eg. CS20301"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="76dp"
-            tools:layout_editor_absoluteY="302dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
             android:fontFamily="serif"
             android:text="End Time"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="259dp"
-            tools:layout_editor_absoluteY="437dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTime5" />
 
         <EditText
             android:id="@+id/editTextTime5"
-            android:layout_width="106dp"
-            android:layout_height="46dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="65dp"
             android:ems="10"
             android:fontFamily="serif"
             android:inputType="time"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="390dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextTime"
+            app:layout_constraintTop_toTopOf="@+id/editTextTime"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/button6"
             style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="135dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="54dp"
             android:text="Done"
             android:textColor="#2196F3"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="161dp"
-            tools:layout_editor_absoluteY="576dp" />
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="33dp"
             android:fontFamily="serif"
             android:text="Course ID"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="256dp"
-            tools:layout_editor_absoluteY="351dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextTime"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="41dp"
+            android:ems="10"
+            android:fontFamily="serif"
+            android:inputType="time"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
+            app:layout_constraintEnd_toStartOf="@+id/editTextTime5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
