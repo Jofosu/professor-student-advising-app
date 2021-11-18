@@ -2,8 +2,6 @@ package edu.vassar.cmpu203.team2a.model;
 
 import java.util.LinkedList;
 
-import edu.vassar.cmpu203.team2a.model.Course;
-
 /**
  * Handles Prerequisites
  */
@@ -15,7 +13,7 @@ public class Prerequisite {
      * @param course2 course prerequisites
      */
     public void addPrerequisites (Course course, Course course2){
-        course.prequisites.add(course2);
+        course.prerequisites.add(course2);
 }
 
     /**
@@ -24,6 +22,6 @@ public class Prerequisite {
      * @return list of prerequisites
      */
     public LinkedList returnPrerequisites(Course course){
-        return course.prequisites;
+        return course.prerequisites;
     }
 }
