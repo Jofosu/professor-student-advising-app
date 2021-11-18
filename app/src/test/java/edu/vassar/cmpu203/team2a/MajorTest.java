@@ -7,10 +7,6 @@ import org.junit.jupiter.api.Test;
 class MajorTest {
 
     @Test
-    void createPool() {
-    }
-
-    @Test
     void addCourse() {
     }
 
