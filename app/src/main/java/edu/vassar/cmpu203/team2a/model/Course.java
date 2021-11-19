@@ -12,7 +12,7 @@ public class Course {
     LinkedList prerequisites;
 
 
-    Course(String id, String time, LinkedList prerequisites){
+    public Course(String id, String time, LinkedList prerequisites){
         this.id = id;
         this.time = time;
         this.prerequisites = prerequisites;
