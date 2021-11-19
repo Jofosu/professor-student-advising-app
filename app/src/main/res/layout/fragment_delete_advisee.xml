@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/deleteButton"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,8 +93,8 @@
             android:layout_marginBottom="27dp"
             android:text="Class Year"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/addButton"
-            app:layout_constraintStart_toEndOf="@+id/addButton"
+            app:layout_constraintBottom_toTopOf="@+id/deleteButton"
+            app:layout_constraintStart_toEndOf="@+id/deleteButton"
             app:layout_constraintTop_toBottomOf="@+id/idEditText" />
 
         <TextView
