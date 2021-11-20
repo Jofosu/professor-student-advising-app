@@ -11,12 +11,20 @@ import edu.vassar.cmpu203.team2a.model.Major;
 
 class MajorTest {
 
+
+    /**
+     * Testing that createPool returns true when passing a string
+     */
     @Test
     void createPool() {
         Major m = new Major();
         assertTrue(m.createPool("100lvl"));
     }
 
+
+    /**
+     * Testing that we can add a course to a pool
+     */
     @Test
     void addCourse() {
         Major m = new Major();
@@ -26,6 +34,9 @@ class MajorTest {
         assertTrue(m.addCourse(c, "100lvl"));
     }
 
+    /**
+     * Testing that we can set the number of required course from a pool
+     */
     @Test
     void setRequiredPoolCourses() {
         Major m = new Major();
@@ -36,6 +47,10 @@ class MajorTest {
         assertEquals(m.getMajor().get("100lvl").getNumReq() , 10);
     }
 
+    /** Testing that we can add a course, then remove it
+    * Also testing that we can not remove a course if the course is not in the pool
+    * or if the pool is not in the major
+     * */
     @Test
     void removeCourse() {
         Major m = new Major();

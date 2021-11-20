@@ -14,15 +14,21 @@ class PrerequisiteTest {
 
     LinkedList l = new LinkedList();
     Course cs101 = new Course ("CMPU101","Monday530",l);
-    Course cs102 = new Course ("CMPU102","Monday430",l);
+    Course cs240 = new Course ("CMPU102","Monday430",l);
     Course cs203 = new Course ("CMPU203","Monday330",l);
     Prerequisite p = new Prerequisite();
 
+    /**
+     * Testing that we can add a prerequisite to a course
+     */
     @Test
     void addPrerequisitesTest() {
         p.addPrerequisites(cs203, cs101);
         Course[] expected = new Course[]{cs101};
         assertArrayEquals(cs203.getPrerequisites().toArray(), expected);
+        Course[] unexpected = new Course[]{cs240};
+        assertFalse(cs203.getPrerequisites().toArray().equals(unexpected));
+
     }
 
 }
