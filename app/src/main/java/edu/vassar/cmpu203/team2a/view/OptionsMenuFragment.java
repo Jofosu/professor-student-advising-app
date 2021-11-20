@@ -18,12 +18,12 @@ import edu.vassar.cmpu203.team2a.R;
 import edu.vassar.cmpu203.team2a.databinding.FragmentOptionsMenuBinding;
 
 
-public class OptionsMenu extends Fragment implements IOptionsMenu {
+public class OptionsMenuFragment extends Fragment implements IOptionsMenu {
 
     FragmentOptionsMenuBinding binding;
     Listener listener;
 
-    public OptionsMenu(Listener listener){this.listener = listener;}
+    public OptionsMenuFragment(Listener listener){this.listener = listener;}
 
 
     @Override

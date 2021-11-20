@@ -15,12 +15,12 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
 
 
 
-public class DeleteAdvisee extends Fragment implements IManageAdvisee {
+public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
     FragmentDeleteAdviseeBinding binding;
-    IManageAdvisee.Listener listener;
+    IManageAdviseeView.Listener listener;
 
-    public DeleteAdvisee(IManageAdvisee.Listener listener){
+    public DeleteAdviseeViewFragment(IManageAdviseeView.Listener listener){
         this.listener = listener;
     }
 

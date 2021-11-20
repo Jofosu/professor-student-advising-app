@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import edu.vassar.cmpu203.team2a.databinding.FragmentManageCatalogueMenuBinding;
 
-public class ManageCatalogueMenu extends Fragment implements IManageCatalogueMenu {
+public class ManageCatalogueFragment extends Fragment implements IManageCatalogueMenu {
     FragmentManageCatalogueMenuBinding binding;
     IManageCatalogueMenu.Listener listener;
 
-    public ManageCatalogueMenu(Listener listener) {
+    public ManageCatalogueFragment(Listener listener) {
         this.listener = listener;
     }
 

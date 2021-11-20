@@ -32,3 +32,15 @@ Advisees- make a class schedule, add classes taken, check progress towards major
 Advisors- add advisee, remove advisee, check advisee progress
 
 Department Head- add courses, add major requirements
+Schedule Making
+
+Managing Advisees
+
+Manage Offered Classes
+
+###Stakeholder Goals
+Advisees- make a class schedule, add classes taken, check progress towards major
+
+Advisors- add advisee, remove advisee, check advisee progress
+
+Department Head- add courses, add major requirements
