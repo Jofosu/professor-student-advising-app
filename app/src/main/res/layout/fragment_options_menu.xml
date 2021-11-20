@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.OptionsMenu">
+    tools:context=".view.OptionsMenuFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="77dp"
             android:text="@string/manage_advisees"
-            android:textColor="#03A9F4"
+            android:textColor="#039BE5"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/EditMajorRequirements"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="33dp"
             android:text="@string/add_course_label"
-            android:textColor="#03A9F4"
+            android:textColor="#039BE5"
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@+id/EditMajorRequirements"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:text="@string/edit_major_req"
-            android:textColor="#03A9F4"
+            android:textColor="#039BE5"
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@+id/manageAdvisees"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
             android:layout_marginTop="58dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="41dp"
-            android:text="Department Chair Menu"
+            android:text="@string/HOD_menu_heading"
             android:textAlignment="center"
             android:textColor="#673AB7"
             android:textSize="48sp"

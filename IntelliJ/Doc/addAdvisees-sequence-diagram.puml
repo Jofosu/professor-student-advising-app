@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+hide footbox
+actor AdvisorPerson as AdvisorPerson
+participant view as view
+participant Controller as Controller
+participant Advisor as Advisor
+participant Advisee as Advisee
+
+loop until exit
+AdvisorPerson -> view: Click add advisee Button
+view -> Controller: add advisee
+Controller -> Advisor **: addAdvisee()
+Advisor -> Advisee **: addAdvisee (name, id, year, coursesTaken)
+view -> Advisee: return advisee list
+view -> AdvisorPerson: Display list
+end
+loop until exit
+AdvisorPerson -> view: Click remove advisee Button
+view -> Controller: remove advisee
+Controller -> Advisor: remove advisee
+Advisor -> Advisee: deleteAdvisee (id)
+view -> Advisee: return advisee list
+view -> AdvisorPerson: Display List
+end
+
+@enduml

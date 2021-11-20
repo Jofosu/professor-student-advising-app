@@ -5,7 +5,7 @@ participant view as view
 participant Controller as Controller
 participant courseCatalogue as courseCatalogue
 participant Course as Course
-
+loop until exit
 deptChair->view: click add pre-req
 view -> Controller: add Prerequisite
 Controller-> courseCatalogue: get Course list
@@ -19,4 +19,5 @@ view-> deptChair: display list
 deptChair -> view: select pre-requisite
 view -> Controller: add to selection
 Controller-> Course: add pre-req(course obj)
+end
 @enduml

@@ -15,12 +15,12 @@ import android.view.ViewGroup;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
 
 
-public class AddAdvisee extends Fragment implements IManageAdvisee {
+public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
     FragmentAddAdviseeBinding binding;
     Listener listener;
 
-    public AddAdvisee(Listener listener){
+    public AddAdviseeViewFragment(Listener listener){
         this.listener = listener;
     }
 
