@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.MainMenu">
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/welcomeMessage"
+            android:layout_width="match_parent"
+            android:layout_height="287dp"
+            android:text="@string/welcome_message"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <Button
+            android:id="@+id/studentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/student_button" />
+
+        <Button
+            android:id="@+id/hodButon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/HOD_menu_heading" />
+
+        <Button
+            android:id="@+id/advisorButtton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/advisor_button" />
+
+    </LinearLayout>
+</FrameLayout>

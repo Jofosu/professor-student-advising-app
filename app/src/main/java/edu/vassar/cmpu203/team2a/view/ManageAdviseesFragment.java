@@ -13,12 +13,12 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentManageAdviseesMenuBinding;
 import edu.vassar.cmpu203.team2a.databinding.FragmentOptionsMenuBinding;
 
 
-public class ManageAdviseesMenu extends Fragment implements IManageAdviseesMenu {
+public class ManageAdviseesFragment extends Fragment implements IManageAdviseesMenu {
 
     FragmentManageAdviseesMenuBinding binding;
     Listener listener;
 
-    public ManageAdviseesMenu(Listener listener){this.listener = listener;}
+    public ManageAdviseesFragment(Listener listener){this.listener = listener;}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
