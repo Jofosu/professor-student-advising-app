@@ -9,12 +9,23 @@ import java.util.LinkedList;
 public class Course {
     String id;
     String time;
-    LinkedList prerequisites;
+    LinkedList<Course> prerequisites;
 
 
     public Course(String id, String time, LinkedList prerequisites){
         this.id = id;
         this.time = time;
         this.prerequisites = prerequisites;
+    }
+
+    public LinkedList<Course> getPrerequisites(){
+        return prerequisites;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Course))
+            return false;
+        return this.id == ((Course) obj).id;
     }
 }

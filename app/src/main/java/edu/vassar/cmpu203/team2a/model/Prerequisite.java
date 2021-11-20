@@ -12,7 +12,7 @@ public class Prerequisite {
      * @param course course that the prerequisites are added to
      * @param course2 course prerequisites
      */
-    public void addPrerequisites (Course course, Course course2){
+    public void addPrerequisites (Course course, Course course2) {
         course.prerequisites.add(course2);
 }
 
@@ -21,7 +21,7 @@ public class Prerequisite {
      * @param course course that we are checking prerequisites for
      * @return list of prerequisites
      */
-    public LinkedList returnPrerequisites(Course course){
+    public LinkedList<Course> returnPrerequisites(Course course){
         return course.prerequisites;
     }
 }
