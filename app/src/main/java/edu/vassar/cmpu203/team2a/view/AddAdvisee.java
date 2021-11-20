@@ -33,7 +33,7 @@ public class AddAdvisee extends Fragment implements IManageAdvisee {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-            this.binding.addButton.setOnClickListener((clickedView) -> {
+            this.binding.doneButton.setOnClickListener((clickedView) -> {
             Editable nameEditable = binding.nameEditText.getText();
             String name = nameEditable.toString();
 

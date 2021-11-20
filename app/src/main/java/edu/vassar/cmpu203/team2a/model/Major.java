@@ -1,6 +1,7 @@
 package edu.vassar.cmpu203.team2a.model;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Major {
@@ -34,12 +35,12 @@ public class Major {
      *
      * @return The major as a Hashmap of Pools and List of courses in each pool.
      */
-    public HashMap getMajor(){
+    public HashMap<String, Pool> getMajor(){
         return major;
     }
     /**
      * Set the number of required courses of a Pool in a Major
-     * @param numOfRequiredCourses  course that is added to a pool in a major
+     * @param numOfRequiredCourses  number of? course that is added to a pool in a major
      * @param  poolName The name of a pool in a major
      *
      */
@@ -54,8 +55,10 @@ public class Major {
      */
     public boolean removeCourse(Course courseToRemove, String poolName){
          Pool pool = major.get(poolName);
-         pool.poolList.remove(courseToRemove);
-         return !pool.poolList.contains(courseToRemove);
+         if(pool == null)
+             return false;
+         return pool.poolList.remove(courseToRemove);
+//         return !pool.poolList.contains(courseToRemove);
     }
     /**
      * An inner class that represents the list of courses group into one category called a Pool.
@@ -63,10 +66,14 @@ public class Major {
     public class Pool{
 
         private int numOfRequiredCourses;
-        private List<Course> poolList;
+        private List<Course> poolList = new LinkedList<Course>();
         private String poolName;
         public Pool(String poolName){
             this.poolName = poolName;
+
+        }
+        public int getNumReq(){
+            return numOfRequiredCourses;
         }
 
     }

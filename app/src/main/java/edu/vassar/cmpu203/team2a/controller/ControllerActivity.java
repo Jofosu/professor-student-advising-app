@@ -31,6 +31,17 @@ public class ControllerActivity extends AppCompatActivity implements IOptionsMen
     }
 
     //TODO switch functionality from Controller class to ControllerActivity class
+
+    @Override
+    public void onManageCourses() {
+
+    }
+
+    @Override
+    public void onMajorReq() {
+
+    }
+
     /**
      *
      //IOptionsMenu implementation -- opens new screens
@@ -54,7 +65,17 @@ public class ControllerActivity extends AppCompatActivity implements IOptionsMen
      public void onAddAdvisee(){
          this.mainView.displayFragment(new AddAdvisee((IManageAdvisee.Listener) this));
      }
-     /**
+
+    @Override
+    public void onDeleteAdvisee() {
+
+    }
+
+    @Override
+    public void onEditAdvisee() {
+
+    }
+    /**
      void onDeleteAdvisee{
      this.mainView.displayFragment(new deleteAdvisee(this));
      }

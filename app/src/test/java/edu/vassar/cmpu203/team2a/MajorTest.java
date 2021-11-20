@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 
-import edu.vassar.cmpu203.team2a.model.Major;
 import edu.vassar.cmpu203.team2a.model.Course;
+import edu.vassar.cmpu203.team2a.model.Major;
 
 class MajorTest {
 
@@ -17,33 +17,36 @@ class MajorTest {
         assertTrue(m.createPool("100lvl"));
     }
 
-
     @Test
     void addCourse() {
         Major m = new Major();
         LinkedList l = new LinkedList();
         Course c = new Course ("CMPU11122","Monday530",l);
+        m.createPool("100lvl");
         assertTrue(m.addCourse(c, "100lvl"));
     }
 
     @Test
-    void getMajor() {
+    void setRequiredPoolCourses() {
         Major m = new Major();
         LinkedList l = new LinkedList();
-        Course c = new Course ("CMPU10151","Monday530",l);
-        Course d = new Course ("CMPU10251","Monday430",l);
+        Course c = new Course ("CMPU11122","Monday530",l);
         m.createPool("100lvl");
-        m.addCourse(c, "100lvl");
-        m.addCourse(d, "100lvl");
-        Course[] expected = new Course[]{c, d};
-        assertArrayEquals(m.getMajor().keySet().toArray(new Object[0]), expected);
-    }
-
-    @Test
-    void setRequiredPoolCourses() {
+        m.setRequiredPoolCourses(10, "100lvl");
+        assertEquals(m.getMajor().get("100lvl").getNumReq() , 10);
     }
 
     @Test
     void removeCourse() {
+        Major m = new Major();
+        LinkedList l = new LinkedList();
+        Course c = new Course ("CMPU11122","Monday530",l);
+        Course d = new Course ("CMPU22122","Monday430",l);
+        m.createPool("100lvl");
+        m.addCourse(c, "100lvl");
+        assertFalse(m.removeCourse(c, "200lvl"));
+        assertFalse(m.removeCourse(d, "100lvl"));
+        assertTrue(m.removeCourse(c,"100lvl"));
+
     }
 }
