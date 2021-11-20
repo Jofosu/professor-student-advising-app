@@ -41,7 +41,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void onAddedCourse(String id, String time, IAddDeptCourseView AddDeptCourseView) {
         Log.d("AdvisingApp", "controller is handling adding a course");
-
         this.courseCatalogue.addCourse(id, time);
         AddDeptCourseView.updateDisplay(this.course);
     }
