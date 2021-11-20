@@ -13,4 +13,8 @@
     <string name="advisor_button">Advisor</string>
     <string name="head_of_dept_button">Head of Department</string>
     <string name="welcome_message">Please select one of the options below</string>
+    <string name="adviseeListLabel"> Advisees:</string>\
+    <string name="adviseeListTextView">No advisee to display</string>
+    <string name="add_advisee_button">Add Advisee</string>
+    <string name="remove_advisee_button">Remove Advisee</string>
 </resources>
