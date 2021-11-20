@@ -23,7 +23,7 @@ major requirements are updated
 
 prints list to confirm
 
-####Main Success:
+###Main Success:
 1. Advisor opens major requirements editor
 2. Advisor creates a pool of classes and specifies how many are required from that group 
 3. System prints a list of all department courses
