@@ -9,39 +9,35 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import edu.vassar.cmpu203.team2a.databinding.FragmentManageAdviseesMenuBinding;
-import edu.vassar.cmpu203.team2a.databinding.FragmentOptionsMenuBinding;
+import edu.vassar.cmpu203.team2a.databinding.FragmentManageAdviseeBinding;
 
 
-public class ManageAdviseesFragment extends Fragment implements IManageAdviseesMenu {
+public class ManageAdviseesFragment extends Fragment implements IManageAdviseesFragment {
 
-    FragmentManageAdviseesMenuBinding binding;
-    Listener listener;
+    private FragmentManageAdviseeBinding binding;
+    private Listener listener;
+
 
     public ManageAdviseesFragment(Listener listener){this.listener = listener;}
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        this.binding = FragmentManageAdviseesMenuBinding.inflate(inflater);
+        this.binding = FragmentManageAdviseeBinding.inflate(inflater);
         return this.binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         this.binding.addAdviseeButton.setOnClickListener((clickedView) -> {
-            listener.onAddAdvisee();
+
+            listener.onSelectingAddAdvisee();
         });
 
         this.binding.deleteAdviseeButton.setOnClickListener((clickedView) ->{
-            listener.onDeleteAdvisee();
+            listener.onSelectingDeleteAdvisee();
         });
-
-       /** this.binding.editAdviseeButton.setOnClickListener((clickedView) -> {
-            listener.onEditAdvisee();
-        });
-        back end side of this does not yet exist
-        */
     }
 
 
