@@ -1,24 +1,22 @@
 package edu.vassar.cmpu203.team2a.view;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
 
 
 public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
-    FragmentAddAdviseeBinding binding;
-    Listener listener;
+    private FragmentAddAdviseeBinding binding;
+    private Listener listener;
 
     public AddAdviseeViewFragment(Listener listener){
         this.listener = listener;
@@ -50,4 +48,5 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
 
 
     }
+
 }
