@@ -47,7 +47,11 @@ public class MainMenuTest {
         Espresso.onView(ViewMatchers.withId(R.id.studentButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.???)).check(matches(isDisplayed()));
     }
+     */
 
+
+    /**
+     Testing the advisor button goes to the manage advisees menu
      */
     @Test
     public void testAdvisorButton() {
