@@ -1,41 +1,31 @@
 package edu.vassar.cmpu203.team2a;
 
-
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-
 import android.view.View;
-
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
-
 import org.junit.Test;
-
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 
-public class MainMenuTest {
+public class ManageAdviseesMenuTest {
 
     @org.junit.Rule
     ActivityScenarioRule<ControllerActivity> activityRule =
             new ActivityScenarioRule<>(ControllerActivity.class);
 
 
-    // Testing the department chair button goes to the department chair options menu
     @Test
     public void testDeptChairButton() {
 
-        //finding the right view
-        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessage));
-        //checking that we are at the main menu
+        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.adviseeListTextView));
         menu.check(matches(ViewMatchers.withText(R.string.welcome_message)));
-        //clicking into the department chair options menu
         Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
-        //checking that we are at the department chair options menu
         Espresso.onView(ViewMatchers.withId(R.id.manageCoursesButton)).check(matches(isDisplayed()));
     }
 
