@@ -39,13 +39,5 @@ public class OptionsMenuFragment extends Fragment implements IOptionsMenu {
             listener.onManageCourses();
         });
 
-        this.binding.EditMajorRequirements.setOnClickListener((clickedView) ->{
-            listener.onMajorReq();
-        });
-
-        this.binding.manageAdvisees.setOnClickListener((clickedView) -> {
-            listener.onManageAdvisees();
-        });
-
     }
 }

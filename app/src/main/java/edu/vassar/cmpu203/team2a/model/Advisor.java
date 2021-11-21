@@ -33,6 +33,16 @@ public class Advisor {
             return false;
         }
     }
+//jUST USED FOR PROTOTYPE
+    public boolean addAdvisee(String name, int id, int classYear) {
+        if (String.valueOf(id).length() == 9 & String.valueOf(classYear).length() == 4) {
+            Advisee advisee = new Advisee(name, id, classYear);
+            advisees.put(id, advisee);
+            return advisees.containsKey(id);
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Remove an advisee from the list of advisees
