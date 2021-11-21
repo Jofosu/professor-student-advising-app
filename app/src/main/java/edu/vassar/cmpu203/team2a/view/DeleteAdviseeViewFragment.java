@@ -17,10 +17,10 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
 
 public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
-    FragmentDeleteAdviseeBinding binding;
-    IManageAdviseeView.Listener listener;
+   private FragmentDeleteAdviseeBinding binding;
+   private IManageAdviseeView.Listener listener;
 
-    public DeleteAdviseeViewFragment(IManageAdviseeView.Listener listener){
+    public DeleteAdviseeViewFragment(Listener listener){
         this.listener = listener;
     }
 
@@ -33,19 +33,13 @@ public class DeleteAdviseeViewFragment extends Fragment implements IManageAdvise
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-        this.binding.doneButton.setOnClickListener((clickedView) -> {
-            Editable nameEditable = binding.nameEditText.getText();
-            String name = nameEditable.toString();
+        this.binding.button.setOnClickListener((clickedView) -> {
 
-            Editable classYearEditable = binding.classYearEditText.getText();
-            String classYearString = classYearEditable.toString();
-            int classYear = Integer.parseInt(classYearString);
-
-            Editable idEditable = binding.idEditText.getText();
+            Editable idEditable = binding.studentIdlabel2.getText();
             String idString = idEditable.toString();
             int id = Integer.parseInt(idString);
 
-            this.listener.deleteAdvisee(name, id, classYear);
+            this.listener.deleteAdvisee(id);
         });
 
 

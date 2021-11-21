@@ -4,8 +4,6 @@ public interface IOptionsMenu {
 
     public interface Listener{
         void onManageCourses();
-        void onMajorReq();
-        void onManageAdvisees();
     }
 
 }

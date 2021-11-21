@@ -18,5 +18,11 @@ public class Advisee {
         this.classYear = classYear;
         this.classesTaken = classesTaken;
     }
+    //Just used for prototype
+    public Advisee(String name, int id, int classYear) {
+        this.name = name;
+        this.id = id;
+        this.classYear = classYear;
 
+    }
 }

@@ -19,6 +19,7 @@ public class MainMenuFragment extends Fragment implements IMainMenuFragment{
     public MainMenuFragment(Listener listener){
         this.listener = listener;
     }
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = FragmentMainMenuBinding.inflate(inflater);
         return this.binding.getRoot();
@@ -34,10 +35,7 @@ public class MainMenuFragment extends Fragment implements IMainMenuFragment{
                     this.listener.onSelectingHOD();
                 }
         );
-        this.binding.studentButton.setOnClickListener( (clickedView) -> {
-                    this.listener.onSelectingStudent();
-                }
-        );
+
     }
 
 

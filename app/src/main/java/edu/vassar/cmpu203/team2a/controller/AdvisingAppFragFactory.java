@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentFactory;
 import edu.vassar.cmpu203.team2a.view.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.DeleteAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
+import edu.vassar.cmpu203.team2a.view.ManageCatalogueFragment;
 
 
 public class AdvisingAppFragFactory extends FragmentFactory {
@@ -29,6 +30,8 @@ public class AdvisingAppFragFactory extends FragmentFactory {
             fragment = new DeleteAdviseeViewFragment(controller);
         else if (fragmentClass == MainMenuFragment.class)
                 fragment = new MainMenuFragment(controller);
+        else if (fragmentClass == ManageCatalogueFragment.class)
+            fragment = new ManageCatalogueFragment(controller);
         else fragment = super.instantiate(classLoader, className);
 
         return fragment;

@@ -10,13 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
 
 
 public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
     private FragmentAddAdviseeBinding binding;
-    private Listener listener;
+    private IManageAdviseeView.Listener listener;
 
     public AddAdviseeViewFragment(Listener listener){
         this.listener = listener;
@@ -31,17 +33,33 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-            this.binding.doneButton.setOnClickListener((clickedView) -> {
-            Editable nameEditable = binding.nameEditText.getText();
+            this.binding.doneButton3.setOnClickListener((clickedView) -> {
+            Editable nameEditable = binding.studentName.getText();
             String name = nameEditable.toString();
 
-            Editable classYearEditable = binding.classYearEditText.getText();
+            Editable classYearEditable = binding.classYear.getText();
             String classYearString = classYearEditable.toString();
-            int classYear = Integer.parseInt(classYearString);
+                int classYear = -1;
 
-            Editable idEditable = binding.idEditText.getText();
+                try{
+                    classYear = Integer.parseInt((classYearString));
+
+                }catch (NumberFormatException e){}
+
+                if (classYear < 2022 || classYear> 2024) {
+                    Snackbar.make(view, "Invalid class Year. Please provide a current class year in the pattern 20XX.",Snackbar.LENGTH_LONG).show();
+                }else{
+                    classYearEditable.clear();
+
+                }
+
+            Editable idEditable = binding.studentIdLabel.getText();
             String idString = idEditable.toString();
             int id = Integer.parseInt(idString);
+
+
+
+
 
             this.listener.addAdvisee(name, id, classYear);
         });

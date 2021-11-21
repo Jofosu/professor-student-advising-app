@@ -27,17 +27,17 @@ public class ManageAdviseesMenuTest {
     @Test
     public void testAdvisorAddAdviseeButton() {
 
-        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.adviseeListLabel));
+        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.advisorMenuLabel));
         menu.check(matches(ViewMatchers.withText(R.string.adviseeListTextView)));
-        Espresso.onView(ViewMatchers.withId(R.id.addAdvisee)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.textViewAdviseeInfo)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.addAdviseeButton4)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.textView8)).check(matches(isDisplayed()));
     }
 
     @Test
     public void testAdvisorRemoveAdviseeButton() {
-        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.adviseeListLabel));
-        Espresso.onView(ViewMatchers.withId(R.id.removeAdvisee)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.textViewAdviseeInfo)).check(matches(isDisplayed()));
+        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.advisorMenuLabel));
+        Espresso.onView(ViewMatchers.withId(R.id.deleteAdviseeButton2)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.textView8)).check(matches(isDisplayed()));
     }
 
 
