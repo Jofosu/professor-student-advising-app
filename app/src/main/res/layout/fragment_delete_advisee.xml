@@ -83,7 +83,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAdviseeInfo" />
 
         <TextView
             android:id="@+id/textView11"
@@ -98,7 +98,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idEditText" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textViewAdviseeInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="92dp"
