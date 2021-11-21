@@ -57,7 +57,7 @@ public class MainMenuTest {
     public void testAdvisorButton() {
         ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessage));
         Espresso.onView(ViewMatchers.withId(R.id.advisorButtton)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.adviseeListTextView)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.advisorMenuLabel)).check(matches(isDisplayed()));
     }
 
 
