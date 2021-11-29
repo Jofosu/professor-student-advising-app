@@ -1,87 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/studentId"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.AddAdviseeViewFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/addCourseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/advisorAddStudentMenuLabel"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="46dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="533dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="168dp">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/editFirstNameLabel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="185dp"
-            android:text="Enter Advisee Information"
-            android:textAlignment="center"
-            android:textColor="#3F51B5"
-            android:textSize="48sp"
-            app:layout_constraintBottom_toTopOf="@+id/studentName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_height="31dp"
+            android:labelFor="@id/editFirstName"
+            android:text="@string/firstNameLabel"
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/studentName"
-            android:layout_width="404dp"
+            android:id="@+id/editFirstName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="380dp"
+            android:autofillHints="@string/firstNameLabel"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/nameLabel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/editMiddleNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:labelFor="@id/editMiddleName"
+            android:text="@string/middleNameLabel"
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/studentIdLabel"
-            android:layout_width="408dp"
+            android:id="@+id/editMiddleName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="57dp"
-            android:layout_marginBottom="57dp"
+            android:autofillHints="@string/middleNameLabel"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/studentIdLabel"
-            app:layout_constraintBottom_toTopOf="@+id/classYear"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/studentName" />
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/editLastNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:labelFor="@id/editLastName"
+            android:text="@string/lastNameLabel"
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/classYear"
-            android:layout_width="405dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="57dp"
+            android:id="@+id/editLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/lastNameLabel"
             android:ems="10"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/editClassYearLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:labelFor="@id/editClassYear"
             android:text="@string/classYearLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/studentIdLabel" />
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editClassYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:minHeight="48dp"
+            tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/editStudentIdLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:labelFor="@id/editStudentId"
+            android:text="@string/studentIdLabel"
+            android:textIsSelectable="true"
+            android:textSize="16sp"
+            tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/editStudentId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/doneButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
-            android:layout_marginEnd="162dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:text="@string/doneLabel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/classYear"
-            app:layout_constraintVertical_bias="0.459" />
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

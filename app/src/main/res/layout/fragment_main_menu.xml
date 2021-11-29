@@ -22,13 +22,22 @@
             android:id="@+id/hodButon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/HOD_menu_heading" />
+            android:text="@string/HOD_menu_heading"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/advisorButtton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/advisor_button" />
+            android:text="@string/advisor_button"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/studentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/student_button"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </FrameLayout>
