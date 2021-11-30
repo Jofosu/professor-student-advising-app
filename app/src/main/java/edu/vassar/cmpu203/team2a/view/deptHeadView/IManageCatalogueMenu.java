@@ -1,4 +1,4 @@
-package edu.vassar.cmpu203.team2a.view;
+package edu.vassar.cmpu203.team2a.view.deptHeadView;
 
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 

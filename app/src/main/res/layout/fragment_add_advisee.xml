@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:baselineAligned="false">
+    android:background="#FFFFFFFF"
+    android:baselineAligned="false"
+    android:foregroundTint="#000000">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:foregroundTint="#FFFFFF"
         android:scrollbars="vertical">
 
         <TextView
@@ -47,12 +50,14 @@
                     android:id="@+id/editFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="62dp"
-                    android:fontFamily="sans-serif-medium"
+                    android:background="@color/white"
 
+                    android:fontFamily="sans-serif-medium"
                     android:hint="@string/firstNameLabel"
                     android:inputType="textPersonName"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/white" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/middleNameLabel"
@@ -64,6 +69,7 @@
                         android:id="@+id/editMiddleName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/white"
                         android:fontFamily="sans-serif-medium"
                         android:hint="@string/middleNameLabel"
                         android:inputType="textPersonName"
@@ -80,6 +86,7 @@
                             android:id="@+id/editLastName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:fontFamily="sans-serif-medium"
                             android:hint="@string/lastNameLabel"
                             android:inputType="textPersonName"
@@ -95,6 +102,7 @@
                                 android:id="@+id/editClassYear"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/white"
                                 android:fontFamily="sans-serif-medium"
                                 android:hint="@string/classYearLabel"
                                 android:maxLength="4"
@@ -111,10 +119,10 @@
                                     android:id="@+id/editStudentId"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/white"
                                     android:fontFamily="sans-serif-medium"
                                     android:hint="@string/studentIdLabel"
                                     android:maxLength="9"
-                                    android:numeric="signed"
                                     android:singleLine="true"
                                     android:textColorHint="@color/black" />
 

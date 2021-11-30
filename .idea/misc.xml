@@ -15,30 +15,26 @@
         <entry key="..\:/Users/judeo/AndroidStudioProjects/advisingApp/app/src/main/res/layout/main_view.xml" value="0.1" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/drawable/ic_launcher_background.xml" value="0.290625" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout-land/fragment_add_advisee.xml" value="0.23236331569664903" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout-land/fragment_advisor_menu.xml" value="0.23236331569664903" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout-land/fragment_delete_advisee.xml" value="0.264" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout-land/fragment_main_menu.xml" value="0.23236331569664903" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_add_advisee.xml" value="0.536" />
+        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_add_advisee.xml" value="0.152" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_add_dept_course.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_advisor_menu.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_delete_advisee.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_main_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_manage_catalogue_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/fragment_options_menu.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/judeo/AndroidStudioProjects/team-2a/app/src/main/res/layout/main_view.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_dept_course.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/fragement_manage_advisees_menu.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_add_advisee.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_add_advisee.xml" value="0.43886255924170614" />
         <entry key="app/src/main/res/layout/fragment_add_dept_course.xml" value="0.19021739130434784" />
-        <entry key="app/src/main/res/layout/fragment_advisor_menu.xml" value="0.15096251266464034" />
-        <entry key="app/src/main/res/layout/fragment_delete_advisee.xml" value="0.11195542046605876" />
+        <entry key="app/src/main/res/layout/fragment_advisor_menu.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/fragment_delete_advisee.xml" value="0.24" />
+        <entry key="app/src/main/res/layout/fragment_dept_head_menu.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_manage_advisee.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_manage_advisees_menu.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_manage_catalogue_menu.xml" value="0.13632246376811594" />
+        <entry key="app/src/main/res/layout/fragment_manage_catalogue_menu.xml" value="0.29333333333333333" />
         <entry key="app/src/main/res/layout/fragment_options_menu.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_pool_menu.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/main_view.xml" value="0.12047101449275362" />
       </map>
     </option>
@@ -48,5 +44,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.6666666666666666" />
+      </ProjectState>
+    </option>
   </component>
 </project>

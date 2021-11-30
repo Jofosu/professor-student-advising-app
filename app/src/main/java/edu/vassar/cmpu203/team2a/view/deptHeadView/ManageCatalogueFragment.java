@@ -1,4 +1,4 @@
-package edu.vassar.cmpu203.team2a.view;
+package edu.vassar.cmpu203.team2a.view.deptHeadView;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentPoolMenuBinding;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
 
 public class ManageCatalogueFragment extends Fragment implements IManageCatalogueMenu {
     FragmentPoolMenuBinding binding;

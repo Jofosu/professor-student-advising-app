@@ -1,4 +1,4 @@
-package edu.vassar.cmpu203.team2a.view;
+package edu.vassar.cmpu203.team2a.view.advisorView;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
-
+import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
 
 
 public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {

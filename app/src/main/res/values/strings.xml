@@ -27,6 +27,9 @@
     <string name="doneLabel"> DONE</string>
     <string name="createPoolLabel"> Create Pool </string>
     <string name="removePoolLabel"> Remove Pool </string>
-    <string name="coursesListLabel">There\'s\ no Pool to show</string>
+    <string name="manageCatalogueButtonLabel"> Manage Catalogue </string>
+    <string name="manageMajorLabel"> Manage Major </string>
+    <string name="coursesListLabel">There\'s\ no pools to show</string>
+    <string name="listOfCourses">There\'s\ no courses to show</string>
 
 </resources>

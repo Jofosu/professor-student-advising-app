@@ -9,29 +9,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import edu.vassar.cmpu203.team2a.databinding.FragmentDeptHeadMenuBinding;
 import edu.vassar.cmpu203.team2a.databinding.FragmentPoolMenuBinding;
 
 
-public class OptionsMenuFragment extends Fragment implements IOptionsMenu {
+public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
 
-    FragmentPoolMenuBinding binding;
+    FragmentDeptHeadMenuBinding binding;
     Listener listener;
 
-    public OptionsMenuFragment(Listener listener){this.listener = listener;}
+    public DeptHeadMenuFragment(Listener listener){this.listener = listener;}
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       this.binding = FragmentPoolMenuBinding.inflate(inflater);
+       this.binding = FragmentDeptHeadMenuBinding.inflate(inflater);
        return this.binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        this.binding.createPoolButton.setOnClickListener((clickedView) -> {
-            listener.onManageCourses();
+        this.binding.manageCatalogueButton.setOnClickListener((clickedView) -> {
+            listener.onManageCatalogue();
         });
 
+        this.binding.manageMajorButton.setOnClickListener((clickedView) -> {
+            listener.onManageMajor();
+        });
     }
 }
