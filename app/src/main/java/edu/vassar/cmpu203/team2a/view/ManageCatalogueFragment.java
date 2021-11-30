@@ -9,13 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import edu.vassar.cmpu203.team2a.databinding.FragmentAddDeptCourseBinding;
-import edu.vassar.cmpu203.team2a.databinding.FragmentManageCatalogueMenuBinding;
-import edu.vassar.cmpu203.team2a.databinding.FragmentOptionsMenuBinding;
+
+import edu.vassar.cmpu203.team2a.databinding.FragmentPoolMenuBinding;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 
 public class ManageCatalogueFragment extends Fragment implements IManageCatalogueMenu {
-    FragmentOptionsMenuBinding binding;
+    FragmentPoolMenuBinding binding;
     IManageCatalogueMenu.Listener listener;
 
     public ManageCatalogueFragment(Listener listener) {
@@ -24,13 +23,13 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.binding = FragmentOptionsMenuBinding.inflate(inflater);
+        this.binding = FragmentPoolMenuBinding.inflate(inflater);
         return this.binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        this.binding.manageCoursesButton.setOnClickListener((clickedView) -> {
+        this.binding.createPoolButton.setOnClickListener((clickedView) -> {
             listener.onSelectAdd();
         });
 

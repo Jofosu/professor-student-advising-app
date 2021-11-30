@@ -1,15 +1,14 @@
 package edu.vassar.cmpu203.team2a.view;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
 
@@ -18,7 +17,7 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
 public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
    private FragmentDeleteAdviseeBinding binding;
-   private IManageAdviseeView.Listener listener;
+   private final IManageAdviseeView.Listener listener;
 
     public DeleteAdviseeViewFragment(Listener listener){
         this.listener = listener;
@@ -35,7 +34,7 @@ public class DeleteAdviseeViewFragment extends Fragment implements IManageAdvise
 
         this.binding.button.setOnClickListener((clickedView) -> {
 
-            Editable idEditable = binding.studentIdlabel2.getText();
+            Editable idEditable = binding.editStudentId2.getEditableText();
             String idString = idEditable.toString();
             int id = Integer.parseInt(idString);
 

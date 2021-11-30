@@ -7,26 +7,30 @@
     tools:context=".view.AddAdviseeViewFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="736dp"
         android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editStudentId2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="100dp"
             android:layout_marginBottom="24dp"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/studentIdLabel"
+            android:inputType="number"
             android:maxLength="9"
+            android:minHeight="48dp"
             android:numeric="signed"
             android:singleLine="true"
             android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addAdviseeMenuLabel2" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/addAdviseeMenuLabel2"
@@ -36,6 +40,7 @@
             android:layout_marginBottom="16dp"
             android:clickable="true"
             android:fontFamily="sans-serif-medium"
+            android:minHeight="48dp"
             android:text="@string/advisorAddStudentMenuLabel"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/editStudentId2"

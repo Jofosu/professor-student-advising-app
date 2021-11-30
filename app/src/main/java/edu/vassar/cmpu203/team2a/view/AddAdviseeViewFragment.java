@@ -18,7 +18,7 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
 public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
     private FragmentAddAdviseeBinding binding;
-    private IManageAdviseeView.Listener listener;
+    private final IManageAdviseeView.Listener listener;
 
     public AddAdviseeViewFragment(Listener listener){
         this.listener = listener;

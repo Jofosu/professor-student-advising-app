@@ -25,5 +25,8 @@
     <string name="classYearLabel">Class Year</string>
     <string name="studentIdLabel">Student Id</string>
     <string name="doneLabel"> DONE</string>
-    <string name="coursesListLabel">Courses:</string>
+    <string name="createPoolLabel"> Create Pool </string>
+    <string name="removePoolLabel"> Remove Pool </string>
+    <string name="coursesListLabel">There\'s\ no Pool to show</string>
+
 </resources>

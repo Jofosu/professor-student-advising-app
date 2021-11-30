@@ -10,7 +10,7 @@ import edu.vassar.cmpu203.team2a.view.ManageCatalogueFragment;
 
 
 public class AdvisingAppFragFactory extends FragmentFactory {
-    private ControllerActivity controller;
+    private final ControllerActivity controller;
 
     public AdvisingAppFragFactory(ControllerActivity controller) {
         this.controller = controller;
