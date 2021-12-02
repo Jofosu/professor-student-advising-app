@@ -33,7 +33,7 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-            this.binding.addButton.setOnClickListener((clickedView) -> {
+            this.binding.doneButton3.setOnClickListener((clickedView) -> {
             Editable firstNameEditable = binding.editFirstName.getText();
             String firstname = firstNameEditable.toString();
 
@@ -65,16 +65,14 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
                     id = Integer.parseInt((classYearString));
 
                 }catch (NumberFormatException e){
-                    Snackbar.make(view, "Invalid id number", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, "Invalid characters in id number", Snackbar.LENGTH_LONG).show();
                 }
 
 
             this.listener.addAdvisee(fullName, id, classYear);
         });
 
-        this.binding.doneButton3.setOnClickListener((clickedView) ->{
-            this.listener.doneAdvisee();
-        });
+
 
 
     }

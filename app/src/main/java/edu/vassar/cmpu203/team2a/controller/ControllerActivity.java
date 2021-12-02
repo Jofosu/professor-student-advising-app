@@ -104,13 +104,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void addAdvisee(String name, int id, int classYear) {
         advisor.addAdvisee(name,id,classYear);
-        Snackbar.make((View) this.mainView, "New Advisee Added" , Snackbar.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void doneAdvisee(){
-        Fragment f = new DeptHeadMenuFragment(this);
-        this.mainView.displayFragment(f);
+        Fragment f = new AdvisorMenuFrag(this);
     }
 
 
