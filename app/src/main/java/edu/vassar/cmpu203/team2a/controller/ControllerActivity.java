@@ -17,10 +17,12 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.EnterPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IMainView;
 import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IEnterPoolName;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
 
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
@@ -30,7 +32,7 @@ import edu.vassar.cmpu203.team2a.view.deptHeadView.ManageCatalogueFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
 
-public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener {
+public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener{
     private Course course;
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
@@ -120,6 +122,13 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
     @Override
+    public void onSelectCreatePool() {
+        Fragment f = new EnterPoolNameFragment(this);
+        this.mainView.displayFragment(f);
+
+    }
+
+    @Override
     public void onManageCatalogue() {
         Fragment f = new ManageCatalogueFragment(this);
         this.mainView.displayFragment(f);
@@ -129,5 +138,11 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     public void onManageMajor() {
         Fragment f = new ManageCatalogueFragment(this);
         this.mainView.displayFragment(f);
+    }
+
+
+    @Override
+    public void removePool(String idString) {
+
     }
 }

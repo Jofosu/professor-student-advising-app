@@ -41,6 +41,7 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
                     this.listener.onSelectingDeleteAdvisee();
                 }
         );
+
     }
 
 

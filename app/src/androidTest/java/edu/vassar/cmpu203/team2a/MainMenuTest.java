@@ -1,4 +1,4 @@
-package edu.vassar.cmpu203.team2a;
+/*package edu.vassar.cmpu203.team2a;
 
 
 import static androidx.test.espresso.action.ViewActions.click;
@@ -53,6 +53,7 @@ public class MainMenuTest {
     /**
      Testing the advisor button goes to the manage advisees menu
      */
+    /*
     @Test
     public void testAdvisorButton() {
         ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessage));
@@ -65,3 +66,4 @@ public class MainMenuTest {
 
 }
 
+*/

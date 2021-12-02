@@ -19,6 +19,18 @@ public class Major {
         major.put(poolName, newPool);
         return major.containsKey(poolName);
     }
+
+    /**
+     * Remove a Pool in a Major
+     * @param poolName the name of the pool being removed
+     * @return true/false if the the Pool was removed from a Major
+     */
+    public boolean removePool(String poolName){
+        major.remove(poolName);
+        return !major.containsKey(poolName);
+    }
+
+
     /**
      * Adds courses to a Pool in a Major
      * @param courseToAdd A course that is added to a pool in a major
