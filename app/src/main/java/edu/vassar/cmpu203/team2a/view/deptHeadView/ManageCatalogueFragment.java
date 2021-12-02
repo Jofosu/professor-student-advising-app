@@ -32,10 +32,15 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         this.binding.createPoolButton.setOnClickListener((clickedView) -> {
             listener.onSelectAdd();
-        });
+        }
+        );
 
-
+            this.binding.createPoolButton.setOnClickListener((clickedView) -> {
+            listener.onSelectCreatePool();
+                    }
+                    );
     }
+
 
     @Override
     public void updateDisplay(CourseCatalogue catalogue) {

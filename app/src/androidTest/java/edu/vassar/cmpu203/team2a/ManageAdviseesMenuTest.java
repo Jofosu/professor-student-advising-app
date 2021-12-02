@@ -1,4 +1,4 @@
-package edu.vassar.cmpu203.team2a;
+/*package edu.vassar.cmpu203.team2a;
 
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -23,7 +23,7 @@ public class ManageAdviseesMenuTest {
      * Testing that we can navigate to the addAdvisee menu or the removeAdvisee menu from the
      * manage advisees menu using buttons
      */
-
+/*
     @Test
     public void testAdvisorAddAdviseeButton() {
 
@@ -44,4 +44,4 @@ public class ManageAdviseesMenuTest {
 
 
 }
-
+*/
