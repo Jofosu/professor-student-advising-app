@@ -33,7 +33,7 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
-            this.binding.doneButton3.setOnClickListener((clickedView) -> {
+            this.binding.addButton.setOnClickListener((clickedView) -> {
             Editable firstNameEditable = binding.editFirstName.getText();
             String firstname = firstNameEditable.toString();
 
@@ -70,6 +70,10 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
 
 
             this.listener.addAdvisee(fullName, id, classYear);
+        });
+
+        this.binding.doneButton3.setOnClickListener((clickedView) ->{
+            this.listener.doneAdvisee();
         });
 
 

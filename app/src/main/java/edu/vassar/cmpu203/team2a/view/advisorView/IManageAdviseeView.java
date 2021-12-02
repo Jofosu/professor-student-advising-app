@@ -4,5 +4,6 @@ public interface IManageAdviseeView {
     interface Listener{
         void addAdvisee(String name,int id, int classYear);
         void deleteAdvisee(int id);
+        void doneAdvisee();
     }
 }

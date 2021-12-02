@@ -2,10 +2,13 @@ package edu.vassar.cmpu203.team2a.controller;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
@@ -101,9 +104,15 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void addAdvisee(String name, int id, int classYear) {
         advisor.addAdvisee(name,id,classYear);
+        Snackbar.make((View) this.mainView, "New Advisee Added" , Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void doneAdvisee(){
         Fragment f = new DeptHeadMenuFragment(this);
         this.mainView.displayFragment(f);
     }
+
 
     @Override
     public void deleteAdvisee(int id) {

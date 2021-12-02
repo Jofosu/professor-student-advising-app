@@ -24,6 +24,7 @@
     <string name="lastNameLabel">Last Name</string>
     <string name="classYearLabel">Class Year</string>
     <string name="studentIdLabel">Student Id</string>
+    <string name="add_advisee_label"> Add Advisee</string>
     <string name="doneLabel"> DONE</string>
     <string name="createPoolLabel"> Create Pool </string>
     <string name="removePoolLabel"> Remove Pool </string>
