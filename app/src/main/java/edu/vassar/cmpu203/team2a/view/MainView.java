@@ -28,6 +28,7 @@ public class MainView implements IMainView{
         this.activity.getSupportFragmentManager()
                 .beginTransaction()
                 .replace(this.binding.fragmentContainerView.getId(), fragment)
-                .commitNow();
+                .addToBackStack(null)
+                .commit();
     }
 }
