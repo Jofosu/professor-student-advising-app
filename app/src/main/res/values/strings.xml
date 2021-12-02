@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">team-2a</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="manage_dept_course_label">Manage Department Courses</string>
     <string name="edit_major_req">Edit Major Requirements</string>
     <string name="manage_advisees">Manage Advisees</string>
@@ -13,14 +13,23 @@
     <string name="advisor_button">Advisor</string>
     <string name="head_of_dept_button">Head of Department</string>
     <string name="welcome_message">Please select one of the options below</string>
-    <string name="adviseeListLabel"> Advisees:</string>\
+    <string name="adviseeListLabel"> You currently have no advisees</string>\
     <string name="adviseeListTextView">No advisee to display</string>
     <string name="add_advisee_button">Add Advisee</string>
     <string name="remove_advisee_button">Remove Advisee</string>
+    <string name="advisorAddStudentMenuLabel">Enter Student Information</string>
     <string name="advisorMenuLabel">Choose between the two options</string>
-    <string name="nameLabel">Full Name</string>
+    <string name="firstNameLabel">First Name</string>
+    <string name="middleNameLabel">Middle Name</string>
+    <string name="lastNameLabel">Last Name</string>
     <string name="classYearLabel">Class Year</string>
     <string name="studentIdLabel">Student Id</string>
     <string name="doneLabel"> DONE</string>
-    <string name="coursesListLabel">Courses:</string>
+    <string name="createPoolLabel"> Create Pool </string>
+    <string name="removePoolLabel"> Remove Pool </string>
+    <string name="manageCatalogueButtonLabel"> Manage Catalogue </string>
+    <string name="manageMajorLabel"> Manage Major </string>
+    <string name="coursesListLabel">There\'s\ no pools to show</string>
+    <string name="listOfCourses">There\'s\ no courses to show</string>
+
 </resources>

@@ -66,8 +66,8 @@ public class Major {
     public class Pool{
 
         private int numOfRequiredCourses;
-        private List<Course> poolList = new LinkedList<Course>();
-        private String poolName;
+        private final List<Course> poolList = new LinkedList<Course>();
+        private final String poolName;
         public Pool(String poolName){
             this.poolName = poolName;
 

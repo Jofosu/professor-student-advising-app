@@ -3,14 +3,14 @@ package edu.vassar.cmpu203.team2a.controller;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
-import edu.vassar.cmpu203.team2a.view.AddAdviseeViewFragment;
-import edu.vassar.cmpu203.team2a.view.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
-import edu.vassar.cmpu203.team2a.view.ManageCatalogueFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.ManageCatalogueFragment;
 
 
 public class AdvisingAppFragFactory extends FragmentFactory {
-    private ControllerActivity controller;
+    private final ControllerActivity controller;
 
     public AdvisingAppFragFactory(ControllerActivity controller) {
         this.controller = controller;

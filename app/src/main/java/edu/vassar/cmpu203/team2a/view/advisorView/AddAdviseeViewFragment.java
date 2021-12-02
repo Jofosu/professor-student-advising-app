@@ -1,4 +1,4 @@
-package edu.vassar.cmpu203.team2a.view;
+package edu.vassar.cmpu203.team2a.view.advisorView;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,7 +18,7 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
 public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeView {
 
     private FragmentAddAdviseeBinding binding;
-    private IManageAdviseeView.Listener listener;
+    private final IManageAdviseeView.Listener listener;
 
     public AddAdviseeViewFragment(Listener listener){
         this.listener = listener;
@@ -34,10 +34,17 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
     public void onViewCreated(View view, Bundle savedInstanceState){
 
             this.binding.doneButton3.setOnClickListener((clickedView) -> {
-            Editable nameEditable = binding.studentName.getText();
-            String name = nameEditable.toString();
+            Editable firstNameEditable = binding.editFirstName.getText();
+            String firstname = firstNameEditable.toString();
 
-            Editable classYearEditable = binding.classYear.getText();
+                Editable middleNameEditable = binding.editMiddleName.getText();
+                String middleName = middleNameEditable.toString();
+
+                Editable lastNameEditable = binding.editLastName.getText();
+                String lastName = lastNameEditable.toString();
+
+                String fullName = firstname+ " " + middleName+ " " + lastName;
+            Editable classYearEditable = binding.editClassYear.getText();
             String classYearString = classYearEditable.toString();
                 int classYear = -1;
 
@@ -48,12 +55,9 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
 
                 if (classYear < 2022 || classYear> 2024) {
                     Snackbar.make(view, "Invalid class Year. Please provide a current class year in the pattern 20XX.",Snackbar.LENGTH_LONG).show();
-                }else{
-                    classYearEditable.clear();
-
                 }
 
-            Editable idEditable = binding.studentIdLabel.getText();
+            Editable idEditable = binding.editStudentId.getText();
             String idString = idEditable.toString();
             int id = Integer.parseInt(idString);
 
@@ -61,7 +65,7 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
 
 
 
-            this.listener.addAdvisee(name, id, classYear);
+            this.listener.addAdvisee(fullName, id, classYear);
         });
 
 

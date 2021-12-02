@@ -14,9 +14,12 @@
         <TextView
             android:id="@+id/welcomeMessage"
             android:layout_width="match_parent"
-            android:layout_height="287dp"
+            android:layout_height="185dp"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/welcome_message"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/hodButon"

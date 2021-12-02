@@ -1,11 +1,11 @@
-package edu.vassar.cmpu203.team2a.view;
+package edu.vassar.cmpu203.team2a.view.deptHeadView;
 
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 
 public interface IManageCatalogueMenu {
-    public interface Listener{
+    interface Listener{
         void onSelectAdd();
 
     }
-    public void updateDisplay(CourseCatalogue catalogue);
+    void updateDisplay(CourseCatalogue catalogue);
 }

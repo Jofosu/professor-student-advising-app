@@ -9,8 +9,8 @@ import edu.vassar.cmpu203.team2a.databinding.MainViewBinding;
 
 public class MainView implements IMainView{
 
-    private FragmentActivity activity;
-    private MainViewBinding binding;
+    private final FragmentActivity activity;
+    private final MainViewBinding binding;
 
     public MainView(FragmentActivity activity){
         this.binding = MainViewBinding.inflate(activity.getLayoutInflater());

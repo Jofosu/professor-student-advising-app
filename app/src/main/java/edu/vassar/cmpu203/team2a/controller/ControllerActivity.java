@@ -10,22 +10,24 @@ import androidx.fragment.app.FragmentFactory;
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
-import edu.vassar.cmpu203.team2a.view.AddAdviseeViewFragment;
-import edu.vassar.cmpu203.team2a.view.DeleteAdviseeViewFragment;
-import edu.vassar.cmpu203.team2a.view.IAddDeptCourseView;
+import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
+import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
+import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IMainView;
-import edu.vassar.cmpu203.team2a.view.IManageAdviseeView;
-import edu.vassar.cmpu203.team2a.view.IManageCatalogueMenu;
-import edu.vassar.cmpu203.team2a.view.IOptionsMenu;
+import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
+
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
 import edu.vassar.cmpu203.team2a.view.MainView;
-import edu.vassar.cmpu203.team2a.view.ManageCatalogueFragment;
-import edu.vassar.cmpu203.team2a.view.OptionsMenuFragment;
-import edu.vassar.cmpu203.team2a.view.AdvisorMenuFrag;
-import edu.vassar.cmpu203.team2a.view.IAdvisorMenufrag;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.ManageCatalogueFragment;
 
-public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener, IOptionsMenu.Listener, IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener {
+import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
+import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
+
+public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener {
     private Course course;
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
@@ -71,14 +73,10 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onSelectingHOD() {
-        Fragment f = new OptionsMenuFragment(this);
+        Fragment f = new DeptHeadMenuFragment(this);
         this.mainView.displayFragment(f);
     }
 
-    @Override
-    public void onManageCourses() {
-
-    }
 
 
 
@@ -113,6 +111,18 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onSelectAdd() {
+        Fragment f = new ManageCatalogueFragment(this);
+        this.mainView.displayFragment(f);
+    }
+
+    @Override
+    public void onManageCatalogue() {
+        Fragment f = new ManageCatalogueFragment(this);
+        this.mainView.displayFragment(f);
+    }
+
+    @Override
+    public void onManageMajor() {
         Fragment f = new ManageCatalogueFragment(this);
         this.mainView.displayFragment(f);
     }
