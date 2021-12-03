@@ -14,6 +14,7 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.EnterPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
@@ -34,7 +35,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
     private Advisor advisor;
-
+    private IManageCatalogueMenu catalogueMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +51,16 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
     @Override
-    public void onAddedCourse(String id, String time, IAddDeptCourseView AddDeptCourseView) {
+    public void onAddedCourse(String id, String time) {
         Log.d("AdvisingApp", "controller is handling adding a course");
         this.courseCatalogue.addCourse(id, time);
-        AddDeptCourseView.updateDisplay(this.course);
     }
 
     @Override
-    public void onCourseDone() {
+        public void onCourseDone() {
+        Fragment f = new ManageCatalogueFragment(this);
+        this.mainView.displayFragment(f);
+
 
     }
 
@@ -113,7 +116,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onSelectAdd() {
-        Fragment f = new ManageCatalogueFragment(this);
+        Fragment f = new AddDepartmentCourseFragment(this);
         this.mainView.displayFragment(f);
     }
 
