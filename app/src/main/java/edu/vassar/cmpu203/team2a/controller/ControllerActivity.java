@@ -16,6 +16,7 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.EnterPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
@@ -26,13 +27,14 @@ import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
 
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
 import edu.vassar.cmpu203.team2a.view.MainView;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IRemoveDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.ManageCatalogueFragment;
 
 import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragment;
 
-public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener{
-    private Course course;
+public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener {
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
 
@@ -44,6 +46,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     public Advisor getAdvisor() {
         return this.advisor;
     }
+    public CourseCatalogue getCourseCatalogue(){return this.courseCatalogue;}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +62,18 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
     @Override
-    public void onAddedCourse(String id, String time, IAddDeptCourseView AddDeptCourseView) {
+    public void onAddedCourse(String id, String time) {
         Log.d("AdvisingApp", "controller is handling adding a course");
         this.courseCatalogue.addCourse(id, time);
-        AddDeptCourseView.updateDisplay(this.course);
+        this.onManageCatalogue();
     }
 
     @Override
-    public void onCourseDone() {
+    public void onRemovedCourse(String courseID){
+        this.courseCatalogue.removeCourse(courseID);
+        this.onManageCatalogue();
 
     }
-
 
     @Override
     public void onSelectingStudent() {
@@ -124,20 +128,25 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onAddCourse() {
+        Fragment f = new AddDepartmentCourseFragment(this);
+        this.mainView.displayFragment(f);
 
     }
 
     @Override
     public void onRemoveCourse() {
-
-    }
-
-    @Override
-    public void onSelectCreatePool() {
-        Fragment f = new EnterPoolNameFragment(this);
+        Fragment f = new RemoveDepartmentCourseFragment(this);
         this.mainView.displayFragment(f);
 
     }
+
+
+  //  @Override
+  //  public void onSelectCreatePool() {
+  //      Fragment f = new EnterPoolNameFragment(this);
+   //     this.mainView.displayFragment(f);
+
+  //  }
 
     @Override
     public void onManageCatalogue() {
