@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeptHeadMenuBinding;
-import edu.vassar.cmpu203.team2a.databinding.FragmentPoolMenuBinding;
 
 public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
 
