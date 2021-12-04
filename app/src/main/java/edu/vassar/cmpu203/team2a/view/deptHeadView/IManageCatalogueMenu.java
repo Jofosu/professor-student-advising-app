@@ -6,8 +6,8 @@ public interface IManageCatalogueMenu {
     interface Listener{
         void onAddCourse();
         void onRemoveCourse();
-
+        void onSelectCreatePool();
 
     }
-    void updateMenuDisplay(CourseCatalogue courseCatalogue);
+    void updateDisplay(CourseCatalogue catalogue);
 }

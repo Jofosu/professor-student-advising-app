@@ -6,15 +6,11 @@ class CourseCatalogue{
 +addCourse()
 +removeCourse()
 +returnCourseList()
-+size()
-+inCatalogue()
-+get()
 }
 
 class Course{
 String: id "CS203"
 String:time
-List:prerequisites
 }
 
 class Advisor{
@@ -22,48 +18,20 @@ class Advisor{
 +addAdvisee()
 +deleteAdivsee()
 +returnAdviseeList()
-+size()
-+getAdvisee()
-+addClassTaken()
 }
 
 class Advisee{
 String:name
 int: id
 int: classYear
-List: classesTaken
-
-}
-
-class Major{
-Hashmap:Major pools
---
-+createPool()
-+addCourse()
-+getMajor()
-+setRequiredPoolCourses
-+removeCourse
-
-}
-class Pool{
-int numRequiredCourses
-List poolList
-String poolName
---
-+Pool()
-+getNumReq()
-}
-
-class Controller{
-
+List: courses
 }
 
 CourseCatalogue *- Course
 Advisor *- Advisee
 Controller *- CourseCatalogue
 Controller *- Advisor
-Major *- Pool
-Controller *- Major
+
 @enduml
 
-
+case 1: new
