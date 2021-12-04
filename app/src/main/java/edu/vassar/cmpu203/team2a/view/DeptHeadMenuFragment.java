@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeptHeadMenuBinding;
+import edu.vassar.cmpu203.team2a.databinding.FragmentPoolMenuBinding;
+
 
 public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
 
@@ -17,6 +19,7 @@ public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
     Listener listener;
 
     public DeptHeadMenuFragment(Listener listener){this.listener = listener;}
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,10 +34,8 @@ public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
             listener.onManageCatalogue();
         });
 
-        this.binding.ManagePool.setOnClickListener((clickedView) -> {
+        this.binding.manageMajorButton.setOnClickListener((clickedView) -> {
             listener.onManageMajor();
         });
-
-
     }
 }

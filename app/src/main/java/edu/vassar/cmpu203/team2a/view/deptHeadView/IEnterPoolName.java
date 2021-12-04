@@ -4,9 +4,5 @@ public interface IEnterPoolName {
     interface Listener{
 
         void removePool(String idString);
-
-        void onPoolAdded(String idString);
-
-        void onRemovePool(String idString);
     }
 }

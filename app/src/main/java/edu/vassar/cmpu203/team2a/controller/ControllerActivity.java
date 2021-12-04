@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
-import edu.vassar.cmpu203.team2a.model.Major;
 import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
@@ -38,7 +37,7 @@ import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragmen
 public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener {
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
-    Major major = new Major();
+
 
 
     private Advisor advisor;
@@ -157,23 +156,13 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onManageMajor() {
-        Fragment f = new EnterPoolNameFragment(this);
+        Fragment f = new ManageCatalogueFragment(this);
         this.mainView.displayFragment(f);
     }
 
 
     @Override
     public void removePool(String idString) {
-
-    }
-
-    @Override
-    public void onPoolAdded(String idString) {
-        this.major.createPool(idString);
-    }
-
-    @Override
-    public void onRemovePool(String idString) {
 
     }
 }
