@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
+import java.util.LinkedList;
+
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
@@ -14,7 +16,6 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.EnterPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
@@ -34,8 +35,15 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     private Course course;
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
+
+
+
     private Advisor advisor;
-    private IManageCatalogueMenu catalogueMenu;
+
+
+    public Advisor getAdvisor() {
+        return this.advisor;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +59,14 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
     @Override
-    public void onAddedCourse(String id, String time) {
+    public void onAddedCourse(String id, String time, IAddDeptCourseView AddDeptCourseView) {
         Log.d("AdvisingApp", "controller is handling adding a course");
         this.courseCatalogue.addCourse(id, time);
+        AddDeptCourseView.updateDisplay(this.course);
     }
 
     @Override
-        public void onCourseDone() {
-        Fragment f = new ManageCatalogueFragment(this);
-        this.mainView.displayFragment(f);
-
+    public void onCourseDone() {
 
     }
 
@@ -83,11 +89,10 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
 
+    @Override
+    public void updateMenuDisplay(Advisor advisor) {
 
-
-    
-
-
+    }
 
     @Override
     public void onSelectingAddAdvisee() {
@@ -105,7 +110,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void addAdvisee(String name, int id, int classYear) {
-        advisor.addAdvisee(name,id,classYear);
+        this.advisor.addAdvisee(name,id,classYear,new LinkedList());
+        this.onSelectingAdvisor();
 
     }
 
@@ -114,10 +120,16 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         advisor.deleteAdvisee(id);
     }
 
+
+
     @Override
-    public void onSelectAdd() {
-        Fragment f = new AddDepartmentCourseFragment(this);
-        this.mainView.displayFragment(f);
+    public void onAddCourse() {
+
+    }
+
+    @Override
+    public void onRemoveCourse() {
+
     }
 
     @Override

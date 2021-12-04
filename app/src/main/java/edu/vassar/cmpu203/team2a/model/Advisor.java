@@ -5,15 +5,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import edu.vassar.cmpu203.team2a.model.Advisee;
-
 /**
  *  Contains a Hashmap list of advisees belonging to an adviser. There is a method to add an advisee to the list,
  *  a method to remove an advisee, and a method to return a list of advisees
  */
 public class Advisor {
 
-    HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
+     HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
 
     /**
      * adds an advisee to the Hashmap collection of advisees
@@ -33,16 +31,7 @@ public class Advisor {
             return false;
         }
     }
-//jUST USED FOR PROTOTYPE
-    public boolean addAdvisee(String name, int id, int classYear) {
-        if (String.valueOf(id).length() == 9 & String.valueOf(classYear).length() == 4) {
-            Advisee advisee = new Advisee(name, id, classYear);
-            advisees.put(id, advisee);
-            return advisees.containsKey(id);
-        } else {
-            return false;
-        }
-    }
+
 
     /**
      * Remove an advisee from the list of advisees
@@ -59,10 +48,10 @@ public class Advisor {
     /**
      * @return the list/collection of advisees
      */
-    public Set<String> returnAdviseeList() {
-        Set<String> names = new HashSet<>();
+    public Set<Advisee> returnAdviseeList() {
+        Set<Advisee> names = new HashSet<>();
         for(Advisee advisee : advisees.values()){
-            names.add(advisee.name + "-" + advisee.id);
+            names.add(advisee);
         }
         return names;
     }

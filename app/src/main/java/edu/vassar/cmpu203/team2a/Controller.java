@@ -72,9 +72,9 @@ public class Controller {
      * Sends back a list of the current advisees for an advisor
      * @return set of all the advisees
      */
-    public Set<String> returnAdviseeList() {
-        return advisor.returnAdviseeList();
-    }
+    //public Set<Advisee> returnAdviseeList() {
+      //  return advisor.returnAdviseeList();
+    //}
 
     /**
      * Not yet fully implemented, adds a class to the advisees class taken list
