@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="604dp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintTop_toTopOf="@+id/textInputLayout">
 
@@ -27,19 +27,44 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/poolEntry"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="137dp"
                 android:hint="@string/poolEntry" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_width="115dp"
+            android:layout_height="74dp"
+            android:layout_marginTop="116dp"
             android:text="@string/doneLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/AddButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AddPool"
+            tools:layout_editor_absoluteX="88dp"
+            tools:layout_editor_absoluteY="385dp" />
+
+        <Button
+            android:id="@+id/RemoveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RemovePool"
+            tools:layout_editor_absoluteX="273dp"
+            tools:layout_editor_absoluteY="385dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

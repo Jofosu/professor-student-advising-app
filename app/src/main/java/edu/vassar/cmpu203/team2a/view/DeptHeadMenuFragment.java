@@ -12,14 +12,12 @@ import androidx.fragment.app.Fragment;
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeptHeadMenuBinding;
 import edu.vassar.cmpu203.team2a.databinding.FragmentPoolMenuBinding;
 
-
 public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
 
     FragmentDeptHeadMenuBinding binding;
     Listener listener;
 
     public DeptHeadMenuFragment(Listener listener){this.listener = listener;}
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,8 +32,10 @@ public class DeptHeadMenuFragment extends Fragment implements IDeptHeadMenu {
             listener.onManageCatalogue();
         });
 
-        this.binding.manageMajorButton.setOnClickListener((clickedView) -> {
+        this.binding.ManagePool.setOnClickListener((clickedView) -> {
             listener.onManageMajor();
         });
+
+
     }
 }

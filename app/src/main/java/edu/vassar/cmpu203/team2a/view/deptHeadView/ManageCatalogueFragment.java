@@ -37,9 +37,7 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
         }
         );
 
-
     }
-
 
     @Override
     public void updateDisplay(CourseCatalogue catalogue) {

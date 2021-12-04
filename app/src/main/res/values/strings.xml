@@ -26,13 +26,13 @@
     <string name="studentIdLabel">Student Id</string>
     <string name="doneLabel"> DONE</string>
     <string name="createPoolLabel"> Create Pool </string>
-    <string name="removePoolLabel"> Remove Pool </string>
     <string name="manageCatalogueButtonLabel"> Manage Catalogue </string>
-    <string name="manageMajorLabel"> Manage Major </string>
+    <string name="ManagePools"> Manage Pools </string>
     <string name="coursesListLabel">There\'s\ no pools to show</string>
     <string name="listOfCourses">There\'s\ no courses to show</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="poolEntry">Enter Pool Name Here</string>
-
+    <string name="AddPool">Add</string>
+    <string name="RemovePool">Remove</string>
 </resources>

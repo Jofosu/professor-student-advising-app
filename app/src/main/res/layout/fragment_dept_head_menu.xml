@@ -24,21 +24,23 @@
         android:layout_marginTop="96dp"
         android:layout_marginBottom="24dp"
         android:text="@string/manageCatalogueButtonLabel"
-        app:layout_constraintBottom_toTopOf="@+id/manageMajorButton"
+        app:layout_constraintBottom_toTopOf="@+id/ManagePool"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headDeptMainMenuLabel" />
 
     <Button
-        android:id="@+id/manageMajorButton"
+        android:id="@+id/ManagePool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="193dp"
-        android:text="@string/manageMajorLabel"
+        android:text="@string/ManagePools"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manageCatalogueButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
