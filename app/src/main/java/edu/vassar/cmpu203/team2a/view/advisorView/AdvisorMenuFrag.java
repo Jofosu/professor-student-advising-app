@@ -58,11 +58,9 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
 
 
     public void updateMenuDisplay(Advisor advisor) {
-
-
-        Set<Advisee> advisees = advisor.returnAdviseeList();
-        for(Advisee advisee: advisees){
-            this.binding.adviseesLabel.append(advisee.getName());
+        if(advisor.returnAdviseeList().size() >=0) {
+            String advisees = advisor.adviseeNames();
+            this.binding.adviseesLabel.setText(advisees);
         }
     }
 }

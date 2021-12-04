@@ -31,6 +31,13 @@ public class Advisor {
             return false;
         }
     }
+    public String adviseeNames(){
+        String str= "";
+        for (Advisee advisee: this.returnAdviseeList()){
+            str += advisee.getName() + "\n";
+        }
+        return str;
+    }
 
 
     /**
