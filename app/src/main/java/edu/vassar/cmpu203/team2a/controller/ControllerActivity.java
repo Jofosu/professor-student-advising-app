@@ -156,7 +156,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onManageMajor() {
-        Fragment f = new ManageCatalogueFragment(this);
+        Fragment f = new EnterPoolNameFragment(this);
         this.mainView.displayFragment(f);
     }
 

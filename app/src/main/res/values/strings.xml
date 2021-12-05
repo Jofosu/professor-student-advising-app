@@ -46,4 +46,7 @@
     <string name="friday"> F </string>
     <string name="removeCourse2"> Enter Course ID</string>
     <string name="enterRemoveID"> Course ID</string>
+    <string name="Add"> Add</string>
+    <string name="Remove"> Remove</string>
+
 </resources>
