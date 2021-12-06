@@ -8,9 +8,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Set;
 
+import edu.vassar.cmpu203.team2a.R;
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAdvisorMenuBinding;
 import edu.vassar.cmpu203.team2a.model.Advisee;
@@ -18,7 +21,8 @@ import edu.vassar.cmpu203.team2a.model.Advisor;
 
 
 public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
-
+    private RecyclerView recyclerView;
+    private RecyclerAdapter adapter;
     private ControllerActivity activity;
     FragmentAdvisorMenuBinding binding;
     IAdvisorMenufrag.Listener listener;
@@ -39,10 +43,14 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        activity = (ControllerActivity)getActivity();
+       activity = (ControllerActivity)getActivity();
+       //updateMenuDisplay(activity.getAdvisor());
 
-
-        updateMenuDisplay(activity.getAdvisor());
+        recyclerView= getView().findViewById(R.id.containerOfAdvisees);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //activity.getAdvisor().adviseeNames();
+        adapter= new RecyclerAdapter(this.getContext(), activity.getAdvisor().adviseeNames());
+        recyclerView.setAdapter(adapter);
 
         this.binding.addAdviseeButton4.setOnClickListener( (clickedView) -> {
                     this.listener.onSelectingAddAdvisee();
@@ -53,14 +61,16 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
                 }
         );
 
+
     }
 
 
 
     public void updateMenuDisplay(Advisor advisor) {
         if(advisor.returnAdviseeList().size() >=0) {
-            String advisees = advisor.adviseeNames();
-            this.binding.adviseesLabel.setText(advisees);
+           // String advisees = advisor.adviseeNames();
+           // this.binding.adviseesLabel.setText(advisees);
         }
     }
+
 }

@@ -1,5 +1,6 @@
 package edu.vassar.cmpu203.team2a.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -31,12 +32,12 @@ public class Advisor {
             return false;
         }
     }
-    public String adviseeNames(){
-        String str= "";
+    public List<String> adviseeNames(){
+        List<String> listy= new ArrayList<>();
         for (Advisee advisee: this.returnAdviseeList()){
-            str += advisee.getName() + "\n";
+            listy.add(advisee.getName());
         }
-        return str;
+        return listy;
     }
 
 
