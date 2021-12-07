@@ -2,6 +2,8 @@ package edu.vassar.cmpu203.team2a.view.authorizeView;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,58 +11,68 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.vassar.cmpu203.team2a.R;
+import edu.vassar.cmpu203.team2a.databinding.FragmentAuthBinding;
+
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link AuthFragment#newInstance} factory method to
- * create an instance of this fragment.
+ *
  */
-public class AuthFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class AuthFragment extends Fragment implements IAuthView{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public AuthFragment() {
-        // Required empty public constructor
-    }
+    private static final String IS_REGISTERED = "isRegistered";
+    private Listener listener;
+    private FragmentAuthBinding binding;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AuthFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AuthFragment newInstance(String param1, String param2) {
-        AuthFragment fragment = new AuthFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private boolean isRegistered = false;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (savedInstanceState != null && savedInstanceState.getBoolean(IS_REGISTERED))
+            activateRegisteredConfig();
+
+        this.binding.registerButton.setOnClickListener((clickedView) -> {
+            String username = this.binding.editTextUsername.getText().toString();
+            String password = this.binding.editTextPassword.getText().toString();
+            AuthFragment.this.listener.onRegister(
+                    username, password, AuthFragment.this);
+        });
+
+        this.binding.signInButton.setOnClickListener((clickedView) -> {
+            String username = this.binding.editTextUsername.getText().toString();
+            String password = this.binding.editTextPassword.getText().toString();
+            AuthFragment.this.listener.onSignInAttempt(
+                    username, password, AuthFragment.this);
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_auth, container, false);
+        this.binding= FragmentAuthBinding.inflate(inflater);
+                return this.binding.getRoot();
+    }
+
+    private void activateRegisteredConfig(){
+        this.isRegistered = true;
+        this.binding.registerButton.setEnabled(false);
+    }
+
+    @Override
+    public void onRegisterSuccess() {
+
+    }
+
+    @Override
+    public void onInvalidCredentials() {
+
+    }
+
+    @Override
+    public void onUserAlreadyExists() {
+
     }
 }
