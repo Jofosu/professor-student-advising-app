@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,9 @@ import androidx.fragment.app.Fragment;
 
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddCatalogueBinding;
@@ -23,7 +27,6 @@ import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 public class AddDepartmentCourseFragment extends Fragment implements IAddDeptCourseView {
     private FragmentAddCatalogueBinding binding;
     private Listener listener;
-
 
     public AddDepartmentCourseFragment(Listener listener) {
         this.listener = listener;
@@ -41,42 +44,59 @@ public class AddDepartmentCourseFragment extends Fragment implements IAddDeptCou
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        this.binding.doneButton3.setOnClickListener((clickedView) -> {
+            this.binding.doneButton3.setOnClickListener((clickedView) -> {
+                Boolean accept = true;
+                Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{5}+$");
+                Pattern courseTimeOrder = Pattern.compile("^[0-9]+[:]+[0-9]+$");
 
-            Editable courseIDEditable = binding.editCourseID.getText();
-            String courseID = courseIDEditable.toString();
+                Editable courseIDEditable = binding.editCourseID.getText();
+                String courseID = courseIDEditable.toString().toUpperCase(Locale.ROOT);
+                if(!coursePrefixOrder.matcher(courseID).find()){
+                    Snackbar.make(view, "Please use a proper course ID",Snackbar.LENGTH_LONG).show();
+                    accept= false;
+                }
 
-            Editable courseStartTime = binding.editStartTIme.getText();
-            String startTime = courseStartTime.toString();
+                Editable courseStartTime = binding.editStartTIme.getText();
+                String startTime = courseStartTime.toString();
+                if(!courseTimeOrder.matcher(startTime).find()){
+                    Snackbar.make(view, "Please use a proper start time",Snackbar.LENGTH_LONG).show();
+                    accept= false;
+                }
 
-            Editable courseEndTime = binding.editEndTIme.getText();
-            String endTime = courseEndTime.toString();
+                Editable courseEndTime = binding.editEndTIme.getText();
+                String endTime = courseEndTime.toString();
+                if(!courseTimeOrder.matcher(endTime).find()){
+                    Snackbar.make(view, "Please use a proper end time",Snackbar.LENGTH_LONG).show();
+                    accept= false;
+                }
 
-            Boolean monday = binding.monday.isChecked();
-            Boolean tuesday = binding.tuesday.isChecked();
-            Boolean wednesday = binding.wednesday.isChecked();
-            Boolean thursday = binding.thursday.isChecked();
-            Boolean friday = binding.friday.isChecked();
+                Boolean monday = binding.monday.isChecked();
+                Boolean tuesday = binding.tuesday.isChecked();
+                Boolean wednesday = binding.wednesday.isChecked();
+                Boolean thursday = binding.thursday.isChecked();
+                Boolean friday = binding.friday.isChecked();
 
-            String time = "";
-            if (monday)
-                time += "M";
-            if (tuesday)
-                time += "T";
-            if (wednesday)
-                time += "W";
-            if (thursday)
-                time += "R";
-            if (friday)
-                time += "F";
+                String time = "";
+                time += startTime + "-" + endTime;
+                if (monday)
+                    time += "M";
+                if (tuesday)
+                    time += "T";
+                if (wednesday)
+                    time += "W";
+                if (thursday)
+                    time += "R";
+                if (friday)
+                    time += "F";
+                if(time.equals("")){
+                    accept = false;
+                    Snackbar.make(view, "Please select days",Snackbar.LENGTH_LONG).show();
+                }
+                if(accept)
+                    this.listener.onAddedCourse(courseID, time);
 
-            time += startTime + "-" + endTime;
-
-            this.listener.onAddedCourse(courseID, time);
-
-        });
-
-        }
+            });
+    }
 
 }
 

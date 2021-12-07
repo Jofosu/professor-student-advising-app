@@ -54,5 +54,6 @@
     <string name="register">Register</string>
     <string name="sign_in">Sign In</string>
     <string name="username_hint">username</string>
+    <string name="password_hint">password</string>
 
 </resources>

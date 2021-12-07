@@ -54,7 +54,7 @@
 
                     android:fontFamily="sans-serif-medium"
                     android:hint="@string/editCourseID"
-                    android:maxLength="7"
+                    android:maxLength="9"
                     android:singleLine="true"
                     android:textColor="@color/black"
                     android:textColorHint="@color/white" />
@@ -160,9 +160,11 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
                     </com.google.android.material.textfield.TextInputLayout>
+
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
