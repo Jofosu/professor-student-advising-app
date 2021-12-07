@@ -3,7 +3,6 @@ package edu.vassar.cmpu203.team2a.controller;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
@@ -11,8 +10,8 @@ import androidx.fragment.app.FragmentFactory;
 import java.util.LinkedList;
 
 import edu.vassar.cmpu203.team2a.model.Advisor;
-import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
+import edu.vassar.cmpu203.team2a.model.Major;
 import edu.vassar.cmpu203.team2a.persistence.FirestoreFacade;
 import edu.vassar.cmpu203.team2a.persistence.IpersistenceFacade;
 import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
@@ -20,7 +19,10 @@ import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.EnterPoolNameFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolNameFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IPoolOptionsView;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.PoolOptionsFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IMainView;
@@ -37,16 +39,13 @@ import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragment;
 
-public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener {
+public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener {
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
-
-
-
+    private Major major;
     private Advisor advisor;
+
     private final IpersistenceFacade persistenceFacade = new FirestoreFacade();
-
-
     public Advisor getAdvisor() {
         return this.advisor;
     }
@@ -175,13 +174,29 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onManageMajor() {
-        Fragment f = new EnterPoolNameFragment(this);
+        Fragment f = new PoolOptionsFragment(this);
         this.mainView.displayFragment(f);
     }
-
 
     @Override
     public void removePool(String idString) {
 
+    }
+
+    @Override
+    public void createPool(String idString) {
+
+    }
+
+    @Override
+    public void onCreatePoolButton() {
+        Fragment f = new AddPoolNameFragment(this);
+        this.mainView.displayFragment(f);
+    }
+
+    @Override
+    public void onRemovePoolButton() {
+        Fragment f = new RemovePoolNameFragment(this);
+        this.mainView.displayFragment(f);
     }
 }

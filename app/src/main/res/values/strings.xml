@@ -46,5 +46,7 @@
     <string name="enterRemoveID"> Course ID</string>
     <string name="Add"> Add</string>
     <string name="Remove"> Remove</string>
+    <string name="EnterPoolName"> Enter Pool Name</string>
+    <string name="listOfPools"> List of Pools:</string>
 
 </resources>

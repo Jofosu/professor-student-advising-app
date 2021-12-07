@@ -47,8 +47,6 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
                      listener.onRemoveCourse();
                 }
         );
-
-
     }
 
     public void updateMenuDisplay(CourseCatalogue courseCatalogue) {
