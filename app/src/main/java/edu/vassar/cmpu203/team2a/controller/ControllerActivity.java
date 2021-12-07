@@ -65,7 +65,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
        this.advisor = new Advisor();
        //load up the major
         this.major = new Major();
-      /* this.persistenceFacade.retrieveAdvisor(new IpersistenceFacade.DataListener<Advisor>() {
+       this.persistenceFacade.retrieveAdvisor(new IpersistenceFacade.DataListener<Advisor>() {
            @Override
            public void onDataRecieved(@NonNull Advisor advisor) {
                ControllerActivity.this.advisor = advisor; // set the activity's advisor to the one retrieved from the database \
@@ -87,7 +87,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         else{
             this.advisor = new Advisor();}
 
-       */
+
             this.mainView.displayFragment(new MainMenuFragment(this));
 
     }

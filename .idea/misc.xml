@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.317524115755627" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/advisingApp/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/advisingApp/app/src/main/res/layout/fragment_add_advisee.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/judeo/AndroidStudioProjects/advisingApp/app/src/main/res/layout/fragment_add_dept_course.xml" value="0.17980072463768115" />
@@ -19,17 +20,16 @@
         <entry key="app/src/main/res/layout-land/fragment_remove_catalogue.xml" value="0.1644620811287478" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_dept_course.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/layout/enter_pool_name.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/fragement_manage_advisees_menu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_add_advisee.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add_catalogue.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_department_courses.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_add_dept_course.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_advisor_menu.xml" value="0.15096251266464034" />
+        <entry key="app/src/main/res/layout/fragment_advisee_info.xml" value="0.3703125" />
+        <entry key="app/src/main/res/layout/fragment_advisor_menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_delete_advisee.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_delete_catalogue.xml" value="0.35144927536231885" />
         <entry key="app/src/main/res/layout/fragment_dept_head_menu.xml" value="0.18697916666666667" />
-        <entry key="app/src/main/res/layout/fragment_enter_pool_name.xml" value="0.19745762711864406" />
         <entry key="app/src/main/res/layout/fragment_enter_pool_name2.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_manage_advisee.xml" value="0.15670289855072464" />
@@ -37,8 +37,7 @@
         <entry key="app/src/main/res/layout/fragment_manage_catalogue_menu.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_options_menu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_pool_menu.xml" value="0.18697916666666667" />
-        <entry key="app/src/main/res/layout/fragment_pool_options.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_student.xml" value="0.21105072463768115" />
+        <entry key="app/src/main/res/layout/fragment_student.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/main_view.xml" value="0.12047101449275362" />
       </map>
     </option>
