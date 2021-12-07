@@ -4,9 +4,10 @@ import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 
 public interface IManageCatalogueMenu {
     interface Listener{
-        void onSelectAdd();
-        void onSelectCreatePool();
+        void onAddCourse();
+        void onRemoveCourse();
+
 
     }
-    void updateDisplay(CourseCatalogue catalogue);
+    void updateMenuDisplay(CourseCatalogue courseCatalogue);
 }

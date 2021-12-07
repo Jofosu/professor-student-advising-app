@@ -5,15 +5,18 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollIndicators="right"
+    android:scrollbarSize="6dp"
+    android:scrollbars="vertical"
     tools:context=".view.advisorView.AdvisorMenuFrag">
 
     <Button
         android:id="@+id/addAdviseeButton4"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="409dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/maroon"
         android:fontFamily="sans-serif-medium"
         android:text="@string/add_advisee_button"
@@ -22,14 +25,15 @@
         app:layout_constraintBottom_toTopOf="@+id/deleteAdviseeButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adviseesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/containerOfAdvisees" />
 
     <Button
         android:id="@+id/deleteAdviseeButton2"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="409dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="112dp"
         android:background="@color/maroon"
         android:text="@string/remove_advisee_button"
         android:textColor="@color/white"
@@ -37,23 +41,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAdviseeButton4"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toBottomOf="@+id/addAdviseeButton4" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/containerOfAdvisees"
+        android:layout_width="388dp"
+        android:layout_height="190dp"
+        android:clickable="true"
+        android:clipChildren="true"
+        android:contextClickable="false"
+        android:scrollIndicators="right"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        app:layout_constraintBottom_toTopOf="@+id/addAdviseeButton4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advisees"
+        tools:listitem="@android:layout/activity_list_item" />
 
     <TextView
-        android:id="@+id/adviseesLabel"
-        android:layout_width="266dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="116dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/adviseeListLabel"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/black"
-        android:textIsSelectable="true"
-        android:textSize="14sp"
+        android:id="@+id/advisees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="73dp"
+        android:text="@string/adviseeListTextView"
+        app:layout_constraintBottom_toTopOf="@+id/containerOfAdvisees"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

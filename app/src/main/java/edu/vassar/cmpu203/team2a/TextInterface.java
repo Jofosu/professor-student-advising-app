@@ -127,7 +127,7 @@ public class TextInterface {
                         System.out.println(studentName + " has been added to your advisee list");
                     else System.out.println("Incorrect input");break;
                 }
-                case 2: System.out.println(controller.returnAdviseeList());break;
+                case 2: //System.out.println(controller.returnAdviseeList());break;
                 case 3:{
                     System.out.println("Please enter student's 999");
                     studentId = advisorInput.nextInt();

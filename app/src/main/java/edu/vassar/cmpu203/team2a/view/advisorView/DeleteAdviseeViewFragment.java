@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
-import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
 
 
 public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {
@@ -42,4 +41,7 @@ public class DeleteAdviseeViewFragment extends Fragment implements IManageAdvise
         });
 
 
-    }}
+    }
+
+
+}

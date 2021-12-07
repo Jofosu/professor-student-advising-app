@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#FFFFFFFF"
-    android:baselineAligned="true"
+    android:baselineAligned="false"
     android:foregroundTint="#000000">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:foregroundTint="#FFFFFF"
         android:scrollbars="vertical">
@@ -22,13 +22,10 @@
             android:layout_marginTop="52dp"
             android:clickable="true"
             android:fontFamily="sans-serif-medium"
-            android:minHeight="48dp"
-            android:text="@string/advisorAddStudentMenuLabel"
-            android:textAlignment="center"
+            android:text="@string/addCourseMenuLabel"
             android:textColor="@color/black"
-            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,17 +47,17 @@
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editFirstName"
+                    android:id="@+id/editCourseID"
                     android:layout_width="match_parent"
                     android:layout_height="62dp"
                     android:background="@color/white"
 
                     android:fontFamily="sans-serif-medium"
-                    android:hint="@string/firstNameLabel"
-
-                    android:inputType="textPersonName"
+                    android:hint="@string/editCourseID"
+                    android:maxLength="7"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/white" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/middleNameLabel"
@@ -69,13 +66,13 @@
                     android:textColorHint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editMiddleName"
+                        android:id="@+id/editStartTIme"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:fontFamily="sans-serif-medium"
-                        android:hint="@string/middleNameLabel"
-                        android:inputType="textPersonName"
+                        android:hint="@string/editCourseTimeStart"
+                        android:inputType="time"
                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black" />
@@ -86,13 +83,13 @@
                         android:textColorHint="@color/black">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editLastName"
+                            android:id="@+id/editEndTIme"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
                             android:fontFamily="sans-serif-medium"
-                            android:hint="@string/lastNameLabel"
-                            android:inputType="textPersonName"
+                            android:hint="@string/editCourseTimeEnd"
+                            android:inputType="textPersonName|time"
                             android:singleLine="true"
                             android:textColorHint="@color/black" />
 
@@ -101,48 +98,66 @@
                             android:layout_height="match_parent"
                             android:textColorHint="@color/black">
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editClassYear"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/white"
-                                android:fontFamily="sans-serif-medium"
-                                android:hint="@string/classYearLabel"
-                                android:maxLength="4"
-                                android:singleLine="true"
-                                android:textColorHint="@color/black" />
-
                             <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:textColorHint="@color/black">
 
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/editStudentId"
+                                <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/white"
-                                    android:fontFamily="sans-serif-medium"
-                                    android:hint="@string/studentIdLabel"
-                                    android:maxLength="9"
-                                    android:singleLine="true"
-                                    android:textColorHint="@color/black" />
-
-                                <Button
-                                    android:id="@+id/addButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="100dp"
                                     android:layout_weight="1"
-                                    android:text="@string/add_advisee_button" />
+                                    android:orientation="horizontal"
+                                    android:layout_gravity="center">
+
+                                    <CheckBox
+                                        android:id="@+id/monday"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/monday" />
+
+                                    <CheckBox
+                                        android:id="@+id/tuesday"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/tuesday" />
+
+                                    <CheckBox
+                                        android:id="@+id/wednesday"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/wednesday" />
+
+                                    <CheckBox
+                                        android:id="@+id/thursday"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/thursday" />
+
+                                    <CheckBox
+                                        android:id="@+id/friday"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/friday" />
+                                </LinearLayout>
 
                                 <Button
                                     android:id="@+id/doneButton3"
                                     android:layout_width="match_parent"
-                                    android:layout_height="100dp"
+                                    android:layout_height="121dp"
                                     android:layout_weight="1"
                                     android:text="@string/doneLabel" />
 
+
+
+
                             </com.google.android.material.textfield.TextInputLayout>
+
                         </com.google.android.material.textfield.TextInputLayout>
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
