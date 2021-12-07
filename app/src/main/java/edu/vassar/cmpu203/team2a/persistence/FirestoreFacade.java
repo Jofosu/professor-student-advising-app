@@ -14,7 +14,7 @@ import edu.vassar.cmpu203.team2a.model.Major;
 
 public class FirestoreFacade implements IpersistenceFacade{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private static final String ADVISEE = "Advisee";
+    private static final String ADVISEE = "Advisees";
     private static final String POOL = "Pool";
 
 
@@ -37,7 +37,7 @@ public class FirestoreFacade implements IpersistenceFacade{
                     Advisor advisor = new Advisor();
                     for(DocumentSnapshot dsnap: qsnap){
                     Advisee advisee = dsnap.toObject(Advisee.class);
-                    advisor.addAdvisee(advisee.getName(),advisee.getId(),advisee.getClassYear(),advisee.getClassesTaken());
+                    advisor.addAdvisee(advisee.getName(),(int)advisee.getId(),(int)advisee.getClassYear(),advisee.getClassesTaken());
                     }
                     listener.onDataRecieved(advisor);
                 }).addOnFailureListener(e-> Log.w("AdvissingApp","Error retrieving Advisor from database",e));

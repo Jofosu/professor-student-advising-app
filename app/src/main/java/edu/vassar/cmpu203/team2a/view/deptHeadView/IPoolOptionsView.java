@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 import edu.vassar.cmpu203.team2a.model.Major;
 
 public interface IPoolOptionsView {
@@ -20,4 +21,6 @@ public interface IPoolOptionsView {
 
         void onRemovePoolButton();
     }
+    void updatePoolDisplay(Major major);
+
 }
