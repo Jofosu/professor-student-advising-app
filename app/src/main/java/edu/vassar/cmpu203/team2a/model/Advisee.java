@@ -1,5 +1,6 @@
 package edu.vassar.cmpu203.team2a.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,6 +10,19 @@ public class Advisee {
 
 
     String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getClassYear() {
+        return classYear;
+    }
+
+    public List getClassesTaken() {
+        return classesTaken;
+    }
+
     int id;
     int classYear;
     List classesTaken;

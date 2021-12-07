@@ -43,14 +43,7 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-       activity = (ControllerActivity)getActivity();
-       //updateMenuDisplay(activity.getAdvisor());
-
-        recyclerView= getView().findViewById(R.id.containerOfAdvisees);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        //activity.getAdvisor().adviseeNames();
-        adapter= new RecyclerAdapter(this.getContext(), activity.getAdvisor().adviseeNames());
-        recyclerView.setAdapter(adapter);
+        updateMenuDisplay();
 
         this.binding.addAdviseeButton4.setOnClickListener( (clickedView) -> {
                     this.listener.onSelectingAddAdvisee();
@@ -66,11 +59,13 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
 
 
 
-    public void updateMenuDisplay(Advisor advisor) {
-        if(advisor.returnAdviseeList().size() >=0) {
-           // String advisees = advisor.adviseeNames();
-           // this.binding.adviseesLabel.setText(advisees);
+    @Override
+    public void updateMenuDisplay() {
+        activity = (ControllerActivity)getActivity();
+        recyclerView= getView().findViewById(R.id.containerOfAdvisees);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        adapter= new RecyclerAdapter(this.getContext(), activity.getAdvisor().adviseeNames());
+        recyclerView.setAdapter(adapter);
         }
     }
 
-}

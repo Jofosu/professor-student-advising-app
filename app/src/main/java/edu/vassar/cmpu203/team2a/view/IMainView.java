@@ -9,4 +9,5 @@ public interface IMainView {
     View getRootView();
     void displayFragment(Fragment fragment);
 
+   Fragment getCurrentFragment();
 }

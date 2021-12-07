@@ -3,6 +3,7 @@ package edu.vassar.cmpu203.team2a.controller;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
@@ -12,6 +13,8 @@ import java.util.LinkedList;
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
+import edu.vassar.cmpu203.team2a.persistence.FirestoreFacade;
+import edu.vassar.cmpu203.team2a.persistence.IpersistenceFacade;
 import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
@@ -41,6 +44,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
 
     private Advisor advisor;
+    private final IpersistenceFacade persistenceFacade = new FirestoreFacade();
 
 
     public Advisor getAdvisor() {
@@ -54,11 +58,38 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         this.getSupportFragmentManager().setFragmentFactory(fragmentFactory);
         super.onCreate(savedInstanceState);
         Log.i("MainMenu","onCreate activity");
+        //Create screen skeleton
        this.mainView = new MainView(this);
-       this.courseCatalogue = new CourseCatalogue();
-       this.advisor = new Advisor();
        this.setContentView(this.mainView.getRootView());
-       this.mainView.displayFragment(new MainMenuFragment(this));
+       // load up the course catalogue
+       this.courseCatalogue = new CourseCatalogue();
+       //load up the advisor
+       this.advisor = new Advisor();
+      /* this.persistenceFacade.retrieveAdvisor(new IpersistenceFacade.DataListener<Advisor>() {
+           @Override
+           public void onDataRecieved(@NonNull Advisor advisor) {
+               ControllerActivity.this.advisor = advisor; // set the activity's advisor to the one retrieved from the database \
+
+               Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
+               if(currFrag instanceof IAdvisorMenufrag)((IAdvisorMenufrag)currFrag).updateMenuDisplay();
+           }
+
+           @Override
+           public void onNoDataFound() {
+
+           }
+       });
+
+       //
+        if(savedInstanceState != null){
+            this.advisor = (Advisor)savedInstanceState.getSerializable("Advisee");
+        }
+        else{
+            this.advisor = new Advisor();}
+
+       */
+            this.mainView.displayFragment(new MainMenuFragment(this));
+
     }
 
     @Override
@@ -94,11 +125,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
 
     @Override
-    public void updateMenuDisplay(Advisor advisor) {
-
-    }
-
-    @Override
     public void onSelectingAddAdvisee() {
         Fragment f = new AddAdviseeViewFragment(this);
         this.mainView.displayFragment(f);
@@ -115,6 +141,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void addAdvisee(String name, int id, int classYear) {
         this.advisor.addAdvisee(name,id,classYear,new LinkedList());
+        this.persistenceFacade.saveAdvisee(this.advisor.getAdvisee(id));;
         this.onSelectingAdvisor();
 
     }
@@ -139,14 +166,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         this.mainView.displayFragment(f);
 
     }
-
-
-  //  @Override
-  //  public void onSelectCreatePool() {
-  //      Fragment f = new EnterPoolNameFragment(this);
-   //     this.mainView.displayFragment(f);
-
-  //  }
 
     @Override
     public void onManageCatalogue() {

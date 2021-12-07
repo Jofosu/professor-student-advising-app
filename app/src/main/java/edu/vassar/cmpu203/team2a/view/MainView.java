@@ -31,4 +31,9 @@ public class MainView implements IMainView{
                 .addToBackStack(null)
                 .commit();
     }
+
+    @Override
+    public Fragment getCurrentFragment() {
+        return this.binding.fragmentContainerView.getFragment();
+    }
 }

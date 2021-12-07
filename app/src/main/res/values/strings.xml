@@ -14,7 +14,7 @@
     <string name="head_of_dept_button">Head of Department</string>
     <string name="welcome_message">Please select one of the options below</string>
     <string name="adviseeListLabel"> You currently have no advisees</string>
-    <string name="adviseeListTextView">No advisee to display</string>
+    <string name="adviseeListTextView">Advisees: </string>
     <string name="add_advisee_button">Add Advisee</string>
     <string name="remove_advisee_button">Remove Advisee</string>
     <string name="advisorAddStudentMenuLabel">Enter Student Information</string>
@@ -31,8 +31,6 @@
     <string name="manageMajorLabel"> Manage Major </string>
     <string name="coursesListLabel">There\'s\ no pools to show</string>
     <string name="listOfCourses">Course List:</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="poolEntry">Enter Pool Name Here</string>
     <string name="addCourseMenuLabel"> Enter course information</string>
     <string name="editCourseID"> CourseID </string>

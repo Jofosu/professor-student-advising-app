@@ -1,5 +1,6 @@
 package edu.vassar.cmpu203.team2a.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,7 +11,7 @@ import java.util.Set;
  *  Contains a Hashmap list of advisees belonging to an adviser. There is a method to add an advisee to the list,
  *  a method to remove an advisee, and a method to return a list of advisees
  */
-public class Advisor {
+public class Advisor implements Serializable {
 
      HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
 
