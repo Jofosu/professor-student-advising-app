@@ -46,10 +46,9 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     private Advisor advisor;
 
     private final IpersistenceFacade persistenceFacade = new FirestoreFacade();
-    public Advisor getAdvisor() {
-        return this.advisor;
-    }
+    public Advisor getAdvisor() { return this.advisor; }
     public CourseCatalogue getCourseCatalogue(){return this.courseCatalogue;}
+    public Major getMajor(){return this.major;}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +63,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
        this.courseCatalogue = new CourseCatalogue();
        //load up the advisor
        this.advisor = new Advisor();
+       //load up the major
+        this.major = new Major();
       /* this.persistenceFacade.retrieveAdvisor(new IpersistenceFacade.DataListener<Advisor>() {
            @Override
            public void onDataRecieved(@NonNull Advisor advisor) {
@@ -179,16 +180,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
     @Override
-    public void removePool(String idString) {
-
-    }
-
-    @Override
-    public void createPool(String idString) {
-
-    }
-
-    @Override
     public void onCreatePoolButton() {
         Fragment f = new AddPoolNameFragment(this);
         this.mainView.displayFragment(f);
@@ -198,5 +189,17 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     public void onRemovePoolButton() {
         Fragment f = new RemovePoolNameFragment(this);
         this.mainView.displayFragment(f);
+    }
+    @Override
+    public void createPool(String idString) {
+        major.createPool(idString);
+        this.persistenceFacade.savePool(this.major);
+        this.onManageMajor();
+    }
+    @Override
+    public void removePool(String idString) {
+        major.removePool(idString);
+        this.persistenceFacade.savePool(this.major);
+        this.onManageMajor();
     }
 }

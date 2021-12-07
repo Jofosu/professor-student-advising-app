@@ -38,7 +38,6 @@ public class AddPoolNameFragment extends Fragment implements IEnterPoolName {
 
             Editable idEditable = binding.poolEntry.getEditableText();
             String idString = idEditable.toString();
-            int id = Integer.parseInt(idString);
 
             this.listener.createPool(idString);
         });

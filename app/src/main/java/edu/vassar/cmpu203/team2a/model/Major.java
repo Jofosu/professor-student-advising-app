@@ -3,6 +3,7 @@ package edu.vassar.cmpu203.team2a.model;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Major {
 
@@ -72,6 +73,8 @@ public class Major {
          return pool.poolList.remove(courseToRemove);
 //         return !pool.poolList.contains(courseToRemove);
     }
+
+    public Set<String> getPools(){return major.keySet();}
     /**
      * An inner class that represents the list of courses group into one category called a Pool.
      */
@@ -87,6 +90,7 @@ public class Major {
         public int getNumReq(){
             return numOfRequiredCourses;
         }
+
 
     }
 

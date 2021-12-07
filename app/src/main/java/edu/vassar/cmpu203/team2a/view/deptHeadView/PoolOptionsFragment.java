@@ -22,8 +22,11 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Set;
+
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentPoolOptionsBinding;
+import edu.vassar.cmpu203.team2a.model.Major;
 
 public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
     private ControllerActivity activity;
@@ -43,8 +46,9 @@ public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        // activity = (ControllerActivity) getActivity();
-        //
+        activity = (ControllerActivity) getActivity();
+        updatePoolDisplay(activity.getMajor());
+
         this.binding.CreatePool.setOnClickListener((clickedView) -> {
             listener.onCreatePoolButton();
         });
@@ -54,9 +58,12 @@ public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
         });
     }
 
-//    public void updateMenuDisplay(CourseCatalogue courseCatalogue)
-    //{
-    //  }
+    public void updatePoolDisplay(Major major) {
+        Set<String> poollist = major.getPools();
+        for (String pool : poollist) {
+            this.binding.listofPools.append("\n" + pool);
+        }
 
 
+    }
 }
