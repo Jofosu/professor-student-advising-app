@@ -71,8 +71,6 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
                 }catch (NumberFormatException e){
                     Snackbar.make(view, "Invalid characters in id number", Snackbar.LENGTH_LONG).show();
                 }
-
-
             this.listener.addAdvisee(fullName, id, classYear);
         });
 

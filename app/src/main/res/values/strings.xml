@@ -8,7 +8,7 @@
     <string name="HOD_menu_heading">Department Chair</string>
     <string name="add_course_label"> Add Course</string>
     <string name="remove_course_label">Remove Course</string>
-    <string name="HOD_menu2_label">What will you like to do today?</string>
+    <string name="HOD_menu2_label">What would you like to do today?</string>
     <string name="student_button">Student</string>
     <string name="advisor_button">Advisor</string>
     <string name="head_of_dept_button">Head of Department</string>
@@ -49,5 +49,10 @@
     <string name="Remove"> Remove</string>
     <string name="EnterPoolName"> Enter Pool Name</string>
     <string name="listOfPools"> List of Pools:</string>
+    <string name="username_label">Username:</string>
+    <string name="password_label">Password:</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username_hint">username</string>
 
 </resources>
