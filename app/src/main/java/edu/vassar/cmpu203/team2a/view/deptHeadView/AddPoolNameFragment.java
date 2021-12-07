@@ -31,6 +31,9 @@ public class AddPoolNameFragment extends Fragment implements IEnterPoolName {
         return this.binding.getRoot();
     }
 
+    /**
+     * Reads the input and ask the controller to add the pool to list of pools from the major
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 

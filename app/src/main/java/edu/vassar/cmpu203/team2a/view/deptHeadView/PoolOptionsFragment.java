@@ -44,6 +44,9 @@ public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
         return this.binding.getRoot();
     }
 
+    /**
+     * Tells the controller to go to the create pool or add pool fragment
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         activity = (ControllerActivity) getActivity();
@@ -58,6 +61,9 @@ public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
         });
     }
 
+    /**
+     * Updates a text display of all the pools in the major
+     */
     public void updatePoolDisplay(Major major) {
         Set<String> poollist = major.getPools();
         for (String pool : poollist) {

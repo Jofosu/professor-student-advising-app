@@ -27,6 +27,7 @@ public class RemoveDepartmentCourseFragment extends Fragment implements IRemoveD
         this.binding = FragmentDeleteCatalogueBinding.inflate(inflater);
         return this.binding.getRoot();
     }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         this.binding.removeCourseButton.setOnClickListener((clickedView)->{

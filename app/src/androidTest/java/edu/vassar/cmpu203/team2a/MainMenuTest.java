@@ -1,18 +1,15 @@
-/*package edu.vassar.cmpu203.team2a;
+package edu.vassar.cmpu203.team2a;
 
 
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 
-import android.view.View;
-
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
-import androidx.test.espresso.action.ViewActions;
-import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
+
 
 import org.junit.Test;
 
@@ -21,7 +18,7 @@ import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 public class MainMenuTest {
 
     @org.junit.Rule
-    ActivityScenarioRule<ControllerActivity> activityRule =
+    public ActivityScenarioRule<ControllerActivity> activityRule =
             new ActivityScenarioRule<>(ControllerActivity.class);
 
 
@@ -36,7 +33,7 @@ public class MainMenuTest {
         //clicking into the department chair options menu
         Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
         //checking that we are at the department chair options menu
-        Espresso.onView(ViewMatchers.withId(R.id.manageCoursesButton)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.manageCatalogueButton)).check(matches(isDisplayed()));
     }
 
     /*
@@ -51,19 +48,16 @@ public class MainMenuTest {
 
 
     /**
-     Testing the advisor button goes to the manage advisees menu
+     *      Testing the advisor button goes to the manage advisees menu
      */
-    /*
     @Test
     public void testAdvisorButton() {
         ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessage));
         Espresso.onView(ViewMatchers.withId(R.id.advisorButtton)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.advisorMenuLabel)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.addAdviseeButton4)).check(matches(isDisplayed()));
     }
 
 
 
 
 }
-
-*/

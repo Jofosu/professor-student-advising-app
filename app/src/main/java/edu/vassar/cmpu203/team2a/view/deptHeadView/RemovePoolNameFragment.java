@@ -31,6 +31,9 @@ public class RemovePoolNameFragment extends Fragment implements IEnterPoolName {
         return this.binding.getRoot();
     }
 
+    /**
+     * Reads the input and ask the controller to remove the pool from list of pools from the major
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 

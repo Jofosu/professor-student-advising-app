@@ -173,29 +173,36 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         this.mainView.displayFragment(f);
     }
 
+    // Goes to the Pool options fragment
     @Override
     public void onManageMajor() {
         Fragment f = new PoolOptionsFragment(this);
         this.mainView.displayFragment(f);
     }
 
+    // Goes to the Add pool fragment
     @Override
     public void onCreatePoolButton() {
         Fragment f = new AddPoolNameFragment(this);
         this.mainView.displayFragment(f);
     }
 
+    // Goes to the remove pool fragment
     @Override
     public void onRemovePoolButton() {
         Fragment f = new RemovePoolNameFragment(this);
         this.mainView.displayFragment(f);
     }
+
+    // Uses the create pool method to add the pool onto a list of pools
     @Override
     public void createPool(String idString) {
         major.createPool(idString);
 //        this.persistenceFacade.savePool(this.major);
         this.onManageMajor();
     }
+
+    // Uses the remove pool method to remove the pool from a list of pools
     @Override
     public void removePool(String idString) {
         major.removePool(idString);
