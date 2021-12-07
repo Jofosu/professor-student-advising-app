@@ -193,13 +193,13 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void createPool(String idString) {
         major.createPool(idString);
-        this.persistenceFacade.savePool(this.major);
+//        this.persistenceFacade.savePool(this.major);
         this.onManageMajor();
     }
     @Override
     public void removePool(String idString) {
         major.removePool(idString);
-        this.persistenceFacade.savePool(this.major);
+//        this.persistenceFacade.savePool(this.major);
         this.onManageMajor();
     }
 }
