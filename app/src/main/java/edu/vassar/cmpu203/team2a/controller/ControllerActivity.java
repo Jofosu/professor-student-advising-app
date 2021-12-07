@@ -67,7 +67,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         this.major = new Major();
        this.persistenceFacade.retrieveAdvisor(new IpersistenceFacade.DataListener<Advisor>() {
            @Override
-           public void onDataRecieved(@NonNull Advisor advisor) {
+           public void onDataRecieved(Advisor advisor) {
                ControllerActivity.this.advisor = advisor; // set the activity's advisor to the one retrieved from the database \
 
                Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();

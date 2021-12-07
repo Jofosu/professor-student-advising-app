@@ -52,7 +52,8 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
     public void updateMenuDisplay(CourseCatalogue courseCatalogue) {
         Set<String> courses = courseCatalogue.returnCourseList();
         for (String course : courses) {
-            this.binding.listofCourses.append("\n" +course);
+            String time = courseCatalogue.getTime(courseCatalogue.get(course));
+            this.binding.listofCourses.append("\n" +course + " " + time);
 
 
         }

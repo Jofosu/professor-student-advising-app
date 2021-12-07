@@ -79,5 +79,8 @@ public class CourseCatalogue {
         return courseCatalogue.get(courseID);
     }
 
+    public String getTime(Course course){
+        return course.time;
+    }
 }
 
