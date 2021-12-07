@@ -129,11 +129,19 @@
                                     android:textColorHint="@color/black" />
 
                                 <Button
+                                    android:id="@+id/addButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/add_advisee_button" />
+
+                                <Button
                                     android:id="@+id/doneButton3"
                                     android:layout_width="match_parent"
-                                    android:layout_height="121dp"
+                                    android:layout_height="100dp"
                                     android:layout_weight="1"
                                     android:text="@string/doneLabel" />
+
                             </com.google.android.material.textfield.TextInputLayout>
                         </com.google.android.material.textfield.TextInputLayout>
                     </com.google.android.material.textfield.TextInputLayout>

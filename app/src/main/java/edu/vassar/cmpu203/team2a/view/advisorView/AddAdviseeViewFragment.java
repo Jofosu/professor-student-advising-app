@@ -63,14 +63,18 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
 
             Editable idEditable = binding.editStudentId.getText();
             String idString = idEditable.toString();
-            int id = Integer.parseInt(idString);
+                int id = -1;
 
+                try{
+                    id = Integer.parseInt((classYearString));
 
-
-
-
+                }catch (NumberFormatException e){
+                    Snackbar.make(view, "Invalid characters in id number", Snackbar.LENGTH_LONG).show();
+                }
             this.listener.addAdvisee(fullName, id, classYear);
         });
+
+
 
 
     }

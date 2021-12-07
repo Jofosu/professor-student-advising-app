@@ -45,6 +45,7 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
 
         updateMenuDisplay();
 
+
         this.binding.addAdviseeButton4.setOnClickListener( (clickedView) -> {
                     this.listener.onSelectingAddAdvisee();
                 }
