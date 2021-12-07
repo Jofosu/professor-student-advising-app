@@ -29,7 +29,7 @@
         <entry key="app/src/main/res/layout/fragment_add_advisee.xml" value="0.43886255924170614" />
         <entry key="app/src/main/res/layout/fragment_add_dept_course.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/fragment_advisor_menu.xml" value="0.3333333333333333" />
-        <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.15096251266464034" />
         <entry key="app/src/main/res/layout/fragment_delete_advisee.xml" value="0.24" />
         <entry key="app/src/main/res/layout/fragment_dept_head_menu.xml" value="0.23505434782608695" />
