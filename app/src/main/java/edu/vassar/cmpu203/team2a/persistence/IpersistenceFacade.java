@@ -8,7 +8,7 @@ import edu.vassar.cmpu203.team2a.model.Major;
 
 public interface IpersistenceFacade {
     void saveAdvisee(Advisee advisee);
-    void savePool(Major major);
+    void saveMajor(Major major);
 
     interface DataListener<T>{
     void onDataRecieved(@NonNull T data);

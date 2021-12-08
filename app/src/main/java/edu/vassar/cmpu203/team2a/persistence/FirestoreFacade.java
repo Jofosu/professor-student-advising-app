@@ -15,7 +15,7 @@ import edu.vassar.cmpu203.team2a.model.Major;
 public class FirestoreFacade implements IpersistenceFacade{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String ADVISEE = "Advisees";
-    private static final String POOL = "Pool";
+    private static final String MAJOR = "Major";
 
 
     @Override
@@ -24,8 +24,8 @@ public class FirestoreFacade implements IpersistenceFacade{
     }
 
     @Override
-    public void savePool(@NonNull Major major) {
-        db.collection(POOL).add(major);
+    public void saveMajor(@NonNull Major major) {
+        db.collection(MAJOR).add(major);
     }
 
 
@@ -44,7 +44,7 @@ public class FirestoreFacade implements IpersistenceFacade{
     }
 
     public void retrieveMajor(@NonNull DataListener<Major> listener) {
-        this.db.collection(POOL).get()
+        this.db.collection(MAJOR).get()
                 .addOnSuccessListener(qsnap->{
                     Major major = new Major();
                     for(DocumentSnapshot dsnap: qsnap){

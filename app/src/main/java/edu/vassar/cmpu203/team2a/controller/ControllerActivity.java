@@ -91,20 +91,17 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             }
 
             @Override
-            public void onNoDataFound() {
-
-            }
+            public void onNoDataFound() { }
         });
 
-       //
+
         if(savedInstanceState != null){
             this.advisor = (Advisor)savedInstanceState.getSerializable("Advisee");
-            this.major = (Major)savedInstanceState.getSerializable("Pool");
+            this.major = (Major)savedInstanceState.getSerializable("Major");
         }
         else{
             this.advisor = new Advisor();
             this.major = new Major();}
-
             this.mainView.displayFragment(new MainMenuFragment(this));
 
     }
@@ -215,7 +212,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void createPool(String idString) {
         major.createPool(idString);
-        this.persistenceFacade.savePool(this.major);
+        this.persistenceFacade.saveMajor(this.major);
         this.onManageMajor();
     }
 
@@ -223,7 +220,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void removePool(String idString) {
         major.removePool(idString);
-        this.persistenceFacade.savePool(this.major);
+        this.persistenceFacade.saveMajor(this.major);
         this.onManageMajor();
     }
 }

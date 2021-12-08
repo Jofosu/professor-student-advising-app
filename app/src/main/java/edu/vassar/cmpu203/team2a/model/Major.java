@@ -88,15 +88,16 @@ public class Major implements Serializable {
      */
     public class Pool implements Serializable{
 
+
         private int numOfRequiredCourses;
         private List<Course> poolList = new ArrayList<>();
         private String poolName;
-        public Pool(String poolName){
-            this.poolName = poolName;
-
-        }
 
         public Pool(){}
+
+        public Pool(String poolName){
+            this.poolName = poolName;
+        }
 
         public int getNumOfRequiredCourses(){
             return numOfRequiredCourses;
@@ -104,8 +105,6 @@ public class Major implements Serializable {
         public List<Course> getpoolList(){return this.poolList;}
         public String getpoolName(){return poolName;}
 
-
     }
-
 
 }
