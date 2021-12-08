@@ -3,6 +3,7 @@ package edu.vassar.cmpu203.team2a.controller;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
@@ -80,13 +81,29 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
            }
        });
 
+        this.persistenceFacade.retrieveMajor(new IpersistenceFacade.DataListener<Major>() {
+            @Override
+            public void onDataRecieved(@NonNull Major major) {
+                ControllerActivity.this.major = major; // set the activity's major to the one retrieved from the database \
+
+                Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
+                if(currFrag instanceof IPoolOptionsView)((IPoolOptionsView)currFrag).updatePoolDisplay(major);
+            }
+
+            @Override
+            public void onNoDataFound() {
+
+            }
+        });
+
        //
         if(savedInstanceState != null){
             this.advisor = (Advisor)savedInstanceState.getSerializable("Advisee");
+            this.major = (Major)savedInstanceState.getSerializable("Pool");
         }
         else{
-            this.advisor = new Advisor();}
-
+            this.advisor = new Advisor();
+            this.major = new Major();}
 
             this.mainView.displayFragment(new MainMenuFragment(this));
 
@@ -198,7 +215,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void createPool(String idString) {
         major.createPool(idString);
-//        this.persistenceFacade.savePool(this.major);
+        this.persistenceFacade.savePool(this.major);
         this.onManageMajor();
     }
 
@@ -206,7 +223,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void removePool(String idString) {
         major.removePool(idString);
-//        this.persistenceFacade.savePool(this.major);
+        this.persistenceFacade.savePool(this.major);
         this.onManageMajor();
     }
 }

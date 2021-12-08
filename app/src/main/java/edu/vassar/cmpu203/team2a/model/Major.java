@@ -1,14 +1,21 @@
 package edu.vassar.cmpu203.team2a.model;
 
+import com.google.firebase.firestore.Exclude;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-public class Major {
+public class Major implements Serializable {
 
     // A Hashmap that contains the pools of a major and the different courses in each pool.
-    private static final HashMap<String, Pool> major = new HashMap<>();
+    private Map<String, Pool> major = new HashMap<>();
+
+    public Major(){this.major = getMajor();}
 
     /**
      * Creates a Pool in a Major
@@ -48,7 +55,7 @@ public class Major {
      *
      * @return The major as a Hashmap of Pools and List of courses in each pool.
      */
-    public HashMap<String, Pool> getMajor(){
+    public Map<String, Pool> getMajor(){
         return major;
     }
     /**
@@ -74,22 +81,28 @@ public class Major {
 //         return !pool.poolList.contains(courseToRemove);
     }
 
+    @Exclude
     public Set<String> getPools(){return major.keySet();}
     /**
      * An inner class that represents the list of courses group into one category called a Pool.
      */
-    public class Pool{
+    public class Pool implements Serializable{
 
         private int numOfRequiredCourses;
-        private final List<Course> poolList = new LinkedList<Course>();
-        private final String poolName;
+        private List<Course> poolList = new ArrayList<>();
+        private String poolName;
         public Pool(String poolName){
             this.poolName = poolName;
 
         }
-        public int getNumReq(){
+
+        public Pool(){}
+
+        public int getNumOfRequiredCourses(){
             return numOfRequiredCourses;
         }
+        public List<Course> getpoolList(){return this.poolList;}
+        public String getpoolName(){return poolName;}
 
 
     }

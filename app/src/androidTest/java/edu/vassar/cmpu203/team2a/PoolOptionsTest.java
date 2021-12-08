@@ -1,5 +1,10 @@
 package edu.vassar.cmpu203.team2a;
 
+
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
@@ -14,13 +19,26 @@ import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 public class PoolOptionsTest {
 
     @org.junit.Rule
-    ActivityScenarioRule<ControllerActivity> activityRule =
+    public ActivityScenarioRule<ControllerActivity> activityRule =
             new ActivityScenarioRule<>(ControllerActivity.class);
 
 
-    // Testing the department chair button goes to the department chair options menu
+
+/*
     @Test
-    public void testAddingAdvisee() {
+    public void testAddPool() {
+
+        Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.manageMajorButton)).perform(click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
+                .perform(ViewActions.typeText("100lvl"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(click());
+        ViewInteraction listofPools = Espresso.onView(ViewMatchers.withId(R.id.listofPools));
+        listofPools.check(ViewAssertions.matches(ViewMatchers.withSubstring("100lvl")));
+
 
     }
-}
+
+    }

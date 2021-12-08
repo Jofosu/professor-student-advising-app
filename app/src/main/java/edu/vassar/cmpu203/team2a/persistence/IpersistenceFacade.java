@@ -16,5 +16,6 @@ public interface IpersistenceFacade {
     }
 
     void retrieveAdvisor(@NonNull DataListener<Advisor> listener);
+    public void retrieveMajor(@NonNull DataListener<Major> listener);
 
 }

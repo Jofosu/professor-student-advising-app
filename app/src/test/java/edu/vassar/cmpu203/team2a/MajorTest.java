@@ -44,7 +44,7 @@ class MajorTest {
         Course c = new Course ("CMPU11122","Monday530",l);
         m.createPool("100lvl");
         m.setRequiredPoolCourses(10, "100lvl");
-        assertEquals(m.getMajor().get("100lvl").getNumReq() , 10);
+        assertEquals(m.getMajor().get("100lvl").getNumOfRequiredCourses() , 10);
     }
 
     /** Testing that we can add a course, then remove it

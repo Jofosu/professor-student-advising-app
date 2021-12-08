@@ -42,4 +42,16 @@ public class FirestoreFacade implements IpersistenceFacade{
                     listener.onDataRecieved(advisor);
                 }).addOnFailureListener(e-> Log.w("AdvissingApp","Error retrieving Advisor from database",e));
     }
+
+    public void retrieveMajor(@NonNull DataListener<Major> listener) {
+        this.db.collection(POOL).get()
+                .addOnSuccessListener(qsnap->{
+                    Major major = new Major();
+                    for(DocumentSnapshot dsnap: qsnap){
+                        Major.Pool pool = dsnap.toObject(Major.Pool.class);
+                        major.createPool(pool.getpoolName());
+                    }
+                    listener.onDataRecieved(major);
+                }).addOnFailureListener(e-> Log.w("AdvissingApp","Error retrieving major from database",e));
+    }
 }
