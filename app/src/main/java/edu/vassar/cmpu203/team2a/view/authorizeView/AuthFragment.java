@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import edu.vassar.cmpu203.team2a.R;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAuthBinding;
 
@@ -56,6 +58,12 @@ public class AuthFragment extends Fragment implements IAuthView{
                 return this.binding.getRoot();
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(IS_REGISTERED, this.isRegistered);
+    }
+
     private void activateRegisteredConfig(){
         this.isRegistered = true;
         this.binding.registerButton.setEnabled(false);
@@ -63,16 +71,28 @@ public class AuthFragment extends Fragment implements IAuthView{
 
     @Override
     public void onRegisterSuccess() {
-
+        activateRegisteredConfig();
+        Snackbar.make(this.binding.getRoot(),
+                "Registration successful. Please sign in",
+                Snackbar.LENGTH_LONG)
+                .show();
     }
 
     @Override
     public void onInvalidCredentials() {
+        Snackbar.make(this.binding.getRoot(),
+                "Sign in failed. Invalid Credentials.",
+                Snackbar.LENGTH_LONG)
+                .show();
 
     }
 
     @Override
     public void onUserAlreadyExists() {
+        Snackbar.make(this.binding.getRoot(),
+                "Registration failed. Username already exists.",
+                Snackbar.LENGTH_LONG)
+                .show();
 
     }
 }

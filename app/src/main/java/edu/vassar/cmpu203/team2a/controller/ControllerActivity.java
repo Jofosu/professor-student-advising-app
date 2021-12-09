@@ -19,6 +19,7 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IPoolOptionsView;
@@ -30,6 +31,8 @@ import edu.vassar.cmpu203.team2a.view.IMainView;
 import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IEnterPoolName;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
+import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
+import edu.vassar.cmpu203.team2a.view.authorizeView.AuthFragment;
 
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
 import edu.vassar.cmpu203.team2a.view.MainView;
@@ -40,7 +43,7 @@ import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragment;
 
-public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener {
+public class ControllerActivity extends AppCompatActivity implements IAuthView.Listener, IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener {
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
     private Major major;
@@ -239,4 +242,16 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         this.persistenceFacade.saveMajor(this.major);
         this.onManageMajor();
     }
+
+    //TODO implement IAuthView.Listener methods
+    @Override
+    public void onRegister(String username, String password, IAuthView authView){
+
+    }
+    @Override
+    public void onSignInAttempt(String username, String password, IAuthView authView){
+
+    }
+
+
 }
