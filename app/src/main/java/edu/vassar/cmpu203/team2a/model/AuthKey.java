@@ -59,7 +59,7 @@ public class AuthKey implements Serializable {
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
             sr.nextBytes(salt);
         } catch (NoSuchAlgorithmException e) {
-            Log.e("Advising App", "Error generating authentication salt", e);
+            Log.e("AdvisingApp", "Error generating authentication salt", e);
         }
         return Base64.getEncoder().encodeToString(salt);
     }

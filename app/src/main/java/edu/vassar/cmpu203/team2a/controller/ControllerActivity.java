@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 import edu.vassar.cmpu203.team2a.model.Major;
+import edu.vassar.cmpu203.team2a.model.User;
 import edu.vassar.cmpu203.team2a.persistence.FirestoreFacade;
 import edu.vassar.cmpu203.team2a.persistence.IpersistenceFacade;
 import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
@@ -243,14 +244,35 @@ public class ControllerActivity extends AppCompatActivity implements IAuthView.L
         this.onManageMajor();
     }
 
-    //TODO implement IAuthView.Listener methods
+    // Authentication Listener implementation
     @Override
-    public void onRegister(String username, String password, IAuthView authView){
+    public void onRegister(String username, String password, IAuthView authView) {
+        User user = new User(username, password); // our tentative user
+        this.persistenceFacade.createUserIfNotExists(user, new IpersistenceFacade.BinaryResultListener() {
+            @Override
+            public void onYesResult() { authView.onRegisterSuccess(); }
 
+            @Override
+            public void onNoResult() { authView.onUserAlreadyExists(); }
+        });
     }
-    @Override
-    public void onSignInAttempt(String username, String password, IAuthView authView){
 
+    @Override
+    public void onSignInAttempt(String username, String password, IAuthView authView) {
+
+        this.persistenceFacade.retrieveUser(username, new IpersistenceFacade.DataListener<User>() {
+            @Override
+            public void onDataReceived(@NonNull User user) {
+                if (user.validatePassword(password)){
+                    ControllerActivity.this.mainView.displayFragment(new MainMenuFragment(ControllerActivity.this));
+                } else authView.onInvalidCredentials();
+            }
+
+            @Override
+            public void onNoDataFound() {
+                authView.onInvalidCredentials();
+            }
+        });
     }
 
 
