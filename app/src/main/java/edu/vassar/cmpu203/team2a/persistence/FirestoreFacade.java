@@ -13,11 +13,11 @@ import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 import edu.vassar.cmpu203.team2a.model.Major;
+import edu.vassar.cmpu203.team2a.model.Pool;
 import edu.vassar.cmpu203.team2a.model.User;
 
-public class FirestoreFacade implements IpersistenceFacade {
+public class FirestoreFacade implements IpersistenceFacade{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private static final String ADVISEE = "Advisees";
     private static final String MAJOR = "Major";
     private static final String CATALOGUE = "Catalogue";
@@ -25,7 +25,7 @@ public class FirestoreFacade implements IpersistenceFacade {
 
     @Override
     public void saveAdvisee(@NonNull Advisee advisee) {
-        db.collection(ADVISEE).add(advisee);
+    db.collection(ADVISEE).add(advisee);
     }
 
     @Override
@@ -34,19 +34,22 @@ public class FirestoreFacade implements IpersistenceFacade {
     }
 
     @Override
-    public void saveCatalogue(@NonNull Course course) {
-        db.collection(CATALOGUE).add(course);
-    }
+    public void saveCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
 
+    @Override
+    public void editCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
+
+    @Override
+    public void deleteCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).delete();}
 
     @Override
     public void retrieveAdvisor(@NonNull DataListener<Advisor> listener) {
         this.db.collection(ADVISEE).get()
-                .addOnSuccessListener(qsnap -> {
+                .addOnSuccessListener(qsnap->{
                     Advisor advisor = new Advisor();
-                    for (DocumentSnapshot dsnap : qsnap) {
-                        Advisee advisee = dsnap.toObject(Advisee.class);
-                        advisor.addAdvisee(advisee.getName(), (int) advisee.getId(), (int) advisee.getClassYear(), advisee.getClassesTaken());
+                    for(DocumentSnapshot dsnap: qsnap){
+                    Advisee advisee = dsnap.toObject(Advisee.class);
+                    advisor.addAdvisee(advisee.getName(),(int)advisee.getId(),(int)advisee.getClassYear(),advisee.getClassesTaken());
                     }
                     listener.onDataReceived(advisor);
                 }).addOnFailureListener(e -> Log.w("AdvissingApp", "Error retrieving Advisor from database", e));
@@ -55,24 +58,23 @@ public class FirestoreFacade implements IpersistenceFacade {
     @Override
     public void retrieveMajor(@NonNull DataListener<Major> listener) {
         this.db.collection(MAJOR).get()
-                .addOnSuccessListener(qsnap -> {
+                .addOnSuccessListener(qsnap->{
                     Major major = new Major();
-                    for (DocumentSnapshot dsnap : qsnap) {
-                        Major.Pool pool = dsnap.toObject(Major.Pool.class);
+                    for(DocumentSnapshot dsnap: qsnap){
+                        Pool pool = dsnap.toObject(Pool.class);
                         major.createPool(pool.getpoolName());
                     }
                     listener.onDataReceived(major);
                 }).addOnFailureListener(e -> Log.w("AdvisingApp", "Error retrieving major from database", e));
     }
-
     @Override
     public void retrieveCatalogue(@NonNull DataListener<CourseCatalogue> listener) {
         this.db.collection(CATALOGUE).get()
-                .addOnSuccessListener(qsnap -> {
+                .addOnSuccessListener(qsnap->{
                     CourseCatalogue courseCatalogue = new CourseCatalogue();
-                    for (DocumentSnapshot dsnap : qsnap) {
+                    for(DocumentSnapshot dsnap: qsnap){
                         Course course = dsnap.toObject(Course.class);
-                        courseCatalogue.addCourse(course.getId(), course.getTime(), course.getPrerequisites());
+                       courseCatalogue.addCourse(course.getId(), course.getTime(), course.getPrerequisites());
                     }
                     listener.onDataReceived(courseCatalogue);
                 }).addOnFailureListener(e -> Log.w("AdvisingApp", "Error retrieving catalogue from database", e));

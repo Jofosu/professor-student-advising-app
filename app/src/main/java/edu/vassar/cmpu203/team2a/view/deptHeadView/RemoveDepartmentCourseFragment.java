@@ -10,6 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.regex.Pattern;
+
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddCatalogueBinding;
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteCatalogueBinding;
 
@@ -31,8 +35,18 @@ public class RemoveDepartmentCourseFragment extends Fragment implements IRemoveD
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         this.binding.removeCourseButton.setOnClickListener((clickedView)->{
+            Boolean accept=true;
+            Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{5}+$");
+
             Editable courseIDEditable = binding.enterRemoveID.getText();
             String courseID = courseIDEditable.toString();
+            if(!coursePrefixOrder.matcher(courseID).find()) {
+                Snackbar.make(view, "Please use a proper course ID",Snackbar.LENGTH_LONG).show();
+                accept = false;
+            }
+
+
+            if(accept)
             this.listener.onRemovedCourse(courseID);
         });
 
