@@ -1,5 +1,6 @@
 package edu.vassar.cmpu203.team2a.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import java.util.LinkedList;
@@ -11,9 +12,11 @@ import edu.vassar.cmpu203.team2a.model.Course;
  * Contains a HashMap collection of courses named courseCatalog, with the methods to add, remove Courses.
  * ALso a method to return the collection of courses
  */
-public class CourseCatalogue {
-    HashMap<String, Course> courseCatalogue = new HashMap<>();
+public class CourseCatalogue implements Serializable {
+    public HashMap<String, Course> courseCatalogue = new HashMap<>();
+   // LinkedList prequisites = new LinkedList();
 
+    public CourseCatalogue(){}
     /**
      * Adds a course into the courseCatalogue
      *
@@ -21,15 +24,17 @@ public class CourseCatalogue {
      * @param time: String for the time the course takes place. For example: "Monday 1:30-5:30"
      * @return boolean: true if the course was successfully put into the courseCatalogue
      */
-    public boolean addCourse(String id, String time) {
-
-        //todo we should probably make it so that as you add classes you can add prerequisites which would change the
-        //todo addCourse above.
-        LinkedList prequisites = new LinkedList();
-        Course course = new Course(id, time, prequisites);
+    public boolean addCourse(String id, String time, LinkedList prerequisites) {
+        Course course = new Course(id, time, prerequisites);
         courseCatalogue.put(id, course);
 
         return courseCatalogue.containsKey(id);
+    }
+
+
+    public boolean editTime(String id, String time){
+        courseCatalogue.get(id).time = time;
+        return true;
     }
 
     /**

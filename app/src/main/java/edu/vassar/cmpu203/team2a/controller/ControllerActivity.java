@@ -94,14 +94,29 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             public void onNoDataFound() { }
         });
 
+        this.persistenceFacade.retrieveCatalogue(new IpersistenceFacade.DataListener<CourseCatalogue>() {
+            @Override
+            public void onDataRecieved(@NonNull CourseCatalogue courseCatalogue) {
+                ControllerActivity.this.courseCatalogue = courseCatalogue; // set the activity's catalogue to the one retrieved from the database \
+
+                Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
+                if(currFrag instanceof IManageCatalogueMenu)((IManageCatalogueMenu)currFrag).updateMenuDisplay(courseCatalogue);
+            }
+
+            @Override
+            public void onNoDataFound() { }
+        });
+
 
         if(savedInstanceState != null){
             this.advisor = (Advisor)savedInstanceState.getSerializable("Advisee");
             this.major = (Major)savedInstanceState.getSerializable("Major");
+            this.courseCatalogue = (CourseCatalogue)savedInstanceState.getSerializable("Catalogue");
         }
         else{
             this.advisor = new Advisor();
-            this.major = new Major();}
+            this.major = new Major();
+            this.courseCatalogue = new CourseCatalogue();}
             this.mainView.displayFragment(new MainMenuFragment(this));
 
     }
@@ -109,12 +124,20 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void onAddedCourse(String id, String time) {
         Log.d("AdvisingApp", "controller is handling adding a course");
-        this.courseCatalogue.addCourse(id, time);
+        if(courseCatalogue.inCatalogue(id)) {
+                this.courseCatalogue.editTime(id, time);
+                this.persistenceFacade.editCatalogue(this.courseCatalogue.get(id));
+        }else {
+            this.courseCatalogue.addCourse(id, time, null);
+            this.persistenceFacade.saveCatalogue(this.courseCatalogue.get(id));
+
+        }
         this.onManageCatalogue();
     }
 
     @Override
     public void onRemovedCourse(String courseID){
+        this.persistenceFacade.deleteCatalogue(this.courseCatalogue.get(courseID));
         this.courseCatalogue.removeCourse(courseID);
         this.onManageCatalogue();
 
