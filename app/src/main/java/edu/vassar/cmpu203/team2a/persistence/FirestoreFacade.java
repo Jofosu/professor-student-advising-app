@@ -11,6 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import edu.vassar.cmpu203.team2a.model.Advisee;
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Major;
+import edu.vassar.cmpu203.team2a.model.Pool;
 
 public class FirestoreFacade implements IpersistenceFacade{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -48,7 +49,7 @@ public class FirestoreFacade implements IpersistenceFacade{
                 .addOnSuccessListener(qsnap->{
                     Major major = new Major();
                     for(DocumentSnapshot dsnap: qsnap){
-                        Major.Pool pool = dsnap.toObject(Major.Pool.class);
+                        Pool pool = dsnap.toObject(Pool.class);
                         major.createPool(pool.getpoolName());
                     }
                     listener.onDataRecieved(major);
