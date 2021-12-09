@@ -31,6 +31,12 @@ public class CourseCatalogue implements Serializable {
         return courseCatalogue.containsKey(id);
     }
 
+
+    public boolean editTime(String id, String time){
+        courseCatalogue.get(id).time = time;
+        return true;
+    }
+
     /**
      * Removes a course from the courseCatalogue
      *

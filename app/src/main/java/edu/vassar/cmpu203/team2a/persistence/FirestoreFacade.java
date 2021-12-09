@@ -31,7 +31,13 @@ public class FirestoreFacade implements IpersistenceFacade{
     }
 
     @Override
-    public void saveCatalogue(@NonNull Course course){db.collection(CATALOGUE).add(course);}
+    public void saveCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
+
+    @Override
+    public void editCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
+
+    @Override
+    public void deleteCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).delete();}
 
     @Override
     public void retrieveAdvisor(@NonNull DataListener<Advisor> listener) {

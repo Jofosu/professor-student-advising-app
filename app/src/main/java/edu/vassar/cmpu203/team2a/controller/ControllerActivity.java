@@ -124,13 +124,20 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     @Override
     public void onAddedCourse(String id, String time) {
         Log.d("AdvisingApp", "controller is handling adding a course");
-        this.courseCatalogue.addCourse(id, time, null);
-        this.persistenceFacade.saveCatalogue(this.courseCatalogue.get(id));
+        if(courseCatalogue.inCatalogue(id)) {
+                this.courseCatalogue.editTime(id, time);
+                this.persistenceFacade.editCatalogue(this.courseCatalogue.get(id));
+        }else {
+            this.courseCatalogue.addCourse(id, time, null);
+            this.persistenceFacade.saveCatalogue(this.courseCatalogue.get(id));
+
+        }
         this.onManageCatalogue();
     }
 
     @Override
     public void onRemovedCourse(String courseID){
+        this.persistenceFacade.deleteCatalogue(this.courseCatalogue.get(courseID));
         this.courseCatalogue.removeCourse(courseID);
         this.onManageCatalogue();
 

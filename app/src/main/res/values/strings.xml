@@ -6,7 +6,7 @@
     <string name="edit_major_req">Edit Major Requirements</string>
     <string name="manage_advisees">Manage Advisees</string>
     <string name="HOD_menu_heading">Department Chair</string>
-    <string name="add_course_label"> Add Course</string>
+    <string name="add_course_label"> Add/Edit Course</string>
     <string name="remove_course_label">Remove Course</string>
     <string name="HOD_menu2_label">What would you like to do today?</string>
     <string name="student_button">Student</string>
