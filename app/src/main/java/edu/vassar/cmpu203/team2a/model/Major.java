@@ -15,7 +15,7 @@ public class Major implements Serializable {
     // A Hashmap that contains the pools of a major and the different courses in each pool.
     private Map<String, Pool> major = new HashMap<>();
 
-    public Major(){this.major = getMajor();}
+    public Major(){}
 
     /**
      * Creates a Pool in a Major
@@ -96,8 +96,7 @@ public class Major implements Serializable {
         public Pool(){}
 
         public Pool(String poolName){
-            this.poolName = poolName;
-        }
+            this.poolName = poolName; }
 
         public int getNumOfRequiredCourses(){
             return numOfRequiredCourses;
