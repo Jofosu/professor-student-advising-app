@@ -71,7 +71,7 @@ public class ControllerActivity extends AppCompatActivity implements IAuthView.L
         this.major = new Major();
        this.persistenceFacade.retrieveAdvisor(new IpersistenceFacade.DataListener<Advisor>() {
            @Override
-           public void onDataRecieved(Advisor advisor) {
+           public void onDataReceived(Advisor advisor) {
                ControllerActivity.this.advisor = advisor; // set the activity's advisor to the one retrieved from the database \
 
                Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
@@ -86,7 +86,7 @@ public class ControllerActivity extends AppCompatActivity implements IAuthView.L
 
         this.persistenceFacade.retrieveMajor(new IpersistenceFacade.DataListener<Major>() {
             @Override
-            public void onDataRecieved(@NonNull Major major) {
+            public void onDataReceived(@NonNull Major major) {
                 ControllerActivity.this.major = major; // set the activity's major to the one retrieved from the database \
 
                 Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
@@ -99,7 +99,7 @@ public class ControllerActivity extends AppCompatActivity implements IAuthView.L
 
         this.persistenceFacade.retrieveCatalogue(new IpersistenceFacade.DataListener<CourseCatalogue>() {
             @Override
-            public void onDataRecieved(@NonNull CourseCatalogue courseCatalogue) {
+            public void onDataReceived(@NonNull CourseCatalogue courseCatalogue) {
                 ControllerActivity.this.courseCatalogue = courseCatalogue; // set the activity's catalogue to the one retrieved from the database \
 
                 Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
