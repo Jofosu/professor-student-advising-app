@@ -235,13 +235,15 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             if(courseCatalogue.inCatalogue(preqString) & courseCatalogue.inCatalogue(preqTarget)){
                 Course target = courseCatalogue.get(preqString);
                 Course preq = courseCatalogue.get(preqTarget);
-                String targetString = target.getId();
+                if(!target.getPrerequisites().contains(preq.getId())) {
+                    target.getPrerequisites().add(preq.getId());
+                }else{
+                    target.getPrerequisites().remove(preq.getId());
+                }
 
-                target.prerequisites.add(preq.getId());
-                this.persistenceFacade.editPreq(courseCatalogue.get(preqTarget));
+                this.persistenceFacade.editPreq(target);
                 this.onManageCatalogue();
             }
-
 
 
     }
