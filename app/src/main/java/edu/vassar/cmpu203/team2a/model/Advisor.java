@@ -34,6 +34,11 @@ public class Advisor implements Serializable {
             return false;
         }
     }
+
+    /**
+     * Gets list of advisee's names
+     * @return list of advisee's names
+     */
     public List<String> adviseeNames(){
         List<String> listy= new ArrayList<>();
         for (Advisee advisee: this.returnAdviseeList()){
