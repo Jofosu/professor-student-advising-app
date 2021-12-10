@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.LinkedList;
+
 import edu.vassar.cmpu203.team2a.model.Advisee;
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
@@ -38,6 +40,9 @@ public class FirestoreFacade implements IpersistenceFacade{
 
     @Override
     public void editCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
+
+    @Override
+    public void editPreq(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
 
     @Override
     public void deleteCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).delete();}
@@ -74,7 +79,7 @@ public class FirestoreFacade implements IpersistenceFacade{
                     CourseCatalogue courseCatalogue = new CourseCatalogue();
                     for(DocumentSnapshot dsnap: qsnap){
                         Course course = dsnap.toObject(Course.class);
-                       courseCatalogue.addCourse(course.getId(), course.getTime(), course.getPrerequisites());
+                       courseCatalogue.addCourse(course.getId(), course.getTime(),course.getPrerequisites());
                     }
                     listener.onDataReceived(courseCatalogue);
                 }).addOnFailureListener(e -> Log.w("AdvisingApp", "Error retrieving catalogue from database", e));

@@ -6,6 +6,7 @@ public interface IManageCatalogueMenu {
     interface Listener{
         void onAddCourse();
         void onRemoveCourse();
+        void onEditPreq();
 
 
     }

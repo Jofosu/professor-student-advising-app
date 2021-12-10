@@ -6,6 +6,24 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/editPreqButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/maroon"
+        android:text="@string/editPrereq"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/removeCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/addCourse"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
@@ -13,24 +31,24 @@
         android:layout_marginStart="83dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="82dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/maroon"
         android:text="@string/add_course_label"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/removeCourse"
+        app:layout_constraintBottom_toTopOf="@+id/editPreqButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listofCourses" />
+        app:layout_constraintTop_toBottomOf="@+id/listofCourses"
+        app:layout_constraintVertical_bias="0.849" />
 
     <Button
         android:id="@+id/removeCourse"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
         android:layout_marginBottom="29dp"
         android:background="@color/maroon"
         android:text="@string/remove_course_label"
@@ -39,9 +57,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCourse"
-        app:layout_constraintVertical_bias=".2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/listofCourses"
@@ -58,5 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

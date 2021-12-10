@@ -15,16 +15,16 @@ class CourseControllerTest {
 
     @Test
     void addCourse() {
-        cc.addCourse("CMPU20352", "Mon 13:30-17:30"); //add a course
+        cc.addCourse("CMPU20352", "Mon 13:30-17:30", null); //add a course
         assertEquals(cc.size(), 1);
-        cc.addCourse("BIOC356", "Tuesday 14:30-17:30"); //add a course
+        cc.addCourse("BIOC356", "Tuesday 14:30-17:30", null); //add a course
         assertEquals(cc.size(), 2);
     }
 
     @Test
     void removeCourse() {
-        cc.addCourse("CMPU20352", "Mon 13:30-17:30"); //add a course
-        cc.addCourse("BIOC356", "Tuesday 14:30-17:30"); //add a course
+        cc.addCourse("CMPU20352", "Mon 13:30-17:30", null); //add a course
+        cc.addCourse("BIOC356", "Tuesday 14:30-17:30", null); //add a course
         cc.removeCourse("CMPU20352"); //remove the Course
         assertEquals(cc.size(), 1);
         cc.removeCourse("CMPU20352"); //class should already be removed
@@ -35,9 +35,9 @@ class CourseControllerTest {
 
     @Test
     void returnCourseList() {
-        cc.addCourse("CMPU20352", "Mon 13:30-17:30"); //add a course
-        cc.addCourse("BIOC356", "Tuesday 14:30-17:30"); //add a course
-        String[] expected = new String[]{"CMPU20352", "BIOC356"};
+        cc.addCourse("CMPU20352", "Mon 13:30-17:30", null); //add a course
+        cc.addCourse("BIOC356", "Tuesday 14:30-17:30", null); //add a course
+        String[] expected = new String[]{"CMPU20352", "BIOC356", null};
         assertArrayEquals(cc.returnCourseList().toArray(), expected);
     }
 }

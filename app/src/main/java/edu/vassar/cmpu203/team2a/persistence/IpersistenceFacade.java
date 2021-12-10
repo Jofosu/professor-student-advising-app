@@ -17,6 +17,7 @@ public interface IpersistenceFacade {
     void saveCatalogue(Course course);
     void editCatalogue(Course course);
     void deleteCatalogue(Course course);
+    void editPreq(Course course);
 
     interface DataListener<T>{
     void onDataReceived(@NonNull T data);

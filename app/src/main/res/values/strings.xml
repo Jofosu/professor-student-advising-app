@@ -55,5 +55,8 @@
     <string name="sign_in">Sign In</string>
     <string name="username_hint">username</string>
     <string name="password_hint">password</string>
+    <string name="editPrereq">Prerequisite</string>
+    <string name="preqScreen">Enter preq id, if you enter preq already listed, it removes it</string>
+    <string name="preqTarget">Enter course to add preq to</string>
 
 </resources>

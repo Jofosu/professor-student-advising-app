@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Set;
 
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
@@ -47,13 +49,25 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
                      listener.onRemoveCourse();
                 }
         );
+
+        this.binding.editPreqButton.setOnClickListener((clickedView) -> {
+            listener.onEditPreq();
+        });
     }
 
     public void updateMenuDisplay(CourseCatalogue courseCatalogue) {
+
         Set<String> courses = courseCatalogue.returnCourseList();
         for (String course : courses) {
+            String preqS = "";
             String time = courseCatalogue.getTime(courseCatalogue.get(course));
-            this.binding.listofCourses.append("\n" +course + " " + time);
+
+            ArrayList<String> preqs = courseCatalogue.get(course).prerequisites;
+            for (String preq: preqs){
+                preqS += preq + " ";
+            }
+
+            this.binding.listofCourses.append("\n" +course + " " + time + " " + "\n preq:" +preqS);
 
 
         }

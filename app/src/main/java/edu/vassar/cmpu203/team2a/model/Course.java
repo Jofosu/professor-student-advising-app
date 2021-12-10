@@ -1,6 +1,7 @@
 package edu.vassar.cmpu203.team2a.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 
@@ -10,7 +11,7 @@ import java.util.LinkedList;
 public class Course implements Serializable {
      String id;
      String time;
-     LinkedList<Course> prerequisites;
+     public ArrayList<String> prerequisites;
 
     public Course(){
         this.id = getId();
@@ -18,16 +19,20 @@ public class Course implements Serializable {
         this.prerequisites = getPrerequisites();
     }
 
+    public ArrayList<String> returnPrerequisites(Course course){
+        return course.prerequisites;
+    }
+
     public String getId(){return id;}
     public String getTime(){return time;}
 
-    public Course(String id, String time, LinkedList prerequisites){
+    public Course(String id, String time, ArrayList prerequisites){
         this.id = id;
         this.time = time;
         this.prerequisites = prerequisites;
     }
 
-    public LinkedList<Course> getPrerequisites(){
+    public ArrayList<String> getPrerequisites(){
         return prerequisites;
     }
 

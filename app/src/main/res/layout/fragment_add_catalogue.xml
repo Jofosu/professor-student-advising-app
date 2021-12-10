@@ -89,7 +89,7 @@
                             android:background="@color/white"
                             android:fontFamily="sans-serif-medium"
                             android:hint="@string/editCourseTimeEnd"
-                            android:inputType="time"
+                            android:inputType="textPersonName|time"
                             android:singleLine="true"
                             android:textColorHint="@color/black" />
 

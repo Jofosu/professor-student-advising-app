@@ -1,6 +1,7 @@
 package edu.vassar.cmpu203.team2a.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.LinkedList;
@@ -24,7 +25,7 @@ public class CourseCatalogue implements Serializable {
      * @param time: String for the time the course takes place. For example: "Monday 1:30-5:30"
      * @return boolean: true if the course was successfully put into the courseCatalogue
      */
-    public boolean addCourse(String id, String time, LinkedList prerequisites) {
+    public boolean addCourse(String id, String time, ArrayList prerequisites) {
         Course course = new Course(id, time, prerequisites);
         courseCatalogue.put(id, course);
 

@@ -8,9 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import edu.vassar.cmpu203.team2a.model.Advisor;
+import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 import edu.vassar.cmpu203.team2a.model.Major;
 import edu.vassar.cmpu203.team2a.model.User;
@@ -23,6 +25,8 @@ import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolNameFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.EditPreqFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IEditPreq;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IPoolOptionsView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.PoolOptionsFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolNameFragment;
@@ -44,7 +48,7 @@ import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragment;
 
-public class ControllerActivity extends AppCompatActivity implements IAuthView.Listener, IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener {
+public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener, IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener, IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener, IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener, IEditPreq.Listener, IAuthView.Listener {
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
     private Major major;
@@ -128,11 +132,14 @@ public class ControllerActivity extends AppCompatActivity implements IAuthView.L
     @Override
     public void onAddedCourse(String id, String time) {
         Log.d("AdvisingApp", "controller is handling adding a course");
+        ArrayList<String> courses = new ArrayList<>();
+        Course course = new Course("Cs101", "cs101", null);
+        courses.add("");
         if(courseCatalogue.inCatalogue(id)) {
                 this.courseCatalogue.editTime(id, time);
                 this.persistenceFacade.editCatalogue(this.courseCatalogue.get(id));
         }else {
-            this.courseCatalogue.addCourse(id, time, null);
+            this.courseCatalogue.addCourse(id, time, courses);
             this.persistenceFacade.saveCatalogue(this.courseCatalogue.get(id));
 
         }
@@ -208,6 +215,27 @@ public class ControllerActivity extends AppCompatActivity implements IAuthView.L
 
     }
 
+    @Override
+    public void onEditPreq(){
+        Fragment f = new EditPreqFragment(this);
+        this.mainView.displayFragment(f);
+    }
+
+    @Override
+    public void editPreq(String preqTarget, String preqString){
+            if(courseCatalogue.inCatalogue(preqString) & courseCatalogue.inCatalogue(preqTarget)){
+                Course target = courseCatalogue.get(preqString);
+                Course preq = courseCatalogue.get(preqTarget);
+                String targetString = target.getId();
+
+                target.prerequisites.add(preq.getId());
+                this.persistenceFacade.editPreq(courseCatalogue.get(preqTarget));
+                this.onManageCatalogue();
+            }
+
+
+
+    }
     @Override
     public void onManageCatalogue() {
         Fragment f = new ManageCatalogueFragment(this);
