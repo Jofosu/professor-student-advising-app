@@ -93,5 +93,7 @@ public class Major implements Serializable {
     public Set<String> getPools() {
         return major.keySet();
     }
-}
 
+    public Pool getAPool(String key) {return major.get(key);}
+
+}

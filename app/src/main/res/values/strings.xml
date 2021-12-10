@@ -58,5 +58,12 @@
     <string name="editPrereq">Prerequisite</string>
     <string name="preqScreen">Enter preq id, if you enter preq already listed, it removes it</string>
     <string name="preqTarget">Enter course to add preq to</string>
-
+    <string name="addPoolButton">Add Course to Pool</string>
+    <string name="removePoolButton">Remove Course from Pool</string>
+    <string name="CoursesInPool">Courses in this pool:</string>
+    <string name="editPoolCourses">Edit Pool Courses:</string>
+    <string name="addPoolCourse">Enter pool name, then course ID:</string>
+    <string name="add_or_remove_from_a_pool">Add or remove from a pool?</string>
+    <string name="view_pool_courses">View Pool Courses</string>
+    <string name="if_you_want_to_view_pool_please_enter_pool_name_here">If you want to view pool, please enter pool name here</string>
 </resources>

@@ -7,22 +7,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
-import edu.vassar.cmpu203.team2a.model.Major;
-
-public interface IPoolOptionsView {
+public interface IManagePoolsFragment {
     View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
     void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState);
-
     interface Listener{
+        void onRemovePoolCourse();
+        void onAddPoolCourse();
 
-        void onCreatePoolButton();
-
-        void onRemovePoolButton();
-
-        void onEditPoolCoursesButton();
+        void onViewPoolCourses(String idString);
     }
-    void updatePoolDisplay(Major major);
-
 }

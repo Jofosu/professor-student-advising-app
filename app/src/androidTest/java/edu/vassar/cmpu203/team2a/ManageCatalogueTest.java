@@ -48,7 +48,6 @@ public class ManageCatalogueTest {
         Espresso.onView(ViewMatchers.withId(R.id.thursday)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
 
-
         ViewInteraction listofPools = Espresso.onView(ViewMatchers.withId(R.id.listofCourses));
         listofPools.check(matches(ViewMatchers.withSubstring("CMPU20301 12:30-13:30TR")));
         // checks addition is successful
@@ -61,8 +60,6 @@ public class ManageCatalogueTest {
         Espresso.onView(ViewMatchers.withId(R.id.removeCourseButton)).perform(click());
         Espresso.onView(ViewMatchers.withSubstring("CMPU20301 12:30-13:30TR")).check(doesNotExist());
         //checks that the course was successfully removed
-
-
 
     }
 }

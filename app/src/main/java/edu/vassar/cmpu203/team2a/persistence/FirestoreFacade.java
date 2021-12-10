@@ -31,8 +31,14 @@ public class FirestoreFacade implements IpersistenceFacade{
     }
 
     @Override
-    public void saveMajor(@NonNull Major major) {
-        db.collection(MAJOR).add(major);
+    public void savePool(@NonNull Pool pool) {
+        {db.collection(MAJOR).document(pool.getpoolName()).set(pool);}
+    }
+
+    @Override
+    public void removePool(Pool pool) {
+        {db.collection(MAJOR).document(pool.getpoolName()).delete();}
+
     }
 
     @Override

@@ -12,6 +12,16 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/editPoolCoursesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="75dp"
+            android:text="@string/editPoolCourses"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/CreatePool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +36,7 @@
             android:id="@+id/RemovePool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="80dp"
             android:text="@string/removePoolLabel"
             app:layout_constraintStart_toStartOf="@+id/CreatePool"
             app:layout_constraintTop_toBottomOf="@+id/CreatePool" />
@@ -35,9 +45,10 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="53dp"
+            android:layout_marginTop="28dp"
             android:text="@string/listOfPools"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

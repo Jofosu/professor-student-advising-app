@@ -9,15 +9,18 @@ import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 import edu.vassar.cmpu203.team2a.model.Major;
+import edu.vassar.cmpu203.team2a.model.Pool;
 import edu.vassar.cmpu203.team2a.model.User;
 
 public interface IpersistenceFacade {
     void saveAdvisee(Advisee advisee);
-    void saveMajor(Major major);
+    void savePool(Pool pool);
+    void removePool (Pool pool);
     void saveCatalogue(Course course);
     void editCatalogue(Course course);
     void deleteCatalogue(Course course);
     void editPreq(Course course);
+
 
     interface DataListener<T>{
     void onDataReceived(@NonNull T data);

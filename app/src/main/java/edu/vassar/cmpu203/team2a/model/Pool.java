@@ -2,6 +2,7 @@ package edu.vassar.cmpu203.team2a.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class Pool implements Serializable {
 
 
     public int numOfRequiredCourses;
-    public List<Course> poolList = new ArrayList<>();
+    public ArrayList<Course> poolList = new ArrayList<>();
     public String poolName;
 
     public Pool(){}
@@ -23,8 +24,10 @@ public class Pool implements Serializable {
     public int getNumOfRequiredCourses(){
         return numOfRequiredCourses;
     }
-    public List<Course> getpoolList(){return this.poolList;}
+    public ArrayList<Course> getpoolList(){return this.poolList;}
     public String getpoolName(){return poolName;}
+    public void addPoolCourse(Course course){this.poolList.add(course);}
+    public void removePoolCourse(Course course){this.poolList.remove(course);}
 
 }
 

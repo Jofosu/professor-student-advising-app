@@ -1,8 +1,9 @@
 package edu.vassar.cmpu203.team2a.model;
 
+import com.google.rpc.Help;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 
 /**
@@ -42,4 +43,6 @@ public class Course implements Serializable {
             return false;
         return this.id == ((Course) obj).id;
     }
+
+    public String toString(){return this.id;}
 }

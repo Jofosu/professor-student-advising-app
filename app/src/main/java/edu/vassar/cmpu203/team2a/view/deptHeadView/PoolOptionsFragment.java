@@ -59,7 +59,13 @@ public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
         this.binding.RemovePool.setOnClickListener((clickedView) -> {
             listener.onRemovePoolButton();
         });
+
+        this.binding.editPoolCoursesButton.setOnClickListener((clickedView) -> {
+            listener.onEditPoolCoursesButton();
+        });
+
     }
+
 
     /**
      * Updates a text display of all the pools in the major
@@ -69,7 +75,5 @@ public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
         for (String pool : poollist) {
             this.binding.listofPools.append("\n" + pool);
         }
-
-
     }
 }
