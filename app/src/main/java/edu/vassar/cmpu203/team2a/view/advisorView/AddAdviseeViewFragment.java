@@ -37,7 +37,7 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
 
 
 
-            this.binding.doneButton3.setOnClickListener((clickedView) -> {
+            this.binding.endButton.setOnClickListener((clickedView) -> {
             Editable firstNameEditable = binding.editFirstName.getText();
             String firstname = firstNameEditable.toString();
 

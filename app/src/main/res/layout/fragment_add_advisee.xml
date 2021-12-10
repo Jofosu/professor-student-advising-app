@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#FFFFFFFF"
     android:baselineAligned="true"
     android:foregroundTint="#000000">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:foregroundTint="#FFFFFF"
         android:scrollbars="vertical">
@@ -19,7 +19,7 @@
             android:id="@+id/addCourseMenuLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="16dp"
             android:clickable="true"
             android:fontFamily="sans-serif-medium"
             android:minHeight="48dp"
@@ -27,127 +27,102 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textIsSelectable="true"
+            app:layout_constraintBottom_toTopOf="@+id/editFirstName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="412dp"
-            android:layout_height="442dp"
-            android:layout_marginTop="88dp"
-            android:orientation="vertical"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editFirstName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:hint="@string/firstNameLabel"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/editMiddleName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addCourseMenuLabel" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editMiddleName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:hint="@string/middleNameLabel"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/editLastName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLastName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:hint="@string/lastNameLabel"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/editClassYear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editMiddleName" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editClassYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:hint="@string/classYearLabel"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/editStudentId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editLastName" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editStudentId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:hint="@string/studentIdLabel"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/endButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editClassYear" />
+
+        <Button
+            android:id="@+id/endButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/doneLabel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addCourseMenuLabel">
+            app:layout_constraintTop_toBottomOf="@+id/editStudentId" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/editfirstNameLabel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColorHint="@color/black"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editFirstName"
-                    android:layout_width="match_parent"
-                    android:layout_height="62dp"
-                    android:background="@color/white"
-
-                    android:fontFamily="sans-serif-medium"
-                    android:hint="@string/firstNameLabel"
-
-                    android:inputType="textPersonName"
-                    android:singleLine="true"
-                    android:textColor="@color/black" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/middleNameLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColorHint="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editMiddleName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:fontFamily="sans-serif-medium"
-                        android:hint="@string/middleNameLabel"
-                        android:inputType="textPersonName"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColorHint="@color/black">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editLastName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:fontFamily="sans-serif-medium"
-                            android:hint="@string/lastNameLabel"
-                            android:inputType="textPersonName"
-                            android:singleLine="true"
-                            android:textColorHint="@color/black" />
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textColorHint="@color/black">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editClassYear"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/white"
-                                android:fontFamily="sans-serif-medium"
-                                android:hint="@string/classYearLabel"
-                                android:maxLength="4"
-                                android:singleLine="true"
-                                android:textColorHint="@color/black" />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColorHint="@color/black">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/editStudentId"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@color/white"
-                                    android:fontFamily="sans-serif-medium"
-                                    android:hint="@string/studentIdLabel"
-                                    android:maxLength="9"
-                                    android:singleLine="true"
-                                    android:textColorHint="@color/black" />
-
-                                <Button
-                                    android:id="@+id/addButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:layout_weight="1"
-                                    android:text="@string/add_advisee_button" />
-
-                                <Button
-                                    android:id="@+id/doneButton3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:layout_weight="1"
-                                    android:text="@string/doneLabel" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
-                        </com.google.android.material.textfield.TextInputLayout>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </com.google.android.material.textfield.TextInputLayout>
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

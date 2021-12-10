@@ -49,7 +49,7 @@ public class FirestoreFacade implements IpersistenceFacade{
                     Advisor advisor = new Advisor();
                     for(DocumentSnapshot dsnap: qsnap){
                     Advisee advisee = dsnap.toObject(Advisee.class);
-                    advisor.addAdvisee(advisee.getName(),(int)advisee.getId(),(int)advisee.getClassYear(),advisee.getClassesTaken());
+                    advisor.addAdvisee(advisee.getName(),advisee.getId(),advisee.getClassYear(),advisee.getClassesTaken());
                     }
                     listener.onDataReceived(advisor);
                 }).addOnFailureListener(e -> Log.w("AdvissingApp", "Error retrieving Advisor from database", e));
