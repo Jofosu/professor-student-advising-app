@@ -138,7 +138,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             this.advisor = new Advisor();
             this.major = new Major();
             this.courseCatalogue = new CourseCatalogue();}
-            this.mainView.displayFragment(new MainMenuFragment(this));
+            this.mainView.displayFragment(new AuthFragment(this));
 
     }
 
@@ -311,7 +311,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     // Authentication Listener implementation
     @Override
     public void onRegister(String username, String password, IAuthView authView) {
-        User user = new User(username, password); // our tentative user
+        User user = new User(username, password);
         this.persistenceFacade.createUserIfNotExists(user, new IpersistenceFacade.BinaryResultListener() {
             @Override
             public void onYesResult() { authView.onRegisterSuccess(); }

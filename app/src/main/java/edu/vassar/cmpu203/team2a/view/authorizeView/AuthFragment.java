@@ -29,6 +29,11 @@ public class AuthFragment extends Fragment implements IAuthView{
 
     private boolean isRegistered = false;
 
+    public AuthFragment(@NonNull Listener listener) {
+        this.listener = listener;
+    }
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
