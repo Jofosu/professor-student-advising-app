@@ -15,7 +15,7 @@
             android:id="@+id/editPoolCoursesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="75dp"
+            android:layout_marginBottom="149dp"
             android:text="@string/editPoolCourses"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,40 +25,44 @@
             android:id="@+id/CreatePool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="224dp"
+            android:layout_marginTop="251dp"
+            android:layout_marginBottom="252dp"
             android:text="@string/createPoolLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/editPoolCoursesButton"
+            app:layout_constraintStart_toStartOf="@+id/RemovePool"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/RemovePool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="127dp"
             android:text="@string/removePoolLabel"
-            app:layout_constraintStart_toStartOf="@+id/CreatePool"
-            app:layout_constraintTop_toBottomOf="@+id/CreatePool" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/listOfPools"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/editPoolCoursesButton"
+            app:layout_constraintEnd_toEndOf="@+id/editPoolCoursesButton"
+            app:layout_constraintTop_toTopOf="@+id/CreatePool" />
 
         <TextView
             android:id="@+id/listofPools"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
+            android:textColor="#2196F3"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="83dp"
+            android:text="@string/listOfPools"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

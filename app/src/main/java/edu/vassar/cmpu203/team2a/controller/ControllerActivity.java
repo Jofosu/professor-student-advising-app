@@ -26,13 +26,16 @@ import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.EditPreqFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IEditPoolCourse;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IEditPreq;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IManagePoolsFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IPoolOptionsView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.ManagePoolsFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.PoolOptionsFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
@@ -51,12 +54,13 @@ import edu.vassar.cmpu203.team2a.view.deptHeadView.ManageCatalogueFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.ViewPoolCourses;
 
 public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener,
         IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener,
         IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener,
         IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener, IEditPreq.Listener, IAuthView.Listener
-        ,IManagePoolsFragment.Listener
+        ,IManagePoolsFragment.Listener, IEditPoolCourse.Listener
 {
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
@@ -331,18 +335,47 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onRemovePoolCourse() {
-
+        Fragment f = new RemovePoolCourseFragment(this);
+        this.mainView.displayFragment(f);
     }
 
     @Override
     public void onAddPoolCourse() {
-
+        Fragment f = new AddPoolCourseFragment(this);
+        this.mainView.displayFragment(f);
     }
 
     @Override
     public void onViewPoolCourses(String idString) {
+        if (major.hasPool(idString)) {
+            Fragment f = new ViewPoolCourses(this, idString);
+            this.mainView.displayFragment(f);
+        }
 
     }
 
 
+    @Override
+    public void removePoolCourseController(String idString, String poolName) {
+        if (this.courseCatalogue.inCatalogue(idString) && major.hasPool(poolName)){
+            major.getAPool(poolName).removePoolCourse(this.courseCatalogue.get(idString));
+            this.persistenceFacade.savePool(this.getMajor().getAPool(poolName));
+            Fragment f = new ManagePoolsFragment(this);
+            this.mainView.displayFragment(f);
+        }
+        Fragment f = new ManagePoolsFragment(this);
+        this.mainView.displayFragment(f);
+    }
+
+    @Override
+    public void addPoolCourseController(String idString, String poolName) {
+        if (this.courseCatalogue.inCatalogue(idString) && major.hasPool(poolName)){
+            major.getAPool(poolName).addPoolCourse(this.courseCatalogue.get(idString));
+            this.persistenceFacade.savePool(this.getMajor().getAPool(poolName));
+            Fragment f = new ManagePoolsFragment(this);
+            this.mainView.displayFragment(f);
+        }
+        Fragment f = new ManagePoolsFragment(this);
+        this.mainView.displayFragment(f);
+    }
 }

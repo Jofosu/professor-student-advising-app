@@ -5,24 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/manageMajorButton"
+        android:layout_width="157dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="188dp"
+        android:text="@string/manageMajorLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manageCatalogueButton" />
+
     <TextView
         android:id="@+id/headDeptMainMenuLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginBottom="65dp"
         android:text="@string/HOD_menu2_label"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/manageCatalogueButton"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/manageCatalogueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="158dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="76dp"
         android:text="@string/manageCatalogueButtonLabel"
         app:layout_constraintBottom_toTopOf="@+id/manageMajorButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,15 +43,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headDeptMainMenuLabel" />
 
-    <Button
-        android:id="@+id/manageMajorButton"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="193dp"
-        android:text="@string/manageMajorLabel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manageCatalogueButton" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="396dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

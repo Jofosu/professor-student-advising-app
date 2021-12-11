@@ -66,4 +66,9 @@
     <string name="add_or_remove_from_a_pool">Add or remove from a pool?</string>
     <string name="view_pool_courses">View Pool Courses</string>
     <string name="if_you_want_to_view_pool_please_enter_pool_name_here">If you want to view pool, please enter pool name here</string>
+    <string name="poolCourseList">Courses in this pool:</string>
+    <string name="enter_course_id">Enter Course ID</string>
+    <string name="enter_pool_name_to_view">Enter Pool Name to View</string>
+
+
 </resources>

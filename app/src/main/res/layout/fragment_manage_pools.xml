@@ -10,22 +10,23 @@
         android:id="@+id/addPoolButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="63dp"
         android:text="@string/addPoolButton"
         app:layout_constraintBottom_toTopOf="@+id/removePoolCourse"
-        app:layout_constraintEnd_toEndOf="@+id/removePoolCourse" />
+        app:layout_constraintStart_toStartOf="@+id/removePoolCourse" />
 
     <Button
         android:id="@+id/removePoolCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="380dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginBottom="63dp"
         android:text="@string/removePoolButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/viewpoolcourses"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/viewpoolcourses"
@@ -34,7 +35,6 @@
         android:layout_marginTop="74dp"
         android:text="@string/view_pool_courses"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/removePoolCourse" />
 
@@ -43,7 +43,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="127dp"
+        android:layout_marginTop="126dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="124dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +55,7 @@
             android:id="@+id/poolEntry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Pool Name to View" />
+            android:hint="@string/enter_pool_name_to_view" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

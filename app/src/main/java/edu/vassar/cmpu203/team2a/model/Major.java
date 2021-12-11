@@ -96,4 +96,6 @@ public class Major implements Serializable {
 
     public Pool getAPool(String key) {return major.get(key);}
 
+    public boolean hasPool(String pool) {return major.containsKey(pool);}
+
 }

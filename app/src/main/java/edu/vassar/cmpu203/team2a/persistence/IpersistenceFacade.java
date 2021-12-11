@@ -21,6 +21,8 @@ public interface IpersistenceFacade {
     void deleteCatalogue(Course course);
     void editPreq(Course course);
 
+    void addPoolCourse(Course course, String poolName);
+
 
     interface DataListener<T>{
     void onDataReceived(@NonNull T data);

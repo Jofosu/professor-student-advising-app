@@ -4,9 +4,9 @@ public interface IEditPoolCourse {
 
     interface Listener{
 
-        void removePoolCourse(String idString, String poolName);
+        void removePoolCourseController(String idString, String poolName);
 
-        void addPoolCourse(String idString, String poolName);
+        void addPoolCourseController(String idString, String poolName);
 
     }
 }

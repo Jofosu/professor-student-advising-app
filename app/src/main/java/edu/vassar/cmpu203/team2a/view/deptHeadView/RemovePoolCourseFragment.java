@@ -45,7 +45,7 @@ public class RemovePoolCourseFragment extends Fragment implements IEditPoolCours
             Editable idEditable2 = binding.poolEntry.getEditableText();
             String poolName = idEditable2.toString();
 
-            this.listener.removePoolCourse(idString, poolName);
+            this.listener.removePoolCourseController(idString, poolName);
         });
 
     }}

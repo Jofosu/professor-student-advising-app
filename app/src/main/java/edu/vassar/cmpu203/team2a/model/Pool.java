@@ -27,7 +27,9 @@ public class Pool implements Serializable {
     public ArrayList<Course> getpoolList(){return this.poolList;}
     public String getpoolName(){return poolName;}
     public void addPoolCourse(Course course){this.poolList.add(course);}
-    public void removePoolCourse(Course course){this.poolList.remove(course);}
+    public void removePoolCourse(Course course){this.poolList.remove(course);
+
+    }
 
 }
 

@@ -25,7 +25,6 @@ public class AddPoolCourseFragment extends Fragment implements IEditPoolCourse {
         this.listener = listener;
     }
 
-
     public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         this.binding = FragmentEditPoolCourseBinding.inflate(inflater);
@@ -44,7 +43,7 @@ public class AddPoolCourseFragment extends Fragment implements IEditPoolCourse {
             Editable idEditable2 = binding.poolEntry.getEditableText();
             String poolName = idEditable2.toString();
 
-            this.listener.addPoolCourse(idString, poolName);
+            this.listener.addPoolCourseController(idString, poolName);
         });
 
 

@@ -27,7 +27,6 @@ public class ViewPoolCourses extends Fragment implements IEnterPoolName {
     private FragmentListPoolCoursesBinding binding;
     private final IEnterPoolName.Listener listener;
     String poolName;
-    Major major;
 
     public ViewPoolCourses(Listener listener, String poolName) {
         this.listener = listener;

@@ -40,6 +40,9 @@ public class FirestoreFacade implements IpersistenceFacade{
         {db.collection(MAJOR).document(pool.getpoolName()).delete();}
 
     }
+    @Override
+    public void addPoolCourse(Course course, String poolName) {
+    }
 
     @Override
     public void saveCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
@@ -49,6 +52,7 @@ public class FirestoreFacade implements IpersistenceFacade{
 
     @Override
     public void editPreq(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
+
 
     @Override
     public void deleteCatalogue(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).delete();}
