@@ -102,7 +102,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
            }
        });
 
-       /* this.persistenceFacade.retrieveMajor(new IpersistenceFacade.DataListener<Major>() {
+       this.persistenceFacade.retrieveMajor(new IpersistenceFacade.DataListener<Major>() {
             @Override
             public void onDataReceived(@NonNull Major major) {
                 ControllerActivity.this.major = major; // set the activity's major to the one retrieved from the database \
@@ -127,7 +127,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             @Override
             public void onNoDataFound() { }
         });
-*/
+
 
         if(savedInstanceState != null){
             this.advisor = (Advisor)savedInstanceState.getSerializable("Advisee");

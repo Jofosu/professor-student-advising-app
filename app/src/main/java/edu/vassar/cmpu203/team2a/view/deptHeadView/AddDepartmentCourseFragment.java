@@ -46,7 +46,7 @@ public class AddDepartmentCourseFragment extends Fragment implements IAddDeptCou
     public void onViewCreated(View view, Bundle savedInstanceState) {
             this.binding.doneButton3.setOnClickListener((clickedView) -> {
                 Boolean accept = true;
-                Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{5}+$");
+                Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{3}+$");
                 Pattern courseTimeOrder = Pattern.compile("^[0-9]+[:]+[0-9]+$");
 
                 Editable courseIDEditable = binding.editCourseID.getText();
@@ -56,41 +56,18 @@ public class AddDepartmentCourseFragment extends Fragment implements IAddDeptCou
                     accept= false;
                 }
 
-                Editable courseStartTime = binding.editStartTIme.getText();
-                String startTime = courseStartTime.toString();
-                if(!courseTimeOrder.matcher(startTime).find()){
-                    Snackbar.make(view, "Please use a proper start time",Snackbar.LENGTH_LONG).show();
-                    accept= false;
-                }
 
-                Editable courseEndTime = binding.editEndTIme.getText();
-                String endTime = courseEndTime.toString();
-                if(!courseTimeOrder.matcher(endTime).find()){
-                    Snackbar.make(view, "Please use a proper end time",Snackbar.LENGTH_LONG).show();
-                    accept= false;
-                }
-
-                Boolean monday = binding.monday.isChecked();
-                Boolean tuesday = binding.tuesday.isChecked();
-                Boolean wednesday = binding.wednesday.isChecked();
                 Boolean thursday = binding.thursday.isChecked();
                 Boolean friday = binding.friday.isChecked();
 
                 String time = "";
-                time += startTime + "-" + endTime;
-                if (monday)
-                    time += "M";
-                if (tuesday)
-                    time += "T";
-                if (wednesday)
-                    time += "W";
                 if (thursday)
-                    time += "R";
-                if (friday)
                     time += "F";
+                if (friday)
+                    time += "S";
                 if(time.equals("")){
                     accept = false;
-                    Snackbar.make(view, "Please select days",Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, "Please select semester",Snackbar.LENGTH_LONG).show();
                 }
                 if(accept)
                     this.listener.onAddedCourse(courseID, time);

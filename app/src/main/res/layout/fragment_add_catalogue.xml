@@ -54,7 +54,7 @@
 
                     android:fontFamily="sans-serif-medium"
                     android:hint="@string/editCourseID"
-                    android:maxLength="9"
+                    android:maxLength="7"
                     android:singleLine="true"
                     android:textColor="@color/black"
                     android:textColorHint="@color/white" />
@@ -65,33 +65,10 @@
                     android:layout_height="match_parent"
                     android:textColorHint="@color/black">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editStartTIme"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:fontFamily="sans-serif-medium"
-                        android:hint="@string/editCourseTimeStart"
-                        android:inputType="time"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black" />
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/black">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editEndTIme"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:fontFamily="sans-serif-medium"
-                            android:hint="@string/editCourseTimeEnd"
-                            android:inputType="textPersonName|time"
-                            android:singleLine="true"
-                            android:textColorHint="@color/black" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -109,27 +86,6 @@
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
                                     android:layout_gravity="center">
-
-                                    <CheckBox
-                                        android:id="@+id/monday"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/monday" />
-
-                                    <CheckBox
-                                        android:id="@+id/tuesday"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/tuesday" />
-
-                                    <CheckBox
-                                        android:id="@+id/wednesday"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/wednesday" />
 
                                     <CheckBox
                                         android:id="@+id/thursday"

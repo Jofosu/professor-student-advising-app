@@ -41,8 +41,8 @@
     <string name="monday"> M </string>
     <string name="tuesday">T </string>
     <string name="wednesday"> W </string>
-    <string name="thursday"> R </string>
-    <string name="friday"> F </string>
+    <string name="thursday"> Fall</string>
+    <string name="friday"> Spring </string>
     <string name="removeCourse2"> Enter Course ID</string>
     <string name="enterRemoveID"> Course ID</string>
     <string name="Add"> Add</string>

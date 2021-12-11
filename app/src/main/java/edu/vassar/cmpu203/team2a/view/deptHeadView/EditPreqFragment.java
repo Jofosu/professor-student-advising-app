@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
@@ -36,9 +37,9 @@ public class EditPreqFragment extends Fragment implements IEditPreq {
 
         this.binding.enterPreqButton.setOnClickListener((clickedView) ->{
             boolean accept = true;
-            Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{5}+$");
+            Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{3}+$");
             Editable preq = binding.enterPreq.getText();
-            String preqTargetString = preq.toString();
+            String preqTargetString = preq.toString().toUpperCase(Locale.ROOT);
 
             if(!coursePrefixOrder.matcher(preq).find()){
                 Snackbar.make(view, "Please use a proper course ID",Snackbar.LENGTH_LONG).show();
@@ -46,7 +47,7 @@ public class EditPreqFragment extends Fragment implements IEditPreq {
             }
 
             Editable preqTarget = binding.enterPreqTarget.getText();
-            String preqString = preqTarget.toString();
+            String preqString = preqTarget.toString().toUpperCase(Locale.ROOT);
 
             if(!coursePrefixOrder.matcher(preqString).find()){
                 Snackbar.make(view, "Please use a proper course ID",Snackbar.LENGTH_LONG).show();
