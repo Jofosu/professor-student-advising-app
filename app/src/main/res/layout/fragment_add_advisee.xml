@@ -35,11 +35,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editFirstName"
-            android:layout_width="0dp"
+            android:layout_width="409dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/firstNameLabel"
+            android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -47,7 +48,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addCourseMenuLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/addCourseMenuLabel"
+            app:textInputLayoutFocusedRectEnabled="false" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editMiddleName"
@@ -55,6 +57,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/middleNameLabel"
+            android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -68,9 +71,9 @@
             android:id="@+id/editLastName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/lastNameLabel"
+            android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -86,6 +89,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/classYearLabel"
+            android:inputType="number"
+            android:maxLength="4"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -102,6 +107,8 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/studentIdLabel"
+            android:inputType="number"
+            android:maxLength="9"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
