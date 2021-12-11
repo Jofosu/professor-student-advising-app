@@ -24,6 +24,14 @@ User is correctly identified and taken to home screen
 
 ####Extensions
 
+1a. First time login
+    
+    User is prompted to register then sign in
+
+1b. First time login and username already exists
+
+    User is notified and prompted to try again
+
 2a. Invalid information 
 
     Error message displayed and user is prompted to try again

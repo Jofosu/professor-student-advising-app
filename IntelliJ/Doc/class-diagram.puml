@@ -20,7 +20,7 @@ List:prerequisites
 class Advisor{
 --
 +addAdvisee()
-+deleteAdivsee()
++deleteAdvisee()
 +returnAdviseeList()
 +size()
 +getAdvisee()

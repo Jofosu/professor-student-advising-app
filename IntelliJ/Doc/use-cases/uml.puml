@@ -1,20 +1,20 @@
 @startuml
 
-package "AcademicAdivsor"{
-  (See requirement checklist) as (check-major-requirments)
+package "AcademicAdvisor"{
+  (See requirement checklist) as (check-major-requirements)
   (Enter Courses) as (enter-courses)
   (Manage Advisees) as (manage-advisees)
   (Manage Schedule) as (scheduling)
   (Enter Major Requirement) as (enter-major-requirement)
 }
 
-Advisee --> (check-major-requirments)
-Adivser --> (check-major-requirments)
-departmentChair --> (check-major-requirments)
+Advisee --> (check-major-requirements)
+Advisor --> (check-major-requirements)
+departmentChair --> (check-major-requirements)
 departmentChair --> (enter-major-requirement)
 Advisee --> (enter-courses)
-Adivser --> (enter-courses)
+Advisor --> (enter-courses)
 Advisee --> (scheduling)
-Adivser --> (scheduling)
-Adivser --> (manage-advisees)
+Advisor --> (scheduling)
+Advisor --> (manage-advisees)
 @enduml ```
