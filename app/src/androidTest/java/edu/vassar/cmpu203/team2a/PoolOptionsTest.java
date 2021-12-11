@@ -42,6 +42,42 @@ public class PoolOptionsTest {
         ViewInteraction listofPools = Espresso.onView(ViewMatchers.withId(R.id.listofPools));
         listofPools.check(matches(ViewMatchers.withSubstring("100lvl")));// checks addition is successful
 
+        //Testing adding a course to a pool. Assumes a course called CMPU10101 was previously made in the ManageCatalogue test
+        //Also testing that the view pool option function works
+        Espresso.onView(ViewMatchers.withId(R.id.editPoolCoursesButton)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.addPoolButton)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
+                .perform(ViewActions.typeText("100lvl"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.idEntry))
+                .perform(ViewActions.typeText("CMPU10101"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.button3)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
+                .perform(ViewActions.typeText("100lvl"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.viewpoolcourses)).perform(click());
+        ViewInteraction listofPoolCourse = Espresso.onView(ViewMatchers.withId(R.id.listOfPoolCourses));
+        listofPoolCourse.check(matches(ViewMatchers.withSubstring("CMPU10101")));// checks addition is successful
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(click());
+
+        //Testing removing a pool course
+        Espresso.onView(ViewMatchers.withId(R.id.editPoolCoursesButton)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.removePoolCourse)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
+                .perform(ViewActions.typeText("100lvl"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.idEntry))
+                .perform(ViewActions.typeText("CMPU10101"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.button3)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
+                .perform(ViewActions.typeText("100lvl"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.viewpoolcourses)).perform(click());
+        Espresso.onView(ViewMatchers.withSubstring("CMPU10101")).check(doesNotExist());
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(click());
+
         //removing a pool
         Espresso.onView(ViewMatchers.withId(R.id.RemovePool)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
@@ -50,6 +86,9 @@ public class PoolOptionsTest {
         Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(click());
         Espresso.onView(ViewMatchers.withSubstring("100lvl")).check(doesNotExist());
         //checks that the pool was successfully removed
+
+
+
     }
 }
 

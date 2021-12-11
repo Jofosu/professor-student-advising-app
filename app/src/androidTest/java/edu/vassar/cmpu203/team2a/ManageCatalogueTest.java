@@ -31,7 +31,7 @@ public class ManageCatalogueTest {
 
     @Test
     public void testAddAndRemoveFromCatalogue() {
-        //adding a couse
+        //adding a course
         Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.manageCatalogueButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.addCourse)).perform(click());
@@ -52,13 +52,32 @@ public class ManageCatalogueTest {
         listofPools.check(matches(ViewMatchers.withSubstring("CMPU20301 12:30-13:30TR")));
         // checks addition is successful
 
+        //edit a course
+        Espresso.onView(ViewMatchers.withId(R.id.addCourse)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.editCourseID))
+                .perform(ViewActions.typeText("CMPU20301"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.editStartTIme))
+                .perform(ViewActions.typeText("22:30"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.editEndTIme))
+                .perform(ViewActions.typeText("23:30"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.tuesday)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.thursday)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
+        listofPools.check(matches(ViewMatchers.withSubstring("CMPU20301 22:30-23:30TR")));
+        Espresso.onView(ViewMatchers.withSubstring("CMPU20301 12:30-13:30TR")).check(doesNotExist());
+        //expect the same course, but with different times
+
+
         //removing a course
         Espresso.onView(ViewMatchers.withId(R.id.removeCourse)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.enterRemoveID))
                 .perform(ViewActions.typeText("CMPU20301"));// removes the course
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.removeCourseButton)).perform(click());
-        Espresso.onView(ViewMatchers.withSubstring("CMPU20301 12:30-13:30TR")).check(doesNotExist());
+        Espresso.onView(ViewMatchers.withSubstring("CMPU20301 22:30-23:30TR")).check(doesNotExist());
         //checks that the course was successfully removed
 
     }

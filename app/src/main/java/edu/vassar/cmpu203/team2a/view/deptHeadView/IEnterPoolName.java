@@ -7,5 +7,6 @@ public interface IEnterPoolName {
 
         void createPool(String idString);
 
+        void onBackToManagePools();
     }
 }

@@ -49,7 +49,7 @@ public class AddAndRemoveAdviseeTest {
         Espresso.onView(ViewMatchers.withId(R.id.editStudentId))
                 .perform(ViewActions.typeText("999516821"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
+        Espresso.onView(ViewMatchers.withId(R.id.endButton)).perform(click()); //create an advisee
 
         ViewInteraction listofPools = Espresso.onView(ViewMatchers.withId(R.id.listofCourses));
         listofPools.check(matches(ViewMatchers.withSubstring("Jun Jie Liu")));

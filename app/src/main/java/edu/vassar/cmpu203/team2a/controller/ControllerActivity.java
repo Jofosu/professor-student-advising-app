@@ -282,7 +282,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     public void onEditPoolCoursesButton() {
        Fragment f = new ManagePoolsFragment(this);
        this.mainView.displayFragment(f);
-
     }
 
     // Uses the create pool method to add the pool onto a list of pools
@@ -292,6 +291,12 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         major.createPool(idString);
         this.persistenceFacade.savePool(p);
         this.onManageMajor();
+    }
+
+    @Override
+    public void onBackToManagePools() {
+        Fragment f = new PoolOptionsFragment(this);
+        this.mainView.displayFragment(f);
     }
 
     // Uses the remove pool method to remove the pool from a list of pools

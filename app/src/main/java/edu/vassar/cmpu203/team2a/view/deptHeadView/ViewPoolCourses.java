@@ -42,6 +42,10 @@ public class ViewPoolCourses extends Fragment implements IEnterPoolName {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         activity = (ControllerActivity) getActivity();
         updatePoolCoursesDisplayed(activity.getMajor());
+
+        this.binding.button4.setOnClickListener((clickedView) -> {
+            this.listener.onBackToManagePools();
+        });
     }
 
     private void updatePoolCoursesDisplayed(Major major) {
