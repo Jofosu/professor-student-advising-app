@@ -1,21 +1,18 @@
 #Team 2A
 
 
-This prototype implements the managing advisee functionality
-from the advisor's perspective. Currently, this aspect only allows the 
-advisor to create and delete students and enter primitive identifying 
-information as well as print a list of current advisees. Other information
-such as classes taken will be added in a later iteration.
+This prototype allows the user to manage advisees by adding and deleting
+students as well as manage the department course catalogue in the same 
+fashion. One of the limitations is that the persistent data isn't associated
+with specific login credentials, so anyone who logs in has access to every
+advisee in the database and also the ability to edit the course catalog. 
+The app also crashes when nothing is entered in the username field. 
 
-This prototype also implements the add courses functionality from the 
-perspective of the Department Chair. Currently, the courses are just 
-stored in the course catalog collection with basic information such as 
-course code (id) and the time of the class. Other information such as 
-prerequisites and whether it fulfills a major requirement will be added
-in a later iteration. 
+Some limitations of the interface itself include the preservation of the 
+dynamic state and inaccessibility of buttons. The app doesn't crash when 
+the screen is rotated, but it does revert back to the log in screen. Some 
+of the screens have buttons that are inaccessible after rotating to 
+landscape view. 
 
-The TextInterface class contains the main() method. By selecting that you are a 
-department chair, you will be able to edit the course catalog until you 
-select quit, which will then terminate the program. By selecting that 
-you are an advisor, you will be able to edit your list of advisees until 
-you select quit, which will then terminate the program
+There is currently no functionality implemented for a student user of the
+application. 
