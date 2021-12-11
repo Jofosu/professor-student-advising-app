@@ -44,15 +44,21 @@ public class AuthFragment extends Fragment implements IAuthView{
         this.binding.registerButton.setOnClickListener((clickedView) -> {
             String username = this.binding.editTextUsername.getText().toString();
             String password = this.binding.editTextPassword.getText().toString();
+
+            if(!username.equals("") & !password.equals("")) {
             AuthFragment.this.listener.onRegister(
                     username, password, AuthFragment.this);
+        }
         });
 
         this.binding.signInButton.setOnClickListener((clickedView) -> {
             String username = this.binding.editTextUsername.getText().toString();
             String password = this.binding.editTextPassword.getText().toString();
-            AuthFragment.this.listener.onSignInAttempt(
-                    username, password, AuthFragment.this);
+
+            if(!username.equals("") & !password.equals("")) {
+                AuthFragment.this.listener.onSignInAttempt(
+                        username, password, AuthFragment.this);
+            }
         });
     }
 
