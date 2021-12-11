@@ -15,9 +15,12 @@ import edu.vassar.cmpu203.team2a.model.Course;
  */
 public class CourseCatalogue implements Serializable {
     public HashMap<String, Course> courseCatalogue = new HashMap<>();
-   // LinkedList prequisites = new LinkedList();
 
+    /**
+     * Empty constructor
+     */
     public CourseCatalogue(){}
+
     /**
      * Adds a course into the courseCatalogue
      *
@@ -30,12 +33,6 @@ public class CourseCatalogue implements Serializable {
         courseCatalogue.put(id, course);
 
         return courseCatalogue.containsKey(id);
-    }
-
-
-    public boolean editTime(String id, String time){
-        courseCatalogue.get(id).time = time;
-        return true;
     }
 
     /**
@@ -51,12 +48,8 @@ public class CourseCatalogue implements Serializable {
         courseCatalogue.remove(id);
         return !(courseCatalogue.containsKey(id));
     }
-    public Course getCourse(String id){
-        if (!courseCatalogue.containsKey(id))
-            return null;
-        courseCatalogue.remove(id);
-        return courseCatalogue.get(id);
-    }
+
+
     /**
      * @return The collection of courses in the courseCatalogue
      */
@@ -85,8 +78,13 @@ public class CourseCatalogue implements Serializable {
         return courseCatalogue.get(courseID);
     }
 
-    public String getTime(Course course){
-        return course.time;
+    /**
+     * Edits time
+     * @param id course id
+     * @param time course time
+     */
+    public void editTime(String id, String time){
+        courseCatalogue.get(id).time = time;
     }
 }
 

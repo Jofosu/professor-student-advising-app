@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Course implements Serializable {
      String id;
      String time;
-     public ArrayList<String> prerequisites;
+     ArrayList<String> prerequisites;
 
     /**
      * Empty course constructor
