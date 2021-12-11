@@ -61,9 +61,9 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
         Set<String> courses = courseCatalogue.returnCourseList();
         for (String course : courses) {
             String preqS = "";
-            String time = courseCatalogue.getTime(courseCatalogue.get(course));
+            String time = courseCatalogue.get(course).getTime();
 
-            ArrayList<String> preqs = courseCatalogue.get(course).prerequisites;
+            ArrayList<String> preqs = courseCatalogue.get(course).getPrerequisites();
             for (String preq: preqs){
                 preqS += preq + " ";
             }
