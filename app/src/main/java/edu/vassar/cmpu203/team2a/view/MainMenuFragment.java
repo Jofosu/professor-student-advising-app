@@ -31,7 +31,7 @@ public class MainMenuFragment extends Fragment implements IMainMenuFragment{
                     this.listener.onSelectingAdvisor();
                 }
         );
-        this.binding.hodButon.setOnClickListener( (clickedView) -> {
+        this.binding.hodButton.setOnClickListener( (clickedView) -> {
                     this.listener.onSelectingHOD();
                 }
         );

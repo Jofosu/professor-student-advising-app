@@ -4,12 +4,10 @@ package edu.vassar.cmpu203.team2a;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
-import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
@@ -32,7 +30,7 @@ public class PoolOptionsTest {
     @Test
     public void testAddPoolandRemovePool() {
         //adding a pool
-        Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.hodButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.manageMajorButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.CreatePool)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.poolEntry))

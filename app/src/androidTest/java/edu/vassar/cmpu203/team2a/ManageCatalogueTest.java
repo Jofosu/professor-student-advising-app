@@ -30,7 +30,7 @@ public class ManageCatalogueTest {
     @Test
     public void testAddAndRemoveFromCatalogue() {
         //adding a course
-        Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.hodButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.manageCatalogueButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.addCourse)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.editCourseID))

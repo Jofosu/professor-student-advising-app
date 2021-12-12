@@ -12,14 +12,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/welcomeMessage"
+            android:id="@+id/welcomeMessageTextView"
             android:layout_width="match_parent"
             android:layout_height="287dp"
             android:text="@string/welcome_message"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <Button
-            android:id="@+id/hodButon"
+            android:id="@+id/hodButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/HOD_menu_heading"

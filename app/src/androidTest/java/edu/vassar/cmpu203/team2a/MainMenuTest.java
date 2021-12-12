@@ -7,6 +7,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
@@ -27,11 +28,11 @@ public class MainMenuTest {
     public void testDeptChairButton() {
 
         //finding the right view
-        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessage));
+        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessageTextView));
         //checking that we are at the main menu
-        menu.check(matches(ViewMatchers.withText(R.string.welcome_message)));
+        menu.check(ViewAssertions.matches(ViewMatchers.withText(R.string.welcome_message)));
         //clicking into the department chair options menu
-        Espresso.onView(ViewMatchers.withId(R.id.hodButon)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.hodButton)).perform(click());
         //checking that we are at the department chair options menu
         Espresso.onView(ViewMatchers.withId(R.id.manageCatalogueButton)).check(matches(isDisplayed()));
     }
@@ -52,7 +53,7 @@ public class MainMenuTest {
      */
     @Test
     public void testAdvisorButton() {
-        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessage));
+        ViewInteraction menu = Espresso.onView(ViewMatchers.withId(R.id.welcomeMessageTextView));
         Espresso.onView(ViewMatchers.withId(R.id.advisorButtton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.addAdviseeButton4)).check(matches(isDisplayed()));
     }

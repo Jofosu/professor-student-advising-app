@@ -9,8 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import edu.vassar.cmpu203.team2a.R;
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAdvisorMenuBinding;
 
