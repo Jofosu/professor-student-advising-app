@@ -4,12 +4,10 @@ package edu.vassar.cmpu203.team2a;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
-import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
@@ -38,13 +36,13 @@ public class ManageCatalogueTest {
         Espresso.onView(ViewMatchers.withId(R.id.editCourseID))
                 .perform(ViewActions.typeText("CMPU20301"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.editStartTIme))
-                .perform(ViewActions.typeText("12:30"));
+        //   Espresso.onView(ViewMatchers.withId(R.id.editStartTIme))
+        //     .perform(ViewActions.typeText("12:30"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.editEndTIme))
-                .perform(ViewActions.typeText("13:30"));
+        //      Espresso.onView(ViewMatchers.withId(R.id.editEndTIme))
+        //     .perform(ViewActions.typeText("13:30"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.tuesday)).perform(click());
+        // Espresso.onView(ViewMatchers.withId(R.id.tuesday)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.thursday)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
 
@@ -57,13 +55,13 @@ public class ManageCatalogueTest {
         Espresso.onView(ViewMatchers.withId(R.id.editCourseID))
                 .perform(ViewActions.typeText("CMPU20301"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.editStartTIme))
-                .perform(ViewActions.typeText("22:30"));
+        // Espresso.onView(ViewMatchers.withId(R.id.editStartTIme))
+        //      .perform(ViewActions.typeText("22:30"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.editEndTIme))
-                .perform(ViewActions.typeText("23:30"));
+        //Espresso.onView(ViewMatchers.withId(R.id.editEndTIme))
+        //      .perform(ViewActions.typeText("23:30"));
         Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.tuesday)).perform(click());
+        //Espresso.onView(ViewMatchers.withId(R.id.tuesday)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.thursday)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
         listofPools.check(matches(ViewMatchers.withSubstring("CMPU20301 22:30-23:30TR")));

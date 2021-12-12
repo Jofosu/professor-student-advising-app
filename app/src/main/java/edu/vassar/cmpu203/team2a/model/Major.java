@@ -3,20 +3,17 @@ package edu.vassar.cmpu203.team2a.model;
 import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class Major implements Serializable {
 
     // A Hashmap that contains the pools of a major and the different courses in each pool.
-    private Map<String, Pool> major = new HashMap<>();
+    private final Map<String, Pool> major;
 
     public Major() {
-        this.major = getMajor();
+        this.major = new HashMap<>();
     }
 
     /**

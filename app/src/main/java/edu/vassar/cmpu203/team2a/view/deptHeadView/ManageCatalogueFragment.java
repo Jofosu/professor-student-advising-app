@@ -9,15 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Set;
 
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentManageCatalogueMenuBinding;
-import edu.vassar.cmpu203.team2a.model.Advisee;
-import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.CourseCatalogue;
 
 public class ManageCatalogueFragment extends Fragment implements IManageCatalogueMenu {
@@ -59,6 +55,7 @@ public class ManageCatalogueFragment extends Fragment implements IManageCatalogu
     public void updateMenuDisplay(CourseCatalogue courseCatalogue) {
 
         Set<String> courses = courseCatalogue.returnCourseList();
+        String str = "";
         for (String course : courses) {
             String preqS = "";
             String time = courseCatalogue.get(course).getTime();

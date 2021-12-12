@@ -20,6 +20,8 @@ public interface IpersistenceFacade {
     void editPreq(Course course);
     void removeAdvisee(Advisee advisee);
 
+    void updateAdviseeClasses(Advisee advisee, Course course);
+
     void addPoolCourse(Course course, String poolName);
 
 

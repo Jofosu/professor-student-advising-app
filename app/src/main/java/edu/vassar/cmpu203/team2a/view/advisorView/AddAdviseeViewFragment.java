@@ -12,9 +12,13 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
-import edu.vassar.cmpu203.team2a.view.advisorView.UserInputValidator;
+import edu.vassar.cmpu203.team2a.model.UserInputValidator;
 
 /**
  *
@@ -25,13 +29,19 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
     private FragmentAddAdviseeBinding binding;
     private final Listener listener;
 
-    public AddAdviseeViewFragment(Listener listener){
+    public AddAdviseeViewFragment(Listener listener) {
         this.listener = listener;
         this.freshYear = 2025;
         this.seniorYear = 2022;
     }
 
-    public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = FragmentAddAdviseeBinding.inflate(inflater);
         return this.binding.getRoot();
     }
@@ -74,18 +84,42 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
             boolean validClassYear = UserInputValidator.isValidClassYear(classYear);
 
 
-            Editable idEditable = binding.editStudentId.getText();
-            String idString = idEditable.toString();
+                Editable idEditable = binding.editStudentId.getText();
+                String idString = idEditable.toString();
 
-            if(!UserInputValidator.isValidStudentId(idString)) Snackbar.make(view, "Please type valid student id", Snackbar.LENGTH_LONG).show();
-            boolean validId = UserInputValidator.isValidStudentId(idString);
+                if (!UserInputValidator.isValidStudentId(idString))
+                    Snackbar.make(view, "Please type valid student id", Snackbar.LENGTH_LONG).show();
+                boolean validId = UserInputValidator.isValidStudentId(idString);
 
                 ControllerActivity activity = (ControllerActivity) getActivity();
-                if(activity.getAdvisor().getAdvisee(Integer.parseInt(idString)) != null){ Snackbar.make(view, "Student id already exists. Please type valid student id", Snackbar.LENGTH_LONG).show();
-                validId = false;
+                if (activity.getAdvisor().getAdvisee(Integer.parseInt(idString)) != null) {
+                    Snackbar.make(view, "Student id already exists. Please type valid student id", Snackbar.LENGTH_LONG).show();
+                    validId = false;
                 }
-            if(validClassYear && validName&&validId)this.listener.addAdvisee(fullName, Integer.parseInt(idString), Integer.parseInt(classYear));
-        });
+
+                Editable majorEditable = binding.adviseeMajor.getText();
+                String major = majorEditable.toString();
+                if (!UserInputValidator.isValidMajor(major, activity.getCourseCatalogue()))
+                    Snackbar.make(view, "Invalid major prefix. Please provide a valid major prefix eg CMPU.", Snackbar.LENGTH_LONG).show();
+                boolean validMajor = UserInputValidator.isValidMajor(major, activity.getCourseCatalogue());
+                Predicate<String> byCourse = course -> course.startsWith(major);
+                List<String> listy = activity.getCourseCatalogue().returnCourseList().stream().filter(byCourse).collect(Collectors.toList());
+                boolean majorExists;
+                if (listy.size() > 0) {
+                    String str = listy.get(0);
+                    str = str.replaceAll("[^a-zA-Z]", "");
+                    if (!str.equals(major))
+                        Snackbar.make(view, "Major prefix " + major + " does not exist in the course catalogue. Please provide a valid major prefix eg CMPU.", Snackbar.LENGTH_LONG).show();
+                    majorExists = str.equals(major);
+                } else {
+                    majorExists = false;
+                    Snackbar.make(view, "Major prefix " + major + " does not exist in the course catalogue. Please provide a valid major prefix eg CMPU.", Snackbar.LENGTH_LONG).show();
+                }
+
+
+                if (validClassYear && validName && validId && validMajor && majorExists)
+                    this.listener.addAdvisee(fullName, Integer.parseInt(idString), Integer.parseInt(classYear), major);
+            });
 
 
 

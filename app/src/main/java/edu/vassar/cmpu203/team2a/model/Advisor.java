@@ -19,15 +19,15 @@ public class Advisor implements Serializable {
      * adds an advisee to the Hashmap collection of advisees
      *
      * @param name
-     * @param id: Normally a Vassar ID consist of a 9-digit number
+     * @param id:        Normally a Vassar ID consist of a 9-digit number
      * @param classYear: 4-digit number for the advisee's graduation year
      * @return true if an advisee was successfully added to the list,
      * false if the ID was not 9-digit or class year was not 4-digit. This is to avoid some typos.
      */
 
-    public boolean addAdvisee(String name, int id, int classYear, List classesTaken, String advisor) {
+    public boolean addAdvisee(String name, int id, int classYear, List classesTaken, String advisor, String major) {
         if (String.valueOf(id).length() == 9 & String.valueOf(classYear).length() == 4) {
-            Advisee advisee = new Advisee(name, id, classYear, classesTaken, advisor);
+            Advisee advisee = new Advisee(name, id, classYear, classesTaken, advisor, major);
             advisees.put(id, advisee);
             return advisees.containsKey(id);
         } else {
@@ -94,11 +94,20 @@ public class Advisor implements Serializable {
 
     /**
      * Adds a class taken to an advisee
+     *
      * @param advisee advisee object
-     * @param c course object
+     * @param c       course object
      * @return boolean if it added or not
      */
-    public boolean addClassTaken(Advisee advisee, Course c){
-        return advisee.classesTaken.add(c);
+    public boolean addClassTaken(Advisee advisee, Course c) {
+        return advisee.getClassesTaken().add(c);
+    }
+
+    public int getAdviseeID(String adviseeName) {
+        for (Advisee advisee : advisees.values()) {
+            if (advisee.getName() == adviseeName)
+                return advisee.getId();
+        }
+        return -1;
     }
 }

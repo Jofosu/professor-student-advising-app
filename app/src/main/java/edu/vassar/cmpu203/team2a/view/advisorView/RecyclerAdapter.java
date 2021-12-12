@@ -1,6 +1,7 @@
 package edu.vassar.cmpu203.team2a.view.advisorView;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.vassar.cmpu203.team2a.R;
+import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     List<String> data;
@@ -38,7 +40,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"Clicked on"+data.get(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Clicked on " + data.get(holder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
+
+                String adviseeName = data.get(holder.getAdapterPosition());
+                Bundle bundle = new Bundle();
+                bundle.putString("adviseeName", adviseeName);
+                AdviseeInfoFragment adviseeInfoFragment = new AdviseeInfoFragment((ControllerActivity) context);
+                adviseeInfoFragment.setArguments(bundle);
+                ((ControllerActivity) context).getMainView().displayFragment(adviseeInfoFragment);
+
+
             }
         });
     }

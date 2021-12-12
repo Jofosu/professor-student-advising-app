@@ -1,5 +1,4 @@
-package edu.vassar.cmpu203.team2a.view.advisorView;
-
+package edu.vassar.cmpu203.team2a.model;
 
 
 import java.util.regex.Matcher;
@@ -56,8 +55,14 @@ public class UserInputValidator {
      * @param idInput
      * @return returns true if a valid student id is given. Valid id should start with 999 else return false.
      */
-    public static boolean isValidStudentId(String idInput){
+    public static boolean isValidStudentId(String idInput) {
         return idInput.startsWith("999") && idInput.length() == 9;
     }
 
+    public static boolean isValidMajor(String major, CourseCatalogue catalogue) {
+        final String majorPattern = "[a-zA-Z]{1,}";
+        Pattern pattern = Pattern.compile(majorPattern);
+        Matcher matcher = pattern.matcher(major);
+        return matcher.matches() && majorPattern.length() > 0;
+    }
 }

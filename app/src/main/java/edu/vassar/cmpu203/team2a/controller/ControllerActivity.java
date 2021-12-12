@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import edu.vassar.cmpu203.team2a.model.Advisor;
 import edu.vassar.cmpu203.team2a.model.Course;
@@ -21,45 +20,51 @@ import edu.vassar.cmpu203.team2a.persistence.FirestoreFacade;
 import edu.vassar.cmpu203.team2a.persistence.IpersistenceFacade;
 import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
+import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
+import edu.vassar.cmpu203.team2a.view.IMainView;
+import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
+import edu.vassar.cmpu203.team2a.view.MainView;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.advisorView.IAdviseeInfoView;
+import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenuView;
+import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
+import edu.vassar.cmpu203.team2a.view.authorizeView.AuthFragment;
 import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.EditPreqFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IEditPoolCourse;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IEditPreq;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.IManagePoolsFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.IPoolOptionsView;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.ManagePoolsFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.PoolOptionsFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolCourseFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolNameFragment;
-import edu.vassar.cmpu203.team2a.view.deptHeadView.IAddDeptCourseView;
-import edu.vassar.cmpu203.team2a.view.IMainMenuFragment;
-import edu.vassar.cmpu203.team2a.view.IMainView;
-import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IEnterPoolName;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
-import edu.vassar.cmpu203.team2a.view.authorizeView.AuthFragment;
-
-import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
-import edu.vassar.cmpu203.team2a.view.MainView;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IManagePoolsFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.IPoolOptionsView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IRemoveDeptCourseView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.ManageCatalogueFragment;
-
-import edu.vassar.cmpu203.team2a.view.advisorView.AdvisorMenuFrag;
-import edu.vassar.cmpu203.team2a.view.advisorView.IAdvisorMenufrag;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.ManagePoolsFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.PoolOptionsFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.RemoveDepartmentCourseFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolCourseFragment;
+import edu.vassar.cmpu203.team2a.view.deptHeadView.RemovePoolNameFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.ViewPoolCourses;
 
 public class ControllerActivity extends AppCompatActivity implements IAddDeptCourseView.Listener,
-        IMainMenuFragment.Listener,  IAdvisorMenufrag.Listener, IManageAdviseeView.Listener,
+        IMainMenuFragment.Listener, IAdvisorMenuView.Listener, IManageAdviseeView.Listener,
         IManageCatalogueMenu.Listener, IDeptHeadMenu.Listener, IEnterPoolName.Listener,
         IRemoveDeptCourseView.Listener, IPoolOptionsView.Listener, IEditPreq.Listener, IAuthView.Listener
-        ,IManagePoolsFragment.Listener, IEditPoolCourse.Listener
-{
+        , IManagePoolsFragment.Listener, IEditPoolCourse.Listener, IAdviseeInfoView.Listener {
+    public IMainView getMainView() {
+        return mainView;
+    }
+
+    public IpersistenceFacade getPersistenceFacade() {
+        return persistenceFacade;
+    }
+
     private IMainView mainView;
     private CourseCatalogue courseCatalogue;
     private Major major;
@@ -68,10 +73,12 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
 
     private final IpersistenceFacade persistenceFacade = new FirestoreFacade();
-    public Advisor getAdvisor() { return this.advisor; }
+
+    public Advisor getAdvisor() {
+        return this.advisor;
+    }
     public CourseCatalogue getCourseCatalogue(){return this.courseCatalogue;}
     public Major getMajor(){return this.major;}
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +100,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
            public void onDataReceived(Advisor advisor) {
                ControllerActivity.this.advisor = advisor; // set the activity's advisor to the one retrieved from the database \
                Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
-               if(currFrag instanceof IAdvisorMenufrag)((IAdvisorMenufrag)currFrag).updateMenuDisplay();
+               if (currFrag instanceof IAdvisorMenuView)
+                   ((IAdvisorMenuView) currFrag).updateMenuDisplay();
            }
 
            @Override
@@ -198,20 +206,29 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     }
 
 
+    /**
+     * @param name
+     * @param id
+     * @param classYear Adds an advisee to the list of advisees an Advisor has
+     */
     @Override
-    public void addAdvisee(String name, int id, int classYear) {
-        this.advisor.addAdvisee(name,id,classYear,new LinkedList(),sessionUsername);
-        this.persistenceFacade.saveAdvisee(this.advisor.getAdvisee(id));;
+    public void addAdvisee(String name, int id, int classYear, String major) {
+        this.advisor.addAdvisee(name, id, classYear, new ArrayList(), sessionUsername, major);
+        this.persistenceFacade.saveAdvisee(this.advisor.getAdvisee(id));
         this.onSelectingAdvisor();
 
     }
 
+    /**
+     * @param id An advisee's id
+     *           Removes advisee from the list of advisees an Advisor has
+     */
     @Override
     public void deleteAdvisee(int id) {
-            this.persistenceFacade.removeAdvisee(this.advisor.getAdvisee(id));
 
-            this.advisor.deleteAdvisee(id);
-            this.onSelectingAdvisor();
+        this.persistenceFacade.removeAdvisee(this.advisor.getAdvisee(id));
+        this.advisor.deleteAdvisee(id);
+        this.onSelectingAdvisor();
     }
 
 
@@ -338,11 +355,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             @Override
             public void onNoDataFound() {
                 authView.onInvalidCredentials();
-
             }
         });
-
-
     }
 
 

@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
-import edu.vassar.cmpu203.team2a.model.Advisor;
+import edu.vassar.cmpu203.team2a.model.UserInputValidator;
 
 
 public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {

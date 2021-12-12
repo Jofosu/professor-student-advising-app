@@ -4,14 +4,13 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,8 +59,6 @@ public class FirestoreFacade implements IpersistenceFacade{
     @Override
     public void editPreq(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
 
-
-
     /**
      * @param advisee
      *
@@ -70,7 +67,7 @@ public class FirestoreFacade implements IpersistenceFacade{
     @Override
     public void removeAdvisee(Advisee advisee) {
 
-         db.collection(ADVISEE)
+        db.collection(ADVISEE)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -78,8 +75,8 @@ public class FirestoreFacade implements IpersistenceFacade{
                         if (task.isSuccessful()) {
                             List<String> titles = new ArrayList<>();
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                            long id = (long) document.get("id");
-                                if(id == advisee.getId()) {
+                                long id = (long) document.get("id");
+                                if (id == advisee.getId()) {
                                     db.collection(ADVISEE).document(document.getId()).delete();
                                     break;
                                 }
@@ -92,11 +89,37 @@ public class FirestoreFacade implements IpersistenceFacade{
                 });
 
 
+    }
 
 
+    @Override
+    public void updateAdviseeClasses(Advisee advisee, Course course) {
 
 
+        db.collection(ADVISEE)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                long id = (long) document.get("id");
+                                if (id == advisee.getId()) {
+                                    db.collection(ADVISEE).document(document.getId()).update("classesTaken", FieldValue.arrayUnion(course));
+                                    break;
+                                }
+                            }
 
+                        } else {
+                            Log.d("AdvisingApp", "Error getting document to remove advisee: ", task.getException());
+                        }
+                    }
+                });
+
+
+        //DocumentReference ref = db.collection(ADVISEE).document(String.valueOf(advisee.getId()));
+
+//    db.collection(ADVISEE).document(String.valueOf(advisee.getId())).update("classesTaken", FieldValue.arrayUnion(course));
     }
 
 
@@ -110,7 +133,7 @@ public class FirestoreFacade implements IpersistenceFacade{
                     Advisor advisor = new Advisor();
                     for(DocumentSnapshot dsnap: qsnap){
                     Advisee advisee = dsnap.toObject(Advisee.class);
-                    advisor.addAdvisee(advisee.getName(),advisee.getId(),advisee.getClassYear(),advisee.getClassesTaken(), advisee.getAdvisor());
+                        advisor.addAdvisee(advisee.getName(), advisee.getId(), advisee.getClassYear(), advisee.getClassesTaken(), advisee.getAdvisor(), advisee.getMajor());
                     }
                     listener.onDataReceived(advisor);
                 }).addOnFailureListener(e -> Log.w("AdvissingApp", "Error retrieving Advisor from database", e));
@@ -140,9 +163,6 @@ public class FirestoreFacade implements IpersistenceFacade{
                     listener.onDataReceived(courseCatalogue);
                 }).addOnFailureListener(e -> Log.w("AdvisingApp", "Error retrieving catalogue from database", e));
     }
-
-
-
 
     @Override
     public void createUserIfNotExists(@NonNull User user, @NonNull BinaryResultListener listener) {

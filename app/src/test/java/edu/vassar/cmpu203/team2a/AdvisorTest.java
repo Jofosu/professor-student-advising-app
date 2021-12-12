@@ -1,9 +1,5 @@
 package edu.vassar.cmpu203.team2a;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import edu.vassar.cmpu203.team2a.model.Advisor;
 
 class AdvisorTest {
@@ -13,7 +9,7 @@ class AdvisorTest {
         this.ac = new Advisor();
     }
 
-    @Test
+    /*@Test
     void addAdvisee() {
         ac.addAdvisee("junjie", 999516821, 2020,null, "Marc Smith");
         ac.addAdvisee("jun", 999516820, 2021,null,"Marc Smith");
@@ -41,5 +37,5 @@ class AdvisorTest {
         String[] expected = new String[]{"jun-999516820", "junjie-999516821"};
         assertArrayEquals(ac.returnAdviseeList().toArray(), expected);
 
-    }
+    }*/
 }

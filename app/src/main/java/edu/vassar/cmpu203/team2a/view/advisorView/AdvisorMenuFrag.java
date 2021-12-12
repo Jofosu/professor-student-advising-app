@@ -13,25 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import edu.vassar.cmpu203.team2a.R;
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAdvisorMenuBinding;
-import edu.vassar.cmpu203.team2a.model.Advisee;
-import edu.vassar.cmpu203.team2a.model.Advisor;
 
 
-public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
+public class AdvisorMenuFrag extends Fragment implements IAdvisorMenuView {
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
     private ControllerActivity activity;
     FragmentAdvisorMenuBinding binding;
-    IAdvisorMenufrag.Listener listener;
+    IAdvisorMenuView.Listener listener;
 
 
-
-    public AdvisorMenuFrag(Listener listener) {this.listener= listener;}
+    public AdvisorMenuFrag(Listener listener) {
+        this.listener = listener;
+    }
 
     @Nullable
     @Override
@@ -52,7 +50,7 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
                     this.listener.onSelectingAddAdvisee();
                 }
         );
-        this.binding.deleteAdviseeButton2.setOnClickListener( (clickedView) -> {
+        this.binding.deleteAdviseeButton2.setOnClickListener((clickedView) -> {
                     this.listener.onSelectingDeleteAdvisee();
                 }
         );
@@ -61,17 +59,19 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
     }
 
 
-
+    /**
+     * Keep track of the advisees and advisor has and adds the advisee list to the recycle class view
+     */
     @Override
     public void updateMenuDisplay() {
-        activity = (ControllerActivity)getActivity();
-        recyclerView= getView().findViewById(R.id.containerOfAdvisees);
+        activity = (ControllerActivity) getActivity();
+        recyclerView = getView().findViewById(R.id.containerOfAdvisees);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         List<String> listy = new LinkedList<>();
-        for(Integer integer: activity.getAdvisor().returnAdviseeIds()) {
-            if(activity.getAdvisor().getAdvisee(integer).getAdvisor().equals(activity.sessionUsername)) {
-                    listy.add(activity.getAdvisor().getAdvisee(integer).getName());
-                }
+        for (Integer integer : activity.getAdvisor().returnAdviseeIds()) {
+            if (activity.getAdvisor().getAdvisee(integer).getAdvisor().equals(activity.sessionUsername)) {
+                listy.add(activity.getAdvisor().getAdvisee(integer).getName());
+            }
             }
         adapter = new RecyclerAdapter(this.getContext(), listy);
         recyclerView.setAdapter(adapter);
