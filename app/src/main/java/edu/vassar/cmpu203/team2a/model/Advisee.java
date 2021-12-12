@@ -16,10 +16,6 @@ public class Advisee implements Serializable{
      * Empty constructor for Advisee class, returns internal components
      */
     Advisee(){
-        this.name =  getName();
-        this.id = getId();
-        this.classYear=getClassYear();
-        this.classesTaken  = getClassesTaken();
     }
 
     /**

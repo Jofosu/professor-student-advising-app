@@ -20,8 +20,11 @@ public interface IpersistenceFacade {
     void editCatalogue(Course course);
     void deleteCatalogue(Course course);
     void editPreq(Course course);
+    void removeAdvisee(Advisee advisee);
 
     void addPoolCourse(Course course, String poolName);
+
+
 
 
     interface DataListener<T>{

@@ -10,7 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteAdviseeBinding;
+import edu.vassar.cmpu203.team2a.model.Advisor;
 
 
 public class DeleteAdviseeViewFragment extends Fragment implements IManageAdviseeView {
@@ -35,9 +39,10 @@ public class DeleteAdviseeViewFragment extends Fragment implements IManageAdvise
 
             Editable idEditable = binding.editStudentId2.getEditableText();
             String idString = idEditable.toString();
-            int id = Integer.parseInt(idString);
+            ControllerActivity activity = (ControllerActivity) getActivity();
 
-            this.listener.deleteAdvisee(id);
+            if(!UserInputValidator.isValidStudentId(idString) || activity.getAdvisor().getAdvisee(Integer.parseInt(idString)) == null) Snackbar.make(view, "Please type valid student id", Snackbar.LENGTH_LONG).show();
+            else this.listener.deleteAdvisee(Integer.parseInt(idString));
         });
 
 

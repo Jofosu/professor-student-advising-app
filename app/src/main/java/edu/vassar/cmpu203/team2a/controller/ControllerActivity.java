@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -24,6 +26,7 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
+import edu.vassar.cmpu203.team2a.view.advisorView.UserInputValidator;
 import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolCourseFragment;
@@ -209,7 +212,10 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void deleteAdvisee(int id) {
-        advisor.deleteAdvisee(id);
+
+            this.persistenceFacade.removeAdvisee(this.advisor.getAdvisee(id));
+            this.advisor.deleteAdvisee(id);
+            this.onSelectingAdvisor();
     }
 
 

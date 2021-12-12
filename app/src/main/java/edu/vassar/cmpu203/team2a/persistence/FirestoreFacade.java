@@ -5,10 +5,24 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.LinkedList;
+
+import java.lang.ref.Reference;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import edu.vassar.cmpu203.team2a.model.Advisee;
 import edu.vassar.cmpu203.team2a.model.Advisor;
@@ -52,6 +66,43 @@ public class FirestoreFacade implements IpersistenceFacade{
 
     @Override
     public void editPreq(@NonNull Course course){db.collection(CATALOGUE).document(course.getId()).set(course);}
+
+    /**
+     * @param advisee
+     *
+     * Remove an advisee from the database
+     */
+    @Override
+    public void removeAdvisee(Advisee advisee) {
+
+         db.collection(ADVISEE)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            List<String> titles = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                            long id = (long) document.get("id");
+                                if(id == advisee.getId()) {
+                                    db.collection(ADVISEE).document(document.getId()).delete();
+                                    break;
+                                }
+                            }
+
+                        } else {
+                            Log.d("AdvisingApp", "Error getting document to remove advisee: ", task.getException());
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+    }
 
 
     @Override

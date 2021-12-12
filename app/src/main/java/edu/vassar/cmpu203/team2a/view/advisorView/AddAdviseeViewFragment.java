@@ -12,16 +12,23 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentAddAdviseeBinding;
+import edu.vassar.cmpu203.team2a.view.advisorView.UserInputValidator;
 
-
+/**
+ *
+ */
 public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeView {
-
+    private final int freshYear;
+    private final int seniorYear;
     private FragmentAddAdviseeBinding binding;
-    private final IManageAdviseeView.Listener listener;
+    private final Listener listener;
 
     public AddAdviseeViewFragment(Listener listener){
         this.listener = listener;
+        this.freshYear = 2025;
+        this.seniorYear = 2022;
     }
 
     public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,55 +36,63 @@ public class AddAdviseeViewFragment extends Fragment implements IManageAdviseeVi
         return this.binding.getRoot();
     }
 
+    /**
+     * @param view
+     * @param savedInstanceState
+     */
     //implemented from IManageAdvisee
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
 
 
-
-
             this.binding.endButton.setOnClickListener((clickedView) -> {
+                //First Name of Advisee
             Editable firstNameEditable = binding.editFirstName.getText();
             String firstname = firstNameEditable.toString();
+                if(!UserInputValidator.isFirstName(firstname)) Snackbar.make(view, "Invalid first name. Please provide a valid first name.",Snackbar.LENGTH_LONG).show();
 
-                Editable middleNameEditable = binding.editMiddleName.getText();
-                String middleName = middleNameEditable.toString();
+                //Middle Name of Advisee
+            Editable middleNameEditable = binding.editMiddleName.getText();
+            String middleName = middleNameEditable.toString();
+                if(!UserInputValidator.isMiddleName(middleName)) Snackbar.make(view, "Invalid middle name. Please provide a valid middle name.",Snackbar.LENGTH_LONG).show();
 
-                Editable lastNameEditable = binding.editLastName.getText();
-                String lastName = lastNameEditable.toString();
 
-                String fullName = firstname+ " " + middleName+ " " + lastName;
+                //Last Name of Advisee
+            Editable lastNameEditable = binding.editLastName.getText();
+            String lastName = lastNameEditable.toString();
+                if(!UserInputValidator.isLastName(lastName)) Snackbar.make(view, "Invalid last name. Please provide a valid last name.",Snackbar.LENGTH_LONG).show();
+                boolean validName = UserInputValidator.isFirstName(firstname) && UserInputValidator.isLastName(lastName) && UserInputValidator.isMiddleName(middleName);
+            String fullName = firstname+ " " + middleName+ " " + lastName;
+
+            // Class Year of Advisee
             Editable classYearEditable = binding.editClassYear.getText();
-            String classYearString = classYearEditable.toString();
-                int classYear = -1;
+            String classYear = classYearEditable.toString();
 
-                try{
-                    classYear = Integer.parseInt((classYearString));
 
-                }catch (NumberFormatException e){}
+            if(!UserInputValidator.isValidClassYear(classYear)) Snackbar.make(view, "Invalid class Year. Please provide a current class year in the pattern 20XX.",Snackbar.LENGTH_LONG).show();
+            boolean validClassYear = UserInputValidator.isValidClassYear(classYear);
 
-                if (classYear < 2022 || classYear> 2024) {
-                    Snackbar.make(view, "Invalid class Year. Please provide a current class year in the pattern 20XX.",Snackbar.LENGTH_LONG).show();
-                }
 
             Editable idEditable = binding.editStudentId.getText();
             String idString = idEditable.toString();
-                int id = -1;
 
-                try{
-                    id = Integer.parseInt((classYearString));
+            if(!UserInputValidator.isValidStudentId(idString)) Snackbar.make(view, "Please type valid student id", Snackbar.LENGTH_LONG).show();
+            boolean validId = UserInputValidator.isValidStudentId(idString);
 
-                }catch (NumberFormatException e){
-                    Snackbar.make(view, "Invalid characters in id number", Snackbar.LENGTH_LONG).show();
+                ControllerActivity activity = (ControllerActivity) getActivity();
+                if(activity.getAdvisor().getAdvisee(Integer.parseInt(idString)) != null){ Snackbar.make(view, "Student id already exists. Please type valid student id", Snackbar.LENGTH_LONG).show();
+                validId = false;
                 }
-            this.listener.addAdvisee(fullName, id, classYear);
+            if(validClassYear && validName&&validId)this.listener.addAdvisee(fullName, Integer.parseInt(idString), Integer.parseInt(classYear));
         });
 
 
 
 
     }
+
+
 
 
 }
