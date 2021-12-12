@@ -21,29 +21,33 @@ public class AuthKey implements Serializable {
     /**
      * Empty AuthKey Constructor
      */
-    public AuthKey(){ }
+    public AuthKey() {
+    }
 
     /**
      * AuthKey Constructor, calls another constructor after generating salt necessary for
      * saving the password
+     *
      * @param password
      */
-    public AuthKey(String password){
+    public AuthKey(String password) {
         this(generateSalt(), password);
     }
 
     /**
      * AuthKey Constructor that creates the final product with salt and key
-     * @param salt :salt
+     *
+     * @param salt     :salt
      * @param password : password
      */
-    private AuthKey(String salt, String password){
+    private AuthKey(String salt, String password) {
         this.salt = salt;
         this.key = generateKey(salt, password);
     }
 
     /**
      * Getter for salt
+     *
      * @return String salt
      */
     public String getSalt() {
@@ -52,6 +56,7 @@ public class AuthKey implements Serializable {
 
     /**
      * Getter for key
+     *
      * @return String key
      */
     public String getKey() {
@@ -61,16 +66,18 @@ public class AuthKey implements Serializable {
     /**
      * Creates a new AuthKey from given password then checks to see if that new key
      * matches the object's key (this.key)
+     *
      * @param password : password
      * @return true if the given password matches the one saved
      */
-    public boolean validatePassword(String password){
+    public boolean validatePassword(String password) {
         AuthKey okey = new AuthKey(this.salt, password);
         return this.key.equals(okey.key);
     }
 
     /**
      * toString method for authKey that returns its fields salt and key
+     *
      * @return a String in the format salt: xx, key: xx
      */
     @Override
@@ -85,6 +92,7 @@ public class AuthKey implements Serializable {
 
     /**
      * Randomly generates salt for a password
+     *
      * @return a random String
      */
     @NonNull
@@ -101,6 +109,7 @@ public class AuthKey implements Serializable {
 
     /**
      * Generates the unique key for the given password and salt
+     *
      * @param salt
      * @param password
      * @return a string

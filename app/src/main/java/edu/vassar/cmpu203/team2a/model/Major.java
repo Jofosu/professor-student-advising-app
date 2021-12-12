@@ -86,13 +86,35 @@ public class Major implements Serializable {
 //         return !pool.poolList.contains(courseToRemove);
     }
 
+    /**
+     * get list of pools
+     *
+     * @return set of pool strings
+     */
     @Exclude
     public Set<String> getPools() {
         return major.keySet();
     }
 
-    public Pool getAPool(String key) {return major.get(key);}
+    /**
+     * Get a specific pool
+     *
+     * @param key key pair for major hashnap
+     * @return pool class
+     */
+    public Pool getAPool(String key) {
+        return major.get(key);
+    }
 
-    public boolean hasPool(String pool) {return major.containsKey(pool);}
+
+    /**
+     * checks if a pool is in a major
+     *
+     * @param pool pool name
+     * @return boolean value corresponding to if its present or not
+     */
+    public boolean hasPool(String pool) {
+        return major.containsKey(pool);
+    }
 
 }

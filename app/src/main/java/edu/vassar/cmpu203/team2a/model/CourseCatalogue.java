@@ -12,10 +12,6 @@ import java.util.Set;
 public class CourseCatalogue implements Serializable {
     private final HashMap<String, Course> courseCatalogue = new HashMap<>();
 
-    public HashMap<String, Course> getCourseCatalogue() {
-        return courseCatalogue;
-    }
-
     /**
      * Empty constructor
      */
@@ -25,7 +21,7 @@ public class CourseCatalogue implements Serializable {
     /**
      * Adds a course into the courseCatalogue
      *
-     * @param id : String for the course's ID. For example: CMPU-20352
+     * @param id    : String for the course's ID. For example: CMPU-20352
      * @param time: String for the time the course takes place. For example: "Monday 1:30-5:30"
      * @return boolean: true if the course was successfully put into the courseCatalogue
      */
@@ -34,6 +30,16 @@ public class CourseCatalogue implements Serializable {
         courseCatalogue.put(id, course);
 
         return courseCatalogue.containsKey(id);
+    }
+
+
+    /**
+     * gets course catalogue
+     *
+     * @return course catalogue hashmap
+     */
+    public HashMap<String, Course> getCourseCatalogue() {
+        return courseCatalogue;
     }
 
     /**
@@ -61,30 +67,31 @@ public class CourseCatalogue implements Serializable {
     /**
      * @return number of items in course catalogue
      */
-    public int size(){
+    public int size() {
         return courseCatalogue.size();
     }
 
     /**
      * check if a course is in the course catalogue
      */
-    public boolean inCatalogue(String courseID){
+    public boolean inCatalogue(String courseID) {
         return courseCatalogue.containsKey(courseID);
     }
 
     /**
      * return a course object from the catalogue using the courseID
      */
-    public Course get(String courseID){
+    public Course get(String courseID) {
         return courseCatalogue.get(courseID);
     }
 
     /**
      * Edits time
-     * @param id course id
+     *
+     * @param id   course id
      * @param time course time
      */
-    public void editTime(String id, String time){
+    public void editTime(String id, String time) {
         courseCatalogue.get(id).time = time;
     }
 }

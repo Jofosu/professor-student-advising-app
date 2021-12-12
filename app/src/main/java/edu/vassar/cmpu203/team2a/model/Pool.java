@@ -6,28 +6,69 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * An inner class that represents the list of courses group into one category called a Pool.
+ * A class that represents the list of courses group into one category called a Pool.
  */
 public class Pool implements Serializable {
 
 
-    public int numOfRequiredCourses;
-    public ArrayList<Course> poolList = new ArrayList<>();
-    public String poolName;
+    int numOfRequiredCourses;
+    ArrayList<Course> poolList = new ArrayList<>();
+    String poolName;
 
-    public Pool(){}
+    /**
+     * Empty pool constructor
+     */
+    public Pool() {
+    }
 
-    public Pool(String poolName){
+    public Pool(String poolName) {
         this.poolName = poolName;
     }
 
-    public int getNumOfRequiredCourses(){
+
+    /**
+     * gets number of required courses in a pool
+     *
+     * @return int value of number of required courses in a pool
+     */
+    public int getNumOfRequiredCourses() {
         return numOfRequiredCourses;
     }
-    public ArrayList<Course> getpoolList(){return this.poolList;}
-    public String getpoolName(){return poolName;}
-    public void addPoolCourse(Course course){this.poolList.add(course);}
-    public void removePoolCourse(Course course){this.poolList.remove(course);
+
+    /**
+     * gets list of all pools
+     *
+     * @return array list of all pools
+     */
+    public ArrayList<Course> getpoolList() {
+        return this.poolList;
+    }
+
+    /**
+     * gets a pools name
+     *
+     * @return string value of pools name
+     */
+    public String getpoolName() {
+        return poolName;
+    }
+
+    /**
+     * Adds a course to a pool using course
+     *
+     * @param course course class
+     */
+    public void addPoolCourse(Course course) {
+        this.poolList.add(course);
+    }
+
+    /**
+     * Removes a course to a pool using course
+     *
+     * @param course course class
+     */
+    public void removePoolCourse(Course course) {
+        this.poolList.remove(course);
 
     }
 

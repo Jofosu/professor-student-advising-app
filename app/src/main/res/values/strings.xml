@@ -5,12 +5,12 @@
     <string name="manage_dept_course_label">Manage Department Courses</string>
     <string name="edit_major_req">Edit Major Requirements</string>
     <string name="manage_advisees">Manage Advisees</string>
-    <string name="HOD_menu_heading">Department Chair</string>
+    <string name="HOD_menu_heading">Manage catalogue</string>
     <string name="add_course_label"> Add/Edit Course</string>
     <string name="remove_course_label">Remove Course</string>
     <string name="HOD_menu2_label">What would you like to do today?</string>
     <string name="student_button">Student</string>
-    <string name="advisor_button">Advisor</string>
+    <string name="advisor_button">Manage Advisees</string>
     <string name="head_of_dept_button">Head of Department</string>
     <string name="welcome_message">Please select one of the options below</string>
     <string name="adviseeListLabel"> You currently have no advisees</string>

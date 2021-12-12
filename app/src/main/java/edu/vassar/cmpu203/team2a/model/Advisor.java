@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- *  Contains a Hashmap list of advisees belonging to an adviser. There is a method to add an advisee to the list,
- *  a method to remove an advisee, and a method to return a list of advisees
+ * Contains a Hashmap list of advisees belonging to an adviser. There is a method to add an advisee to the list,
+ * a method to remove an advisee, and a method to return a list of advisees
  */
 public class Advisor implements Serializable {
 
-     HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
+    HashMap<Integer, Advisee> advisees = new HashMap<>(); //create Hashmap collection of advisees
 
     /**
      * adds an advisee to the Hashmap collection of advisees
@@ -37,11 +37,12 @@ public class Advisor implements Serializable {
 
     /**
      * Gets list of advisee's names
+     *
      * @return list of advisee's names
      */
-    public List<String> adviseeNames(){
-        List<String> listy= new ArrayList<>();
-        for (Advisee advisee: this.returnAdviseeList()){
+    public List<String> adviseeNames() {
+        List<String> listy = new ArrayList<>();
+        for (Advisee advisee : this.returnAdviseeList()) {
             listy.add(advisee.getName());
         }
         return listy;
@@ -50,6 +51,7 @@ public class Advisor implements Serializable {
 
     /**
      * Remove an advisee from the list of advisees
+     *
      * @param id
      * @return true if advisee was successfully removed, false if the advisee's name was not in the collection
      */
@@ -60,9 +62,9 @@ public class Advisor implements Serializable {
         return !(advisees.containsKey(id));
     }
 
-    public Set<Integer> returnAdviseeIds(){
+    public Set<Integer> returnAdviseeIds() {
         return advisees.keySet();
-        }
+    }
 
 
     /**
@@ -70,7 +72,7 @@ public class Advisor implements Serializable {
      */
     public Set<Advisee> returnAdviseeList() {
         Set<Advisee> names = new HashSet<>();
-        for(Advisee advisee : advisees.values()){
+        for (Advisee advisee : advisees.values()) {
             names.add(advisee);
         }
         return names;
@@ -79,16 +81,17 @@ public class Advisor implements Serializable {
     /**
      * @return the number of advisees for a given advisor
      */
-    public int size(){
+    public int size() {
         return advisees.size();
     }
 
     /**
      * Easy way of getting an advisee object
+     *
      * @param id 999 number
      * @return advisee object
      */
-    public Advisee getAdvisee(int id){
+    public Advisee getAdvisee(int id) {
         return advisees.get(id);
     }
 

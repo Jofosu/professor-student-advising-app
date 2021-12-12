@@ -44,6 +44,7 @@ public class Advisee implements Serializable {
 
     /**
      * Getter for student's name
+     *
      * @return student's name
      */
     public String getName() {
@@ -52,6 +53,7 @@ public class Advisee implements Serializable {
 
     /**
      * Getter for student's id
+     *
      * @return student's id
      */
     public int getId() {
@@ -60,6 +62,7 @@ public class Advisee implements Serializable {
 
     /**
      * Getter for student's class year
+     *
      * @return student's id
      */
     public int getClassYear() {
@@ -76,6 +79,11 @@ public class Advisee implements Serializable {
     }
 
 
+    /**
+     * Returns what classes someone needs to take from a major
+     * @param catalogue course catalogue
+     * @return list of courses still needed to take
+     */
     public List<Course> getClassesNeeded(CourseCatalogue catalogue) {
         List<Course> courses = new ArrayList<>();
 
@@ -91,9 +99,19 @@ public class Advisee implements Serializable {
         return courses;
     }
 
+    /**
+     * getter for an advisee's major
+     * @return majors name
+     */
     public String getMajor() {
         return major;
     }
 
-    public String getAdvisor(){return advisor;}
+    /**
+     *getter for advisee's advisor
+     * @return advisor's username
+     */
+    public String getAdvisor() {
+        return advisor;
+    }
 }

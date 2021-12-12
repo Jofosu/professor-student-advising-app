@@ -15,14 +15,16 @@ public class User implements Serializable {
     /**
      * Empty User Constructor
      */
-    public User() {}
+    public User() {
+    }
 
     /**
      * User Constructor
+     *
      * @param username :username
      * @param password :password
      */
-    public User(String username, String password){
+    public User(String username, String password) {
 
         this.username = username;
         this.authKey = new AuthKey(password);
@@ -30,22 +32,29 @@ public class User implements Serializable {
 
     /**
      * Getter for username field
+     *
      * @return username
      */
-    public String getUsername(){ return this.username; }
+    public String getUsername() {
+        return this.username;
+    }
 
     /**
      * Getter for AuthKey field
+     *
      * @return authorization key
      */
-    public AuthKey getAuthKey(){ return this.authKey; }
+    public AuthKey getAuthKey() {
+        return this.authKey;
+    }
 
     /**
      * Checks if password entered matches with the User
+     *
      * @param password
      * @return true if given password matches with the User
      */
-    public boolean validatePassword(String password){
+    public boolean validatePassword(String password) {
         return this.authKey.validatePassword(password);
     }
 
@@ -54,7 +63,7 @@ public class User implements Serializable {
     /**
      * toString for User, returns a string of the format User xx, authKey: xx
      */
-    public String toString(){
+    public String toString() {
         return String.format("User %s, authKey: %s", this.username, this.authKey.toString());
     }
 }
