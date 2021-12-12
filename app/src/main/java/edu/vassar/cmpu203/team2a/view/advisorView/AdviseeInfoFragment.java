@@ -56,7 +56,7 @@ public class AdviseeInfoFragment extends Fragment implements IAdviseeInfoView {
 
         List<Course> coursesNeeded = advisor.getAdvisee(adviseeId).getClassesNeeded(activity.getCourseCatalogue());
 
-        List<String> lisy = activity.getPersistenceFacade().retrieveCoursesTaken(advisor.getAdvisee(adviseeId));
+       // List<String> lisy = activity.getPersistenceFacade().retrieveCoursesTaken(advisor.getAdvisee(adviseeId));
 
         String str1 = "Courses Needed: \n";
         for (Course course : coursesNeeded) {
