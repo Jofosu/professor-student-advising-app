@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import edu.vassar.cmpu203.team2a.R;
@@ -65,7 +67,13 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenufrag {
         activity = (ControllerActivity)getActivity();
         recyclerView= getView().findViewById(R.id.containerOfAdvisees);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        adapter= new RecyclerAdapter(this.getContext(), activity.getAdvisor().adviseeNames());
+        List<String> listy = new LinkedList<>();
+        for(Integer integer: activity.getAdvisor().returnAdviseeIds()) {
+            if(activity.getAdvisor().getAdvisee(integer).getAdvisor().equals(activity.sessionUsername)) {
+                    listy.add(activity.getAdvisor().getAdvisee(integer).getName());
+                }
+            }
+        adapter = new RecyclerAdapter(this.getContext(), listy);
         recyclerView.setAdapter(adapter);
         }
     }

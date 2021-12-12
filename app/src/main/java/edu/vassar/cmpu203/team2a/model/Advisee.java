@@ -7,6 +7,7 @@ import java.util.List;
  * Contains a constructor with the adviseeattributes name, Vassar "999 ID", and graduating class year
  */
 public class Advisee implements Serializable{
+    String advisor;
     String name;
     int id;
     int classYear;
@@ -25,11 +26,12 @@ public class Advisee implements Serializable{
      * @param classYear graduation year
      * @param classesTaken what classes have been taken
      */
-    Advisee(String name, int id, int classYear, List<Course> classesTaken){
+    Advisee(String name, int id, int classYear, List<Course> classesTaken, String advisor){
         this.name = name;
         this.id = id;
         this.classYear = classYear;
         this.classesTaken = classesTaken;
+        this.advisor = advisor;
     }
 
     /**
@@ -63,4 +65,6 @@ public class Advisee implements Serializable{
     public List<Course> getClassesTaken() {
         return classesTaken;
     }
+
+    public String getAdvisor(){return advisor;}
 }

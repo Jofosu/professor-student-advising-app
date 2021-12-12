@@ -25,9 +25,9 @@ public class Advisor implements Serializable {
      * false if the ID was not 9-digit or class year was not 4-digit. This is to avoid some typos.
      */
 
-    public boolean addAdvisee(String name, int id, int classYear, List classesTaken) {
+    public boolean addAdvisee(String name, int id, int classYear, List classesTaken, String advisor) {
         if (String.valueOf(id).length() == 9 & String.valueOf(classYear).length() == 4) {
-            Advisee advisee = new Advisee(name, id, classYear, classesTaken);
+            Advisee advisee = new Advisee(name, id, classYear, classesTaken, advisor);
             advisees.put(id, advisee);
             return advisees.containsKey(id);
         } else {
@@ -59,6 +59,11 @@ public class Advisor implements Serializable {
         advisees.remove(id);
         return !(advisees.containsKey(id));
     }
+
+    public Set<Integer> returnAdviseeIds(){
+        return advisees.keySet();
+        }
+
 
     /**
      * @return the list/collection of advisees

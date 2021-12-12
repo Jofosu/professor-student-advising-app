@@ -2,7 +2,11 @@ package edu.vassar.cmpu203.team2a.model;
 
 import androidx.annotation.NonNull;
 
+import com.google.firebase.database.GenericTypeIndicator;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class User implements Serializable {
     private String username;

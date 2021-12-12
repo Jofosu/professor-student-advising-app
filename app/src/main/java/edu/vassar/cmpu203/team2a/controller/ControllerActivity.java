@@ -8,9 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -26,7 +23,6 @@ import edu.vassar.cmpu203.team2a.view.DeptHeadMenuFragment;
 import edu.vassar.cmpu203.team2a.view.IDeptHeadMenu;
 import edu.vassar.cmpu203.team2a.view.advisorView.AddAdviseeViewFragment;
 import edu.vassar.cmpu203.team2a.view.advisorView.DeleteAdviseeViewFragment;
-import edu.vassar.cmpu203.team2a.view.advisorView.UserInputValidator;
 import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddDepartmentCourseFragment;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.AddPoolCourseFragment;
@@ -46,7 +42,6 @@ import edu.vassar.cmpu203.team2a.view.IMainView;
 import edu.vassar.cmpu203.team2a.view.advisorView.IManageAdviseeView;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IEnterPoolName;
 import edu.vassar.cmpu203.team2a.view.deptHeadView.IManageCatalogueMenu;
-import edu.vassar.cmpu203.team2a.view.authorizeView.IAuthView;
 import edu.vassar.cmpu203.team2a.view.authorizeView.AuthFragment;
 
 import edu.vassar.cmpu203.team2a.view.MainMenuFragment;
@@ -69,11 +64,14 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     private CourseCatalogue courseCatalogue;
     private Major major;
     private Advisor advisor;
+    public String sessionUsername;
+
 
     private final IpersistenceFacade persistenceFacade = new FirestoreFacade();
     public Advisor getAdvisor() { return this.advisor; }
     public CourseCatalogue getCourseCatalogue(){return this.courseCatalogue;}
     public Major getMajor(){return this.major;}
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +92,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
            @Override
            public void onDataReceived(Advisor advisor) {
                ControllerActivity.this.advisor = advisor; // set the activity's advisor to the one retrieved from the database \
-
                Fragment currFrag = ControllerActivity.this.mainView.getCurrentFragment();
                if(currFrag instanceof IAdvisorMenufrag)((IAdvisorMenufrag)currFrag).updateMenuDisplay();
            }
@@ -149,7 +146,6 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     public void onAddedCourse(String id, String time) {
         Log.d("AdvisingApp", "controller is handling adding a course");
         ArrayList<String> courses = new ArrayList<>();
-        Course course = new Course("Cs101", "cs101", null);
         courses.add("");
         if(courseCatalogue.inCatalogue(id)) {
                 this.courseCatalogue.editTime(id, time);
@@ -204,7 +200,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void addAdvisee(String name, int id, int classYear) {
-        this.advisor.addAdvisee(name,id,classYear,new LinkedList());
+        this.advisor.addAdvisee(name,id,classYear,new LinkedList(),sessionUsername);
         this.persistenceFacade.saveAdvisee(this.advisor.getAdvisee(id));;
         this.onSelectingAdvisor();
 
@@ -212,8 +208,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void deleteAdvisee(int id) {
-
             this.persistenceFacade.removeAdvisee(this.advisor.getAdvisee(id));
+
             this.advisor.deleteAdvisee(id);
             this.onSelectingAdvisor();
     }
@@ -317,7 +313,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     // Authentication Listener implementation
     @Override
     public void onRegister(String username, String password, IAuthView authView) {
-        User user = new User(username, password);
+         User user = new User(username, password);
+        sessionUsername = username;
         this.persistenceFacade.createUserIfNotExists(user, new IpersistenceFacade.BinaryResultListener() {
             @Override
             public void onYesResult() { authView.onRegisterSuccess(); }
@@ -329,8 +326,8 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     @Override
     public void onSignInAttempt(String username, String password, IAuthView authView) {
-
-        this.persistenceFacade.retrieveUser(username, new IpersistenceFacade.DataListener<User>() {
+        sessionUsername = username;
+          this.persistenceFacade.retrieveUser(username, new IpersistenceFacade.DataListener<User>() {
             @Override
             public void onDataReceived(@NonNull User user) {
                 if (user.validatePassword(password)){
@@ -341,8 +338,11 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
             @Override
             public void onNoDataFound() {
                 authView.onInvalidCredentials();
+
             }
         });
+
+
     }
 
 

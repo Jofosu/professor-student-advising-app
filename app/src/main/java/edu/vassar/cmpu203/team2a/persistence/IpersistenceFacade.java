@@ -1,7 +1,5 @@
 package edu.vassar.cmpu203.team2a.persistence;
 
-import android.provider.ContactsContract;
-
 import androidx.annotation.NonNull;
 
 import edu.vassar.cmpu203.team2a.model.Advisee;
@@ -40,7 +38,6 @@ public interface IpersistenceFacade {
 //authentication related
     void createUserIfNotExists(@NonNull User user, @NonNull BinaryResultListener listener);
     void retrieveUser(@NonNull String username, @NonNull DataListener<User> listener);
-
 
     void retrieveAdvisor(@NonNull DataListener<Advisor> listener);
     void retrieveMajor(@NonNull DataListener<Major> listener);
