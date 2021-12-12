@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import java.util.LinkedList;
+import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,6 +60,17 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenuView {
      */
     @Override
     public void updateMenuDisplay() {
+        activity = (ControllerActivity)getActivity();
+        recyclerView= getView().findViewById(R.id.containerOfAdvisees);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        List<String> listy = new LinkedList<>();
+        for(Integer integer: activity.getAdvisor().returnAdviseeIds()) {
+            if(activity.getAdvisor().getAdvisee(integer).getAdvisor().equals(activity.sessionUsername)) {
+                listy.add(activity.getAdvisor().getAdvisee(integer).getName());
+            }
+        }
+        adapter = new RecyclerAdapter(this.getContext(), listy);
+        recyclerView.setAdapter(adapter);
 
     }
     }
