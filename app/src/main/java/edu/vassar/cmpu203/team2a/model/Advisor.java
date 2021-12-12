@@ -103,6 +103,10 @@ public class Advisor implements Serializable {
         return advisee.getClassesTaken().add(c);
     }
 
+    /**
+     * @param adviseeName advisee name
+     * @return returns the associated id of the advisee name
+     */
     public int getAdviseeID(String adviseeName) {
         for (Advisee advisee : advisees.values()) {
             if (advisee.getName() == adviseeName)

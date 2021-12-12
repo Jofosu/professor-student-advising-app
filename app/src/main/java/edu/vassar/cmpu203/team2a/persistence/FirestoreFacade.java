@@ -91,6 +91,35 @@ public class FirestoreFacade implements IpersistenceFacade{
 
     }
 
+    @Override
+    public List<String> retrieveCoursesTaken(Advisee advisee) {
+        final List<String> group = new ArrayList<>();
+        db.collection(ADVISEE)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                long id = (long) document.get("id");
+                                if (id == advisee.getId()) {
+                                    for (int i = 0; i < ((List<String>) document.get("classesTaken")).size(); i++) {
+                                        group.add(((List<String>) document.get("classesTaken")).get(i));
+                                    }
+                                    break;
+                                }
+
+                            }
+
+                        } else {
+                            Log.d("AdvisingApp", "Error getting document to remove advisee: ", task.getException());
+                        }
+                    }
+                });
+
+        return group;
+    }
+
 
     @Override
     public void updateAdviseeClasses(Advisee advisee, Course course) {
@@ -116,10 +145,6 @@ public class FirestoreFacade implements IpersistenceFacade{
                     }
                 });
 
-
-        //DocumentReference ref = db.collection(ADVISEE).document(String.valueOf(advisee.getId()));
-
-//    db.collection(ADVISEE).document(String.valueOf(advisee.getId())).update("classesTaken", FieldValue.arrayUnion(course));
     }
 
 
