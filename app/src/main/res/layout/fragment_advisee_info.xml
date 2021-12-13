@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -41,10 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/classYear"
         android:textAlignment="center"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/checkedTextView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentId" />
@@ -53,8 +56,8 @@
         android:id="@+id/checkedTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="114dp"
         android:text="@string/classesNeeded"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +68,8 @@
         android:id="@+id/checkedTextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="124dp"
         android:text="@string/classTaken"
         app:layout_constraintBottom_toTopOf="@+id/checkedTextView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,9 +83,9 @@
         android:text="@string/Add"
         app:layout_constraintBottom_toTopOf="@+id/checkedTextView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintHorizontal_bias="0.771"
         app:layout_constraintStart_toEndOf="@+id/checkedTextView3"
         app:layout_constraintTop_toBottomOf="@+id/classYear"
-        app:layout_constraintVertical_bias="0.884" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
