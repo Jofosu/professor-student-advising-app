@@ -18,7 +18,7 @@
             android:layout_marginBottom="24dp"
             android:fontFamily="sans-serif-medium"
             android:hint="@string/enterRemoveID"
-            android:maxLength="9"
+            android:maxLength="7"
             android:singleLine="true"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/removeCourseButton"
