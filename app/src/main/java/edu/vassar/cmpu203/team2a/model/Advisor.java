@@ -62,6 +62,10 @@ public class Advisor implements Serializable {
         return !(advisees.containsKey(id));
     }
 
+    /**
+     * Return advisee 999 numbers
+     * @return set of integers
+     */
     public Set<Integer> returnAdviseeIds() {
         return advisees.keySet();
     }

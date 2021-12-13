@@ -36,7 +36,7 @@ public class RemoveDepartmentCourseFragment extends Fragment implements IRemoveD
     public void onViewCreated(View view, Bundle savedInstanceState) {
         this.binding.removeCourseButton.setOnClickListener((clickedView)->{
             Boolean accept=true;
-            Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{5}+$");
+            Pattern coursePrefixOrder = Pattern.compile("^[a-zA-Z]{4}+[0-9]{3}+$");
 
             Editable courseIDEditable = binding.enterRemoveID.getText();
             String courseID = courseIDEditable.toString();
