@@ -38,12 +38,15 @@ public class AddPoolNameFragment extends Fragment implements IEnterPoolName {
     public void onViewCreated(View view, Bundle savedInstanceState){
 
         this.binding.button2.setOnClickListener((clickedView) -> {
-
             Editable idEditable = binding.poolEntry.getEditableText();
             String idString = idEditable.toString();
 
-            this.listener.createPool(idString);
-        });
+            if (idString.matches(""))
+            {Snackbar.make(view, "Please input a pool name",Snackbar.LENGTH_LONG).show();}
+
+            else {this.listener.createPool(idString);}
+
+            });
 
 
     }}

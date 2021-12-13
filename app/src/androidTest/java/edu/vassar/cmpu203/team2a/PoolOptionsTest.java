@@ -27,8 +27,21 @@ public class PoolOptionsTest {
      * added to the list of pools shown on PoolOptions. Then it removes the same pool and checks
      * to see that the pool is no longer in the list
      */
+
     @Test
     public void testAddPoolandRemovePool() {
+        //Need to sign in first
+        Espresso.onView(ViewMatchers.withId(R.id.editTextUsername)).
+                perform(ViewActions.typeText("Junjie"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.editTextPassword)).
+                perform(ViewActions.typeText("abcd"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.registerButton)).perform(click());
+        // double-checking user is registered in case it's deleted from firebase
+        // Also tests the register button first
+        Espresso.onView(ViewMatchers.withId(R.id.signInButton)).perform(click());
+
         //adding a pool
         Espresso.onView(ViewMatchers.withId(R.id.hodButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.manageMajorButton)).perform(click());
@@ -48,7 +61,7 @@ public class PoolOptionsTest {
                 .perform(ViewActions.typeText("100lvl"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.idEntry))
-                .perform(ViewActions.typeText("CMPU10101"));
+                .perform(ViewActions.typeText("BIOL108"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.button3)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
@@ -56,8 +69,8 @@ public class PoolOptionsTest {
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.viewpoolcourses)).perform(click());
         ViewInteraction listofPoolCourse = Espresso.onView(ViewMatchers.withId(R.id.listOfPoolCourses));
-        listofPoolCourse.check(matches(ViewMatchers.withSubstring("CMPU10101")));// checks addition is successful
-        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(click());
+        listofPoolCourse.check(matches(ViewMatchers.withSubstring("BIOL108")));// checks addition is successful
+        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(click());
 
         //Testing removing a pool course
         Espresso.onView(ViewMatchers.withId(R.id.editPoolCoursesButton)).perform(click());
@@ -66,15 +79,15 @@ public class PoolOptionsTest {
                 .perform(ViewActions.typeText("100lvl"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.idEntry))
-                .perform(ViewActions.typeText("CMPU10101"));
+                .perform(ViewActions.typeText("BIOL108"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.button3)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.poolEntry))
                 .perform(ViewActions.typeText("100lvl"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.viewpoolcourses)).perform(click());
-        Espresso.onView(ViewMatchers.withSubstring("CMPU10101")).check(doesNotExist());
-        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(click());
+        Espresso.onView(ViewMatchers.withSubstring("BIOL108")).check(doesNotExist());
+        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(click());
 
         //removing a pool
         Espresso.onView(ViewMatchers.withId(R.id.RemovePool)).perform(click());
@@ -89,4 +102,5 @@ public class PoolOptionsTest {
 
     }
 }
+
 

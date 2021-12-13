@@ -306,10 +306,9 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
     // Uses the create pool method to add the pool onto a list of pools
     @Override
     public void createPool(String idString) {
-        Pool p = new Pool (idString);
-        major.createPool(idString);
-        this.persistenceFacade.savePool(p);
-        this.onManageMajor();
+            major.createPool(idString);
+            this.persistenceFacade.savePool(this.major.getAPool(idString));
+            this.onManageMajor();
     }
 
     @Override

@@ -15,7 +15,12 @@ import org.junit.Test;
 
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 
-public class ManageCatalogueTest {
+
+/**
+ * This test ensures that there is already a course (which is neccessary to test certain things,
+ * like add advisees and Pools
+ */
+public class AdCourse {
 
     @org.junit.Rule
     public ActivityScenarioRule<ControllerActivity> activityRule =
@@ -23,12 +28,12 @@ public class ManageCatalogueTest {
 
     /**
      * First, it goes to the ManageCatalogue fragment, then adds a course and checks to see if it's
-     * added to the catalogue shown on ManageCatalogue frag. Then edits it.
-     * Then it removes the course and checks to see that the course is no longer in the catalogue
+     * added to the catalogue shown on ManageCatalogue frag. Then it removes the course and checks
+     * to see that the course is no longer in the catalogue
      */
 
     @Test
-    public void testAddAndRemoveFromCatalogue() {
+    public void addCourse() {
         //Need to sign in first
         Espresso.onView(ViewMatchers.withId(R.id.editTextUsername)).
                 perform(ViewActions.typeText("Junjie"));
@@ -46,33 +51,8 @@ public class ManageCatalogueTest {
         Espresso.onView(ViewMatchers.withId(R.id.manageCatalogueButton)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.addCourse)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.editCourseID))
-                .perform(ViewActions.typeText("BIOL106"));
+                .perform(ViewActions.typeText("BIOL108"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.thursday)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
-
-        ViewInteraction listofPools = Espresso.onView(ViewMatchers.withId(R.id.listofCourses));
-        listofPools.check(matches(ViewMatchers.withSubstring("BIOL106 F")));
-        // checks addition is successful
-
-        //edit a course
-        Espresso.onView(ViewMatchers.withId(R.id.addCourse)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.editCourseID))
-                .perform(ViewActions.typeText("BIOL106"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.friday)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.doneButton3)).perform(click()); //create a course
-        listofPools.check(matches(ViewMatchers.withSubstring("BIOL106 S")));
-        //expect the same course, but with  a different semester
-
-        //removing a course
-        Espresso.onView(ViewMatchers.withId(R.id.removeCourse)).perform(click());
-        Espresso.onView(ViewMatchers.withId(R.id.enterRemoveID))
-                .perform(ViewActions.typeText("BIOL106"));// removes the course
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(ViewMatchers.withId(R.id.removeCourseButton)).perform(click());
-        Espresso.onView(ViewMatchers.withSubstring("BIOL106")).check(doesNotExist());
-        //checks that the course was successfully removed
-
-    }
-}
+    }}

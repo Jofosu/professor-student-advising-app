@@ -42,7 +42,10 @@ public class RemovePoolNameFragment extends Fragment implements IEnterPoolName {
             Editable idEditable = binding.poolEntry.getEditableText();
             String idString = idEditable.toString();
 
-            this.listener.removePool(idString);
+            if (idString.matches(""))
+            {Snackbar.make(view, "Please input a pool name",Snackbar.LENGTH_LONG).show();}
+
+            else this.listener.removePool(idString);
         });
 
 
