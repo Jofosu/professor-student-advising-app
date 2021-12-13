@@ -98,6 +98,8 @@ public class PoolOptionsTest {
         Espresso.onView(ViewMatchers.withSubstring("100lvl")).check(doesNotExist());
         //checks that the pool was successfully removed
 
+
+
     }
 }
 
