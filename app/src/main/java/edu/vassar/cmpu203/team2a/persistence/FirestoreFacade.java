@@ -24,6 +24,8 @@ import edu.vassar.cmpu203.team2a.model.Pool;
 import edu.vassar.cmpu203.team2a.model.User;
 
 public class FirestoreFacade implements IpersistenceFacade{
+
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String ADVISEE = "Advisees";
     private static final String MAJOR = "Major";

@@ -40,7 +40,7 @@ public class AdvisorMenuFrag extends Fragment implements IAdvisorMenuView {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
+        super.onViewCreated(view, savedInstanceState);
         updateMenuDisplay();
 
 
