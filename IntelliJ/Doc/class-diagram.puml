@@ -2,36 +2,59 @@
 skinparam classAttributeIconSize 0
 
 class CourseCatalogue{
+Hashmap: courseCatalogue
 --
 +addCourse()
++getCourseCatalogue
 +removeCourse()
 +returnCourseList()
 +size()
 +inCatalogue()
 +get()
++editTime()
 }
 
 class Course{
 String: id "CS203"
 String:time
-List:prerequisites
+ArrayList:prerequisites
+--
++getId()
++getTime()
++getPrerequisites()
++equals()
++toString()
 }
 
 class Advisor{
+Hashmap advisees
 --
 +addAdvisee()
++adviseeNames()
++returnAdviseeIds()
 +deleteAdvisee()
 +returnAdviseeList()
 +size()
 +getAdvisee()
++getAdviseeID()
 +addClassTaken()
 }
 
 class Advisee{
+String: advisor
 String:name
 int: id
 int: classYear
 List: classesTaken
+String Major
+--
+getName()
+getId()
+getClassYear()
+getClassesTaken()
+getClassesNeeded()
+getMajor()
+getAdvisor()
 
 }
 
@@ -43,27 +66,35 @@ Hashmap:Major pools
 +getMajor()
 +setRequiredPoolCourses
 +removeCourse
++getPools()
++getAPool()
++hasPool()
 
 }
 class Pool{
 int numRequiredCourses
-List poolList
+ArrayList poolList
 String poolName
 --
 +Pool()
-+getNumReq()
++getNumOfRequiredCourses()
++getpoolList()
++getpoolName()
++addPoolCourse()
++removePoolCourse()
+
 }
 
-class Controller{
+class ControllerActivity{
 
 }
 
 CourseCatalogue *- Course
 Advisor *- Advisee
-Controller *- CourseCatalogue
-Controller *- Advisor
+ControllerActivity *- CourseCatalogue
+ControllerActivity *- Advisor
 Major *- Pool
-Controller *- Major
+ControllerActivity *- Major
 @enduml
 
 
