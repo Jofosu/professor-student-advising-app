@@ -17,7 +17,10 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentDeleteCatalogueBinding;
 import edu.vassar.cmpu203.team2a.databinding.FragmentEditPoolCourseBinding;
 import edu.vassar.cmpu203.team2a.databinding.FragmentEnterPoolNameBinding;
 
-
+/**
+ * This class mainly serves to get the string from the user and tell the listener to add the course
+ * into the pool. I ended up checking the string in the controlleractivity
+ */
 public class RemovePoolCourseFragment extends Fragment implements IEditPoolCourse {
 
     private FragmentEditPoolCourseBinding binding;

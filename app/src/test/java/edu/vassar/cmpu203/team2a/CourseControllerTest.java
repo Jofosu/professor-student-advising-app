@@ -37,7 +37,7 @@ class CourseControllerTest {
     void returnCourseList() {
         cc.addCourse("CMPU20352", "Mon 13:30-17:30", null); //add a course
         cc.addCourse("BIOC356", "Tuesday 14:30-17:30", null); //add a course
-        String[] expected = new String[]{"CMPU20352", "BIOC356", null};
+        String[] expected = new String[]{"CMPU20352", "BIOC356"};
         assertArrayEquals(cc.returnCourseList().toArray(), expected);
     }
 }

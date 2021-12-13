@@ -28,6 +28,11 @@ import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentPoolOptionsBinding;
 import edu.vassar.cmpu203.team2a.model.Major;
 
+/**
+ * This class mainly serves to get redirect the user to a create pool fragment, remove pool fragment
+ * and it also has an option to go into the pool course menu. This fragment
+ * also has a list of pools displayed/updated
+ */
 public class PoolOptionsFragment extends Fragment implements IPoolOptionsView {
     private ControllerActivity activity;
     private FragmentPoolOptionsBinding binding;

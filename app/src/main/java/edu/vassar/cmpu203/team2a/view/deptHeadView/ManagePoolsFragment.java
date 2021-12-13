@@ -17,6 +17,10 @@ import edu.vassar.cmpu203.team2a.databinding.FragmentManagePoolsBinding;
 import edu.vassar.cmpu203.team2a.model.Course;
 import edu.vassar.cmpu203.team2a.model.Pool;
 
+/**
+ * This fragment serves to redicted users to add,remove courses to pools. They can also input a pool name
+ * to view the pool, which will redirect the user to a fragment that displays a list of the pools
+ */
 public class ManagePoolsFragment extends Fragment implements IManagePoolsFragment {
     private ControllerActivity activity;
     private FragmentManagePoolsBinding binding;

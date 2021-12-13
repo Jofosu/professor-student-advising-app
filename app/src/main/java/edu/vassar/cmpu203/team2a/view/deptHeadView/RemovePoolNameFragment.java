@@ -15,7 +15,9 @@ import com.google.android.material.snackbar.Snackbar;
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentEnterPoolNameBinding;
 
-
+/**
+ * This class mainly serves to get the string from the user and tell the listener to add the pool
+ */
 public class RemovePoolNameFragment extends Fragment implements IEnterPoolName {
 
     private FragmentEnterPoolNameBinding binding;
@@ -42,7 +44,7 @@ public class RemovePoolNameFragment extends Fragment implements IEnterPoolName {
             Editable idEditable = binding.poolEntry.getEditableText();
             String idString = idEditable.toString();
 
-            if (idString.matches(""))
+            if (idString.matches("")) //checks for empty input to not crash the app
             {Snackbar.make(view, "Please input a pool name",Snackbar.LENGTH_LONG).show();}
 
             else this.listener.removePool(idString);

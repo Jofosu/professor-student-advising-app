@@ -1,3 +1,4 @@
+/*
 package edu.vassar.cmpu203.team2a;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,6 +22,8 @@ class PrerequisiteTest {
     /**
      * Testing that we can add a prerequisite to a course
      */
+
+/*
     @Test
     void addPrerequisitesTest() {
         p.addPrerequisites(cs203, cs101);
@@ -32,3 +35,5 @@ class PrerequisiteTest {
     }
 
 }
+
+*/

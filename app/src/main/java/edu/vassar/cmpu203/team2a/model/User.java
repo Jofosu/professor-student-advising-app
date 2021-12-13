@@ -67,3 +67,4 @@ public class User implements Serializable {
         return String.format("User %s, authKey: %s", this.username, this.authKey.toString());
     }
 }
+

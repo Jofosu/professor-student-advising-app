@@ -22,6 +22,9 @@ import edu.vassar.cmpu203.team2a.model.Major;
 import edu.vassar.cmpu203.team2a.model.Pool;
 
 
+/**
+ * This class mainly serves to update the list of courses in a pool
+ */
 public class ViewPoolCourses extends Fragment implements IEnterPoolName {
     private ControllerActivity activity;
     private FragmentListPoolCoursesBinding binding;

@@ -65,13 +65,25 @@ public class ManageCatalogueTest {
         listofPools.check(matches(ViewMatchers.withSubstring("BIOL106 S")));
         //expect the same course, but with  a different semester
 
+        //Adding a prereq to course
+        Espresso.onView(ViewMatchers.withId(R.id.editPreqButton)).perform(click());
+        Espresso.onView(ViewMatchers.withId(R.id.enterPreqTarget))
+                .perform(ViewActions.typeText("BIOL108"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.enterPreq))
+                .perform(ViewActions.typeText("BIOL106"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(ViewMatchers.withId(R.id.enterPreqButton)).perform(click());
+        listofPools.check(matches(ViewMatchers.withSubstring("BIOL106")));
+        //expect BIOL106 to show up (which indicates it's a prereq and the test worked
+
         //removing a course
         Espresso.onView(ViewMatchers.withId(R.id.removeCourse)).perform(click());
         Espresso.onView(ViewMatchers.withId(R.id.enterRemoveID))
                 .perform(ViewActions.typeText("BIOL106"));// removes the course
         Espresso.closeSoftKeyboard();
         Espresso.onView(ViewMatchers.withId(R.id.removeCourseButton)).perform(click());
-        Espresso.onView(ViewMatchers.withSubstring("BIOL106")).check(doesNotExist());
+        Espresso.onView(ViewMatchers.withSubstring("BIOL106 S")).check(doesNotExist());
         //checks that the course was successfully removed
 
     }

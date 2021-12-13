@@ -15,7 +15,9 @@ import com.google.android.material.snackbar.Snackbar;
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentEnterPoolNameBinding;
 
-
+/**
+ * This fragment is the screen to add pools
+ */
 public class AddPoolNameFragment extends Fragment implements IEnterPoolName {
 
     private FragmentEnterPoolNameBinding binding;

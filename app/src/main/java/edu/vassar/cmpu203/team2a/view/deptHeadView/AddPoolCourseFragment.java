@@ -15,7 +15,9 @@ import com.google.android.material.snackbar.Snackbar;
 import edu.vassar.cmpu203.team2a.controller.ControllerActivity;
 import edu.vassar.cmpu203.team2a.databinding.FragmentEditPoolCourseBinding;
 
-
+/**
+ * This is the fragment to add a course to a pool. These are checked in the controller activity
+ */
 public class AddPoolCourseFragment extends Fragment implements IEditPoolCourse {
 
     private FragmentEditPoolCourseBinding binding;

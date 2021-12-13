@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import edu.vassar.cmpu203.team2a.model.Course;
@@ -28,7 +29,7 @@ class MajorTest {
     @Test
     void addCourse() {
         Major m = new Major();
-        LinkedList l = new LinkedList();
+        ArrayList<Course> l = new ArrayList<>();
         Course c = new Course ("CMPU11122","Monday530",l);
         m.createPool("100lvl");
         assertTrue(m.addCourse(c, "100lvl"));
@@ -40,7 +41,7 @@ class MajorTest {
     @Test
     void setRequiredPoolCourses() {
         Major m = new Major();
-        LinkedList l = new LinkedList();
+        ArrayList<Course> l = new ArrayList<>();
         Course c = new Course ("CMPU11122","Monday530",l);
         m.createPool("100lvl");
         m.setRequiredPoolCourses(10, "100lvl");
@@ -54,7 +55,7 @@ class MajorTest {
     @Test
     void removeCourse() {
         Major m = new Major();
-        LinkedList l = new LinkedList();
+        ArrayList<Course> l = new ArrayList<>();
         Course c = new Course ("CMPU11122","Monday530",l);
         Course d = new Course ("CMPU22122","Monday430",l);
         m.createPool("100lvl");

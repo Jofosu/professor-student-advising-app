@@ -179,19 +179,21 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     }
 
+    //redirects to the advisor menu
     @Override
     public void onSelectingAdvisor() {
         Fragment f = new AdvisorMenuFrag(this);
         this.mainView.displayFragment(f);
     }
 
+    //redirects to the department head menu
     @Override
     public void onSelectingHOD() {
         Fragment f = new DeptHeadMenuFragment(this);
         this.mainView.displayFragment(f);
     }
 
-
+    //redirects to the add advisee menu
     @Override
     public void onSelectingAddAdvisee() {
         Fragment f = new AddAdviseeViewFragment(this);
@@ -199,6 +201,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     }
 
+    //redirects to the remove advisee menu
     @Override
     public void onSelectingDeleteAdvisee() {
         Fragment f = new DeleteAdviseeViewFragment(this);
@@ -380,7 +383,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
 
     }
 
-
+    //this is checking that both the course and pool exist, before removing the course from the pool
     @Override
     public void removePoolCourseController(String idString, String poolName) {
         if (this.courseCatalogue.inCatalogue(idString) && major.hasPool(poolName)){
@@ -393,6 +396,7 @@ public class ControllerActivity extends AppCompatActivity implements IAddDeptCou
         this.mainView.displayFragment(f);
     }
 
+    //this is checking that both the course and pool exist, before adding the course to the pool
     @Override
     public void addPoolCourseController(String idString, String poolName) {
         if (this.courseCatalogue.inCatalogue(idString) && major.hasPool(poolName)){

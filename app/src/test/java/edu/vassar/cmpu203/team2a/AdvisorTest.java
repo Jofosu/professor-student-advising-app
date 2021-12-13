@@ -32,6 +32,7 @@ class AdvisorTest {
         assertEquals(ac.size(), 1); // deletion worked
     }
 
+    /*not sure how to do this without making advisee class public
     @org.junit.jupiter.api.Test
     void returnAdviseeList() {
         ac.addAdvisee("junjie", 999516821, 2020, null,"Marc Smith","CMPU");
@@ -40,4 +41,22 @@ class AdvisorTest {
         assertArrayEquals(ac.returnAdviseeList().toArray(), expected);
 
     }
+    */
+
+
+
+    @Test
+    void returnAdviseeIds() {
+        ac.addAdvisee("junjie", 999516821, 2020, null,"Marc Smith","CMPU");
+        ac.addAdvisee("jun", 999516820, 2021, null,"Marc Smith","CMPU");
+        Integer[] expected = new Integer[]{999516821, 999516820};
+        assertArrayEquals(ac.returnAdviseeIds().toArray(new Integer[0]), expected);
+    }
+
+    @Test
+    void getAdviseeID() {
+        ac.addAdvisee("junjie", 999516821, 2020,null, "Marc Smith", "CMPU");
+        assertEquals(ac.getAdviseeID("junjie"), 999516821);
+    }
 }
+
